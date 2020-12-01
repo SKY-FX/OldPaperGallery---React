@@ -40,8 +40,8 @@ export default class modifierAnnonce extends Component {
     
         // Renvoie le résultat de la recherche ( objet de tableau ) au parent
         .then(response => {
-            console.log("READ ANNONCE", this.state.idAnnonce);
-            console.log("READ ANNONCE RESULTAT", response.data);
+            // console.log("READ ANNONCE", this.state.idAnnonce);
+            // console.log("READ ANNONCE RESULTAT", response.data);
 
             const result = response.data;
 
@@ -124,7 +124,7 @@ export default class modifierAnnonce extends Component {
     
         // Renvoie le résultat de la recherche ( objet de tableau ) au parent
         .then(response => {
-            console.log("ECRIT ANNONCE RESULTAT", response.data);
+            // console.log("ECRIT ANNONCE RESULTAT", response.data);
 
             this.props.history.push('/GestionAnnonces/');
         })
@@ -184,7 +184,7 @@ export default class modifierAnnonce extends Component {
                     [name] : fileName
                 });
             }
-            console.log("COUCOU", nbFiles)   
+            // console.log("COUCOU", nbFiles)   
         }   
         else{
             window.alert("Vous pouvez télécharher au maximum 5 images !")

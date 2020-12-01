@@ -89,12 +89,12 @@ export default class messagerie extends Component {
         const emailClient = this.state.emailClient;
 
         const date = result[indiceAnnonce]['DATE'];
-        const exp = result[indiceAnnonce]['EXP'];
-        const dst = result[indiceAnnonce]['DST'];
+        const dst = result[indiceAnnonce]['EXP'];
+        const exp = result[indiceAnnonce]['DST'];
         const objet = result[indiceAnnonce]['OBJET'];
         const message = result[indiceAnnonce]['CORPS'];
 
-        console.log("SEARCH MESSAGERIE", statuts);
+        // console.log("SEARCH MESSAGERIE", statuts);
                 
 
         if ( statuts === 'efface' && window.confirm( "Etes-vous sûr de vouloir supprimer ce message ?" ))
@@ -113,8 +113,8 @@ export default class messagerie extends Component {
 
             // Renvoie le résultat de la recherche ( objet de tableau ) au parent
             .then(response => {
-                const result = response.data;
-                console.log("SEARCH MESSAGERIE", result);
+                // const result = response.data;
+                // console.log("SEARCH MESSAGERIE", result);
                 this.updateResult();    
         
             })
@@ -126,12 +126,12 @@ export default class messagerie extends Component {
         }
         else if ( statuts === 'repondre' )
         {
-            // console.log("PUSH REPONDRE", message);
+            // console.log("PUSH REPONDRE", exp);
             this.props.history.push("/GestionMessagerie/Repondre/0/" + exp + "/" + dst + "/" + objet + "/" + message + "/");
         }
         else if ( statuts === 'nouveau' )
         {
-            console.log("PUSH NOUVEAU", message);
+            // console.log("PUSH NOUVEAU", message);
             this.props.history.push("/GestionMessagerie/Repondre/1/ / / / /");
         }
     }
@@ -155,23 +155,22 @@ export default class messagerie extends Component {
             else textButton = "Envoyez un message au vendeur";
 
             const passBool = result[0].EXP;
-            console.log("MESSAGERIE CONVERTIE", passBool);
+            // console.log("MESSAGERIE CONVERTIE", passBool);
             if (passBool)
             {
                 visuMessa = result.map( (mess, id) => {
-                    console.log('MESS :', mess);
+                    // console.log('MESS :', mess);
                     var stylesBody = {};
                     var nameEfface = "stylesEfface" + id;
                     var nameRepondre = "stylesRepondre" + id;
                     var corps = mess['CORPS'];
 
-                    console.log("CORPS", corps);
+                    // console.log("CORPS", corps);
                     
-                    { this.state.nameClient===mess['EXP'] ?
-                        stylesBody = {backgroundColor:"rgba(0,0,0,.5)"}
-                        :
-                        stylesBody = {backgroundColor:"rgba(150,150,150,.5)"} 
-                    }
+                    if (this.state.nameClient===mess['EXP'])
+                        stylesBody = {backgroundColor:"rgba(0,0,0,.5)"};
+                    else
+                        stylesBody = {backgroundColor:"rgba(150,150,150,.5)"};
                     
                     const _corps = corps.split("<br />").map((i,key) => {
                         return <div key={key}>{i}</div>;
@@ -212,9 +211,8 @@ export default class messagerie extends Component {
                         { visuMessa !== '' ?
                             <div className="messagerie" >
 
-                                <caption>
-                                    MESSAGERIE INTERNE<br/><br/><br/>
-                                </caption>
+                                <p>MESSAGERIE INTERNE</p>
+                                <br/><br/><br/>
                                 
                                 <table>
                                     {/* En-tête du tableau */}

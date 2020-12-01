@@ -10,12 +10,12 @@ export default class searchfunc extends Component {
             searchText : this.props.searchText,
             axiosUrl : this.props.axiosUrl
         }
-        console.log("SEARCH FUNCTION CONSTRUCTOR TEXT", this.props.searchText);
+        // console.log("SEARCH FUNCTION CONSTRUCTOR TEXT", this.props.searchText);
     }
     
     componentDidMount() {
         
-        console.log("SEARCH FUNCTION DID MOUNT TEXT",this.props.searchText);
+        // console.log("SEARCH FUNCTION DID MOUNT TEXT",this.props.searchText);
         // En tete AXIOS + formatte la recherche pour axios
         // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/search.php";
         const url = this.state.axiosUrl;
@@ -31,8 +31,8 @@ export default class searchfunc extends Component {
 
         // Renvoie le résultat de la recherche ( objet de tableau ) au parent
         .then(response => {
-            console.log("SEARCH FUNCTION SEARCH", this.state.searchText);
-            console.log("SEARCH FUNCTION RESULTAT", response.data);
+            // console.log("SEARCH FUNCTION SEARCH", this.state.searchText);
+            // console.log("SEARCH FUNCTION RESULTAT", response.data);
             // Renvoie le résultat de la recherche ( objet de tableau ) au parent
             this.props.return(response.data);
         })

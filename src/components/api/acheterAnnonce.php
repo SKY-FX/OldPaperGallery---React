@@ -95,6 +95,7 @@
 
         $req = "UPDATE clients 
         SET 
+            adresse = '".$adresse."',
             code_postal = '".$code_postal."',
             ville = '".$ville."'				
         WHERE

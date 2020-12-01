@@ -5,7 +5,7 @@ import './listeAnnonce.css'
 
 export default function listeAnnonce (props) {
     
-    console.log("LISTE ANNONCE", props.liste['ref']);
+    // console.log("LISTE ANNONCE", props.liste['ref']);
 
     const listeRef = props.liste['ref'];
     const listeAnnonces = props.liste;
@@ -32,7 +32,7 @@ export default function listeAnnonce (props) {
             }
         }
 
-        console.log("LISTE ANNONCE TAB", props);
+        // console.log("LISTE ANNONCE TAB", props);
     
         // Construit les annonces
         var tabTitre = tabParam.map( (param,id) => {

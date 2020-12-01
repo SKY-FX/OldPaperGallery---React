@@ -15,8 +15,8 @@ export default class lienRecherche extends Component {
             searchTextDetails : props.match.params.searchTextDetails
         }
 
-        console.log("SEARCH 1", props.match.params.searchText);
-        console.log("SEARCH 2", props.match.params.searchTextDetails);
+        // console.log("SEARCH 1", props.match.params.searchText);
+        // console.log("SEARCH 2", props.match.params.searchTextDetails);
     }
 
     componentDidMount() {
@@ -27,7 +27,7 @@ export default class lienRecherche extends Component {
         formData.append('searchText', this.state.searchText);
         formData.append('searchTextDetails', this.state.searchTextDetails);
 
-        console.log("DETAILS", this.state.searchTextDetails);
+        // console.log("DETAILS", this.state.searchTextDetails);
         // Fait appel à l'API PHP "SEARCH",  en paramètre "la recherche utilisateur"
         axios({
             method: 'post',
@@ -37,7 +37,7 @@ export default class lienRecherche extends Component {
 
         // Renvoie le résultat de la recherche ( objet de tableau ) au parent
         .then(response => {
-            console.log("RESULTAT", response.data);
+            // console.log("RESULTAT", response.data);
             const result = response.data;
             this.setState({
                 searchResult : result,

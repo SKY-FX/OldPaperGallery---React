@@ -5,10 +5,6 @@ import './annonce.css'
 
 class annonce extends Component {
 
-    constructor (props) {
-        super(props);
-    }
-
     render() {
       
         const etatAnnonce = this.props.params[6];

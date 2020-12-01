@@ -25,7 +25,7 @@ export default class auteur extends Component {
 
         // Renvoie le résultat de la recherche ( objet de tableau ) au parent
         .then(response => {
-            console.log("RESULTAT", response.data);
+            // console.log("RESULTAT", response.data);
             this.setState({
                 result : response.data
             });

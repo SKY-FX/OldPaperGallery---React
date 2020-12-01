@@ -18,8 +18,8 @@
     else {$type = trim(strip_tags(addslashes($_POST['type'])));}
 
 
-    if (!isset($_POST['dst'])){$dest = "";}
-    else {$dest = trim(strip_tags($_POST['dst']));}
+    if (!isset($_POST['dest'])){$dest = "";}
+    else {$dest = trim(strip_tags($_POST['dest']));}
 
     if (!isset($_POST['exp'])){$expediteur = "";}
     else {$expediteur = trim(strip_tags($_POST['exp']));}

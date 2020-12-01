@@ -50,11 +50,3 @@ function navBar(props) {
 }
 
 export default withRouter(navBar);
-
-
-{/* <Link to="Autographe" className="item" title="Lettre autographe">Lettre autographe</Link>
-<Link to="Plaquette" className="item" title="Plaquettes">Plaquettes</Link>
-<Link to="Manuscrit" className="item" title="Manuscrit">Manuscrit</Link>
-<Link to="Gravure" className="item" title="Gravures">Gravures</Link>
-<Link to="Art" className="item" title="Oeuvres d'art">Oeuvres d'art</Link>
-<Link to="Auteur" className="item" title="Liste des auteurs">Auteurs</Link> */}

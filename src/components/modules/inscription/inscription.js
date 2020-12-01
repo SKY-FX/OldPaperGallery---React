@@ -17,7 +17,8 @@ export default class inscription extends Component {
         event.preventDefault(); 
         
         var news = this.state.checked;
-        {(news==="false") ? news = "non" : news = "oui"}
+        if (news==="false")  news = "non";
+        else news = "oui";
 
         const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/addUserInBd.php";
         var formData = new FormData();
@@ -36,8 +37,8 @@ export default class inscription extends Component {
 
         // Renvoie le résultat de la recherche ( objet de tableau ) au parent
         .then(response => {
-            console.log("SEARCH", this.state.email);
-            console.log("RESULTAT", response.data);
+            // console.log("SEARCH", this.state.email);
+            // console.log("RESULTAT", response.data);
 
             this.setState({
                 result : response.data
@@ -60,7 +61,7 @@ export default class inscription extends Component {
             checked : !this.state.checked,
             [name] : value
         });
-        console.log("Newsletter");
+        // console.log("Newsletter");
     }
 
     handleChange = (event) => {

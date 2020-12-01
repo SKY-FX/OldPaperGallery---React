@@ -43,7 +43,7 @@
         $date=date('d/m/Y H:i:s');
         
         //enregistrer dans la base MySQL le contenu des informations
-        $statut ="user";
+        $statut ="User";
         $req = "INSERT INTO clients (" . 
                             "nom_prenom, email, adresse, tel, mot_de_passe, date_inscription, statut, newsletters" .
                             ") VALUES (" .

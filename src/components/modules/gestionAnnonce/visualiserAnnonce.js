@@ -29,8 +29,8 @@ export default class visualiserAnnonce extends Component {
     
         // Renvoie le résultat de la recherche ( objet de tableau ) au parent
         .then(response => {
-            console.log("VISUALISER ANNONCE", this.state.idAnnonce);
-            console.log("VISUALISER ANNONCE RESULTAT", response.data);
+            // console.log("VISUALISER ANNONCE", this.state.idAnnonce);
+            // console.log("VISUALISER ANNONCE RESULTAT", response.data);
 
             const result = response.data;
 
@@ -83,16 +83,16 @@ export default class visualiserAnnonce extends Component {
             this.state.img_nom5,
         ]
 
-        const afficheImages = images.map( (image) => {
+        const afficheImages = images.map( (image, id) => {
             const picPath = basePathPic.concat(image);
             return (
-                (image) && (<a href={picPath}>
+                (image) && (<a href={picPath} key={id} >
                     <img src={picPath} width="150" alt={image} />
                 </a>)
             )
         });
 
-        console.log("IMAGES", images)
+        // console.log("IMAGES", images)
 
         return (
             

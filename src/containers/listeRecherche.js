@@ -17,7 +17,7 @@ export default class listeRecherche extends Component {
     }
 
     searchResult = (result) => {
-        console.log("MAIN : ", result);
+        // console.log("MAIN : ", result);
         this.setState({
             searchResult : result,
             validFlag : result.titre[0]

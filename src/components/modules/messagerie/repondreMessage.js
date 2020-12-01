@@ -38,7 +38,7 @@ export default class repondreMessage extends Component {
             else if (type === '1')  objet = ""; // L'acheteur envoie un nouveau message au vendeur
         }
 
-        console.log("DID MOUNT" , objet)
+        // console.log("DID MOUNT" , objet)
         this.setState({
             clientName : UserProfile.getName(),
             clientEmail : UserProfile.getEmail(),
@@ -62,8 +62,7 @@ export default class repondreMessage extends Component {
         const clientEmail = this.state.clientEmail;
         const clientName = this.state.clientName;
         const type = this.state.type;
-        // console.log("SEND MESSAGE", type);
-
+        // console.log("SEND MESSAGE", dst);
         
         var formData = new FormData();
         formData.append('exp', exp);
@@ -74,6 +73,7 @@ export default class repondreMessage extends Component {
         formData.append('clientName', clientName);
         formData.append('type', type); // Pour passer le PHP en mode REPONSE DE MESSAGE
 
+        
 
         // Fait appel à l'API PHP
         axios({
@@ -84,8 +84,8 @@ export default class repondreMessage extends Component {
 
         // Renvoie le résultat de la recherche ( objet de tableau ) au parent
         .then(response => {
-            const result = response.data;
-            console.log("RESULT REPONDRE", result);
+            // const result = response.data;
+            // console.log("RESULT REPONDRE", result);
             this.props.history.push('/GestionMessagerie/');
         })
 

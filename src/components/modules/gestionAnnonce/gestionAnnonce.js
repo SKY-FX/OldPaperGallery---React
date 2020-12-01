@@ -26,7 +26,7 @@ export default class gestionAnnonce extends Component {
 
     componentDidMount()
     {
-        console.log("Gestion annonce");
+        // console.log("Gestion annonce");
         this.searchText(' ');
     }
 
@@ -46,8 +46,8 @@ export default class gestionAnnonce extends Component {
 
         // Renvoie le résultat de la recherche ( objet de tableau ) au parent
         .then(response => {
-            console.log("SEARCH FUNCTION SEARCH", text);
-            console.log("SEARCH FUNCTION RESULTAT", response.data);
+            // console.log("SEARCH FUNCTION SEARCH", text);
+            // console.log("SEARCH FUNCTION RESULTAT", response.data);
             var reponse = response.data;
             const listeRef = reponse['ref'];
             const listeAnnonces = reponse;

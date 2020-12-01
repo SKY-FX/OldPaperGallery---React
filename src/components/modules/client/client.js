@@ -17,7 +17,7 @@ export default class client extends Component {
     componentDidMount()
     {
         const userName = UserProfile.getName();
-        console.log("SESSION", userName);
+        // console.log("SESSION", userName);
         
         this.setState({
             userName : userName
@@ -53,7 +53,7 @@ export default class client extends Component {
                         { this.state.userType==='User' ?
                             <Fragment >
                                     <div className="zone">
-                                        Bienvenue dans votre espace privé {this.state._SESSION} !
+                                        Bienvenue dans votre espace privé {this.state.userName} !
                                         <div className="menuAdmin">
                                             <Link className="itemMenu" to="/GestionMessagerie" style={{color:"white"}}>Mes messages</Link>
                                         </div>

@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react'
-import {Link} from 'react-router-dom'
 import axios from 'axios'
 
 import UserProfile from '../utiles/sessionFct'
@@ -68,21 +67,21 @@ export default class vente extends Component {
         if (functType==='recu')
         {
             alertToDisplay = "Avez-vous reçu le paiment de " + infoAnnonce['acheteur_nom'] + " ?";
-            console.log("PAIEMENT RECU", functType);            
+            // console.log("PAIEMENT RECU", functType);            
             formData.append('type', 0);
             
         }
         else if (functType==='remis')
         {
             alertToDisplay = "Etes-vous sûr de vouloir remettre cette annonce ( ref:" + infoAnnonce['annonce_ref'] + " ) de '" + infoAnnonce['annonce_nomAuteur'] + "' en vente ?";
-            console.log("REMIS EN LIGNE", functType);
+            // console.log("REMIS EN LIGNE", functType);
             formData.append('type', 1);
 
         }
         else if (functType==='email')
         {
             alertToDisplay = " Vous êtes sur le point d'envoyer la facture à " + infoAnnonce['acheteur_nom'] + " !";
-            console.log("ENVOYER FACTURE", functType);
+            // console.log("ENVOYER FACTURE", functType);
             formData.append('type', 2);
 
             formData.append('buildDate', infoAnnonce['annonce_date']);
@@ -112,7 +111,7 @@ export default class vente extends Component {
             .then(response => {
                 const result = response.data;
                 // console.log("SEARCH VENTES", userSession);
-                console.log("onClick", result);
+                // console.log("onClick", result);
 
                 // Redirige vers l'url pour l'envoie d'email
                 // Simule le comportement d'un href
@@ -292,9 +291,9 @@ export default class vente extends Component {
                                         <Fragment>
                                             { this.state.typeVente === '1' ?
                                                 
-                                                <p>Il n'y a pas d'annonce vendu</p>
+                                                <div style={{padding:"20px"}}>Il n'y a pas d'annonce vendu</div>
                                                 :
-                                                <p>Il n'y a pas d'annonce en attente de paiement</p>
+                                                <div style={{padding:"20px"}}>Il n'y a pas d'annonce en attente de paiement</div>
                                             }
                                         </Fragment>
                                     }

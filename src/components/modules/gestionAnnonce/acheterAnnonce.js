@@ -19,7 +19,7 @@ export default class AcheterAnnonce extends Component {
     }
     
     searchResult = (result) => {
-        console.log("MAIN : ", result['img_id'][0]);
+        // console.log("MAIN : ", result['img_id'][0]);
         this.setState({
             searchResult : result,
         });
@@ -54,7 +54,7 @@ export default class AcheterAnnonce extends Component {
     
         // Renvoie le résultat de la recherche ( objet de tableau ) au parent
         .then(response => {
-            console.log("ACHAT ANNONCE RESULTAT", response.data);
+            // console.log("ACHAT ANNONCE RESULTAT", response.data);
 
             const result = response.data;
 

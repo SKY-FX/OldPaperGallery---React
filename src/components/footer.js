@@ -25,11 +25,11 @@ export default function footer(props) {
         <div className="footer">
             
             <div className="footer_bg">
-                <a href="https://www.ebay.fr/usr/oldpapergallery" target="_blank">
+                <a href="https://www.ebay.fr/usr/oldpapergallery" target="_blank" rel="noreferrer noopener">
                     Boutique Ebay <br/><br/>
                 </a>
 
-                <a href="https://www.ebay.fr/fdbk/feedback_profile/oldpapergallery?filter=feedback_page:All" target="_blank">
+                <a href="https://www.ebay.fr/fdbk/feedback_profile/oldpapergallery?filter=feedback_page:All" target="_blank" rel="noreferrer noopener">
                     AVIS
                 </a>
             </div>

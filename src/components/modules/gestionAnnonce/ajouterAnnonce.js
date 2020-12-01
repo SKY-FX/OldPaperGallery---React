@@ -87,7 +87,7 @@ export default class ajouterAnnonce extends Component {
     
         // Renvoie le résultat de la recherche ( objet de tableau ) au parent
         .then(response => {
-            console.log("AJOUTE ANNONCE RESULTAT", response.data);
+            // console.log("AJOUTE ANNONCE RESULTAT", response.data);
             const result = response.data;
 
             if (result!==0) this.props.history.push('/GestionAnnonces/');
@@ -148,7 +148,7 @@ export default class ajouterAnnonce extends Component {
                     [name] : fileName
                 });
             }
-            console.log("COUCOU", nbFiles)   
+            // console.log("COUCOU", nbFiles)   
         }   
         else{
             window.alert("Vous pouvez télécharher au maximum 5 images !")
