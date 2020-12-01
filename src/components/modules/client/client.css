@@ -1,0 +1,54 @@
+.zone{
+    margin-bottom: 50px;
+    border : 1px solid #fff6c5;
+    background-color: rgba(0, 0, 0, 0.6);
+    color:white;
+    font-size: 15px;
+    font-family: Main;
+    margin: auto;
+    margin-bottom: 100px;
+    padding:100px;
+    /* width: min-content; */
+}
+
+.menuAdmin
+{
+    display: flex;
+	flex-direction: column;
+    
+    background-color: transparent;
+	color: white;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.itemMenu
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    text-decoration:none; 
+	color:white;
+    background-color: rgba(0, 0, 0, .5);
+	border:1px solid rgba(255, 248, 193, 0.5);
+
+	cursor: pointer;
+	font-size: 12px;
+	text-align: center;
+	border-radius: 15px;
+    text-decoration:none; 
+    margin-top:10px;
+    padding:20px;
+    /* width: ; */
+    
+    
+	transition: transform 2s ease;
+}
+
+.itemMenu:hover
+{
+	border:1px solid rgba(255, 248, 193, .3);
+	transform: scale(1.1);
+}
+

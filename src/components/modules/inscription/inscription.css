@@ -1,0 +1,103 @@
+.fieldSetConect 
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+	width: 300px;
+	padding: 50px 50px ;
+	
+	border: 1px solid rgba(255, 248, 193, 0.5);
+	border-radius: 15px;
+	
+	margin-bottom:50px;
+	margin-right: auto;
+	margin-left: auto;
+	
+    background-color: rgba(0, 0, 0, .6);
+    color: #fff6c5;
+    font-size: 20px;
+    font-family: 'MAIN';
+    text-align: left;
+}
+
+.fieldSetConect legend
+{
+    font-size: 20px;
+}
+
+.checkbox
+{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    /* border:1px solid white; */
+}
+
+.checkbox *
+{
+    margin: auto;
+}
+
+.textConect
+{
+    font-size: 15px;
+}
+
+.item_connexion
+{
+	display: flex;
+	flex-direction: column;
+    
+    background-color: black;
+    color: white;
+    
+	text-align: center;
+	border-radius: 15px;
+    margin-bottom:10px;
+    padding: 20px;
+
+    font-family: 'MAIN';
+}
+
+.connectButton
+{
+    background-color: transparent;
+
+    padding: 15px;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #fff;
+    border-radius: 15px;
+    border:1px solid#fff6c5;
+
+    cursor: pointer;
+    font-family: 'MAIN';
+}
+
+.connectButton:hover
+{
+    background-color: rgba(0, 0, 0, .6);
+    border:1px solid green;
+}
+
+.textConnexion
+{
+    border : 1px solid greenyellow;
+    background-color: rgba(0, 0, 0, 0.6);
+    color:white;
+    font-size: 15px;
+    font-family: Main;
+    margin:0 20vw;
+    padding:20px;
+    /* width: min-content; */
+}
+
+
+
+
+legend
+{
+    font-size: 25px;
+    text-shadow: 0px 0px 10px black, 0px 0px 20px black, 0px 0px 30px black;
+}

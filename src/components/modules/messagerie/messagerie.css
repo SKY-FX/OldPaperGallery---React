@@ -1,0 +1,51 @@
+.messagerie
+{
+    display: flex;
+    flex-direction: column;
+
+    border : 1px solid #fff6c5;
+    /* border-radius: 20px; */
+    background-color: rgba(0, 0, 0, 0.8);
+    color:white;
+    font-size: 15px;
+    font-family: Main;
+    margin:auto;
+    margin-bottom: 50px;
+    padding:50px;
+}
+
+.tabHead
+{
+    background-color: rgba(0, 0, 0, 1);
+    color:#fff6c5;
+    font-family: Main;
+}
+
+.tabBody
+{
+    background-color: rgba(0, 0, 0, 0.8);
+    color:white;
+    padding:20px;
+    font-family: Main;
+    
+    /* font-size: large; */
+    
+}
+
+.p1, .p2{
+    cursor: pointer;
+}
+.p1:hover, .p2:hover
+{
+    color:red;
+}
+
+
+table, td, th {
+    border: 1px solid rgba(255, 248, 193, .3);;
+    padding:20px;
+  }
+
+table {
+    border-collapse: collapse;
+  }

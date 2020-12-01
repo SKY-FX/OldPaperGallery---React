@@ -1,0 +1,50 @@
+.searchBar
+{
+    background-color: transparent;
+    z-index: 999;
+}
+
+.searchForm
+{
+    display: flex;
+    flex-direction: row;
+	border:1px solid#fff6c580;
+	background-color: rgba(0, 0, 0, .6);
+	border-radius: 15px;
+	padding:20px;
+}
+
+.infoSearchResult
+{
+    background-color: transparent;
+}
+
+.searchInput
+{
+    background-color: white;
+    font-family: 'MAIN';
+}
+
+.searchButton
+{
+    background-color: transparent;
+
+    /* line-height: 2.5; */
+    padding: 10px;
+    margin-left: 20px;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #fff;
+    border-radius: 15px;
+    border:1px solid#fff6c5;
+
+	cursor: pointer;
+    /* margin-left: 20px; */
+    text-decoration: none;
+    font-family: 'MAIN';
+}
+
+.searchButton:hover
+{
+	background-color: rgba(0, 0, 0, .6);
+}

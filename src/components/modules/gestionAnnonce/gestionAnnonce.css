@@ -1,0 +1,296 @@
+.detailsAnnonceForm
+{
+	display: flex;
+	flex-direction: column;
+    justify-content: center;
+    
+
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 50px;
+    padding : 50px;
+    width: 500px;
+
+	background-color: rgba(0, 0, 0, .6);
+    border:1px solid #fff6c580;
+    font-family: 'MAIN';
+    
+}
+
+.detailsAnnonceForm fieldset 
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+	/* width: min-content; */
+    padding:20px ;
+    width: 80%;
+    
+    color : rgb(255, 248, 193);
+	text-align:left;
+	
+	border:1px solid rgba(255, 248, 193, 0.5);
+	/* border-radius: 15px; */
+	
+	margin-bottom:30px;
+	margin-right: auto;
+    margin-left: auto;
+    
+	
+	background-color: rgba(0, 0, 0, .6);
+}
+
+.detailsAnnonceForm textarea, select, option
+{
+    text-align: center;
+    font-size: 15px;
+    padding:10px; 
+    font-family: 'MAIN';
+}
+
+.detailsAnnonceForm legend 
+{
+	color : rgb(255, 248, 193);
+    text-align : center;
+    font-size: 18px;
+    font-family: Main;
+}
+
+.visu_annonce
+{
+    display:flex;
+    background-color:  rgba(0, 0, 0, 0.8);
+    font-family: 'MAIN';
+}
+
+
+._item
+{
+	border:1px solid#fff6c580;
+    background-color: rgba(0, 0, 0, .6);
+    
+    padding: 20px;
+	color: white;
+    cursor: pointer;
+    
+    opacity: 1;
+    font-family: Main;
+	font-size: 15px;
+	text-align: center;
+	text-decoration: none;
+	
+	border-radius: 15px;
+    margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: min-content; */
+}
+
+._item:hover{
+    background-color: rgba(0, 0, 0, .8);
+}
+
+
+
+
+
+/* ####################################### */
+/* ######### VISUALISER ANNONCE ######### */
+/* ###################################### */
+.sectionScan
+{
+    border: 1px solid rgba(255, 248, 193, .2);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding:20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+.sectionScan fieldset
+{
+    border: 1px solid rgba(255, 248, 193, .5);
+    padding : 20px;
+    background-color: black;
+}
+/****************************/
+._section_scan fieldset p
+{
+    color:rgba(255, 255, 255, .8);
+    
+}
+
+/****************************/
+.sectionScan a img
+{
+    border:1px solid white;
+    max-width: 150px;
+    max-height: auto;
+    transition: transform 2s ease;
+    transform-origin: left top;                
+}
+/****************************/
+.sectionScan a img:hover
+{
+    transform: scale(3);
+    transform-origin: left top;
+
+}
+
+
+/* ################## */
+.sectionDesc
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border: 1px solid rgba(255, 248, 193, .2);
+    flex: 4;
+    text-align: center;
+    color:rgba(255, 255, 255, .8);
+    background-color: transparent;
+    padding:30px 150px 50px 150px;
+}
+.sectionDesc img
+{
+    border:1px solid white;
+    max-width: 150px;
+    max-height: auto;
+    transition: transform 2s ease;
+    transform-origin: left top;                
+}
+
+/****************************/
+.sectionDesc fieldset
+{
+    border: 1px solid rgba(255, 248, 193, .5);
+    padding : 20px;
+    background-color: rgba(0, 0, 0, 1);
+}
+/****************************/
+.sectionDesc fieldset p
+{
+    font-size:20px;
+    color:rgba(255, 255, 255, .8);
+    margin:10px;
+}
+
+.sectionDesc .flexDiv
+{
+    display:flex;
+    align-items: center;
+}
+
+
+.sectionDesc legend
+{
+    color: rgba(255, 248, 193, 1);
+    text-align: left;
+    font-size: 20px;
+}
+/****************************/
+
+h1, h2, h3, h4, h5, h6, p 
+{
+    display: inline;
+}
+
+h4
+{
+    font-size:15px;
+}
+
+h6
+{
+    font-size:17px;
+}
+
+h1
+{
+    color : rgb(255, 248, 193);
+    font-size:23px;
+}
+
+span
+{
+    color:rgb(255, 248, 193);
+    font-size: 17px;
+}
+
+hr
+{
+    width:25%;
+    border: 1px solid rgba(255, 255, 255, .2);
+    margin : 10px;
+}
+
+
+/* ################################### */
+/* ######### ACHETER ANNONCE ######### */
+/* ################################### */
+.BlockAchat
+{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.panneaux
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    /* border: 1px solid rgba(255, 248, 193, .6); */
+    /* background-color: rgba(0,0,0,.5); */
+
+    /* margin: auto; */
+    margin-bottom: 50px;
+    font-family: 'MAIN';
+}
+
+.panneau_facturation
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border: 1px solid rgba(255, 248, 193, .6);
+    background-color: rgba(0,0,0,.8);
+
+    padding : 50px;
+    /* margin: auto; */
+}
+
+.panneau_paiement
+{
+    display: flex;
+    flex-direction: column;
+    /* margin-top: auto; */
+    /* margin-bottom: auto; */
+    
+    border: 1px solid rgba(255, 248, 193, .6);
+    background-color: rgba(0,0,0,.8);
+    
+    padding : 50px;
+    /* margin: auto; */
+}
+
+.paiement
+{
+    display: flex;
+    flex-direction: column;
+
+    background-color: rgba(0,0,0,.1);
+    border : 1px solid rgba(255,255,255,.3);
+    padding : 30px;
+    margin : 10px;
+}
+
+.link p:hover
+{
+    color:red;
+}

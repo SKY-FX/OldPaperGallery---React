@@ -1,0 +1,28 @@
+.navLogo
+{
+	/* border: 2px solid red; */
+	background-color: transparent;
+	
+    padding : 20px 0 20px 0;
+	cursor: pointer;
+	opacity: 1;
+
+	transition: transform 2s ease;
+	z-index: 999;
+}
+
+.navLogo a
+{
+	background-color: transparent;
+	text-decoration: none;
+	font-size: 40px;
+	color: #fff6c5;
+
+	text-shadow: 1px 1px 2px black, 5px 5px 20px  #fff6c5;
+	font-family: police-titre;
+}
+
+.navLogo:hover
+{
+	transform: scale(1.1);
+}

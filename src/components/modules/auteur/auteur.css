@@ -1,0 +1,32 @@
+.auteur
+{
+    background-color: rgba(0, 0, 0, 0.7) ;
+    border: 1px solid #fff6c5;
+
+    padding : 20px;
+    margin:20px;
+    margin-left:auto;
+    margin-right:auto;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+
+    font-family: 'Main';
+    
+}
+
+.unAuteur
+{
+    padding: 10px;
+    color: seashell;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.unAuteur:hover{
+    cursor: pointer;
+    color: seashell;
+    text-shadow: 1px 1px 1px red, 2px 2px 1px red;
+}
