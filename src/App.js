@@ -54,94 +54,99 @@ class App extends Component {
     })
   };
 
+
   render() {
 
     return (
       <div className="HomeClass">
+        
         <div className="app">
           
+               
           <Router>
             
             <Header />
-            <Switch>
+            
+            <div className="main" >
+              <Switch>
 
-              {/* Page d'accueil */}
-              <Route exact path="/" component={NavBar} />
+                {/* Page d'accueil */}
+                <Route exact path="/" component={NavBar} />
 
-              {/* USER */}
-              {/* Page de toute les annonces */}
-              <Route exact path='/Inscription' component={Inscription}/>
+                {/* USER */}
+                {/* Page de toute les annonces */}
+                <Route exact path='/Inscription' component={Inscription}/>
 
-              {/* Page de recherche (2 critères de recherche)     */}
-              <Route exact path="/Search/:searchText/:searchTextDetails" component={LienRecherche} />
+                {/* Page de recherche (2 critères de recherche)     */}
+                <Route exact path="/Search/:searchText/:searchTextDetails" component={LienRecherche} />
 
-              {/* Page de recherche (1 critère de recherche) */}
-              <Route exact path="/Search/:searchText" component={ListeRecherche} />
+                {/* Page de recherche (1 critère de recherche) */}
+                <Route exact path="/Search/:searchText" component={ListeRecherche} />
 
-              {/* Page de toute les annonces */}
-              <Route exact path='/SearchAuteurs' component={Auteurs}/>
-
-
-              {/* CLIENT */}
-              {/* Page de connexion */}
-              <Route 
-                exact path='/logIn' 
-                render={(props) => (
-                  <Connexion {...props} return={ (res) => this.checkConnect(res) } />
-                )} 
-              />
-
-              {/* Page de deconnexion */}
-              <Route 
-                exact path='/logOut' 
-                render={(props) => (
-                  <Deconnection {...props} return={ (res) => this.checkConnect(res) } />
-                )} 
-              />
-
-              {/* *** */}
-              {/* Espace privé pour le client */}
-              <Route exact path='/Connexion/:client' component={Client} />
+                {/* Page de toute les annonces */}
+                <Route exact path='/SearchAuteurs' component={Auteurs}/>
 
 
-              {/* *** */}
-              {/* MeVentes : Admin */}
-              <Route exact path='/GestionVentes/' component={MesVentes}/>
+                {/* CLIENT */}
+                {/* Page de connexion */}
+                <Route 
+                  exact path='/logIn' 
+                  render={(props) => (
+                    <Connexion {...props} return={ (res) => this.checkConnect(res) } />
+                  )} 
+                />
+
+                {/* Page de deconnexion */}
+                <Route  
+                  exact path='/logOut' 
+                  render={ (props) => (
+                    <Deconnection {...props} return={ (res) => this.checkConnect(res) } />
+                  )} 
+                />
+
+                {/* *** */}
+                {/* Espace privé pour le client */}
+                <Route exact path='/Connexion/:client' component={Client} />
 
 
-              {/* *** */}
-              {/* Messagerie du client */}
-              <Route exact path='/GestionMessagerie' component={Messagerie}/>
-              {/* Messagerie du client */}
-              <Route exact path='/GestionMessagerie/Repondre/:type/:exp/:dst/:objet/:message/' component={RepondreMessage}/>
+                {/* *** */}
+                {/* MeVentes : Admin */}
+                <Route exact path='/GestionVentes/' component={MesVentes}/>
 
 
-              {/* *** */}   
-              {/* Gestion des annonces : Admin */}
-              <Route exact path='/GestionAnnonces/' component={GestionAnnonce}/>
-
-              {/* VisualiserAnnonce : Admin */}
-              <Route exact path='/GestionAnnonces/Visualiser/:idAnnonce' component={VisualiserAnnonce}/>
-
-              {/* EffacerAnnonce : Admin */}
-              <Route exact path='/GestionAnnonces/Effacer/:idAnnonce' component={EffacerAnnonce}/>
-
-              {/* ModifierAnnonce : Admin */}
-              <Route exact path='/GestionAnnonces/Modifier/:idAnnonce' component={ModifierAnnonce}/>
-
-              {/* AjouterAnnonce : Admin */}
-              <Route exact path='/GestionAnnonces/Ajouter' component={AjouterAnnonce}/>
-
-              {/* Page d'achat d'une annonce */}
-              <Route exact path='/GestionAnnonces/AcheterAnnonce/:auteur/:titre/:prix' component={AcheterAnnonce}/>
-
-              
+                {/* *** */}
+                {/* Messagerie du client */}
+                <Route exact path='/GestionMessagerie' component={Messagerie}/>
+                {/* Messagerie du client */}
+                <Route exact path='/GestionMessagerie/Repondre/:type/:exp/:dst/:objet/:message/' component={RepondreMessage}/>
 
 
-            </Switch>
+                {/* *** */}   
+                {/* Gestion des annonces : Admin */}
+                <Route exact path='/GestionAnnonces/' component={GestionAnnonce}/>
+
+                {/* VisualiserAnnonce : Admin */}
+                <Route exact path='/GestionAnnonces/Visualiser/:idAnnonce' component={VisualiserAnnonce}/>
+
+                {/* EffacerAnnonce : Admin */}
+                <Route exact path='/GestionAnnonces/Effacer/:idAnnonce' component={EffacerAnnonce}/>
+
+                {/* ModifierAnnonce : Admin */}
+                <Route exact path='/GestionAnnonces/Modifier/:idAnnonce' component={ModifierAnnonce}/>
+
+                {/* AjouterAnnonce : Admin */}
+                <Route exact path='/GestionAnnonces/Ajouter' component={AjouterAnnonce}/>
+
+                {/* Page d'achat d'une annonce */}
+                <Route exact path='/GestionAnnonces/AcheterAnnonce/:auteur/:titre/:prix' component={AcheterAnnonce}/>
+
+                
+
+
+              </Switch>
+            </div>
 
             <Footer userType={UserProfile.getType()} checkConnect={this.state.checkConnect} />
-
 
           </Router>
 

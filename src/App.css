@@ -70,12 +70,35 @@
 .header
 {
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content:center ;
     align-items: center;
     flex:1;
 
     /* max-width: 50vw; */
+}
+
+.header_text
+{
+    position: fixed;
+    left:0;
+    top:0;
+    font-Size:20px; 
+    font-Family:"MAIN";
+    padding:10px;
+    margin:10px;
+    border-radius: 20px;
+    z-index: 999;
+}
+
+.header_text:hover
+{
+    background-color: rgba(0,0,0,0.2);
+}
+
+.main
+{
+    /* flex:1; */
 }
 
 .listeRecherche, .lienRecherche, .visualiserAnnonce
@@ -87,7 +110,7 @@
     
     /* flex:1; */
 
-    padding: 30px 0 30px 0;
+    padding: 30px 0 0px 0;
 }
 
 .footer
@@ -105,6 +128,10 @@
     
     background-color: rgba(0, 0, 0, .6);
     border-top : 1px solid rgba(255, 248, 193, 0.5);
+
+    margin-top: 20px;
+
+    /* flex:1; */
 }
 
 .footer a 

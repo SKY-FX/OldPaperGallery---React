@@ -164,6 +164,8 @@ export default class vente extends Component {
 
     }
 
+    // goBack = () => this.props.history.goBack();
+
 
     render() {
 
@@ -242,70 +244,71 @@ export default class vente extends Component {
 
 
         return (
-            // <Fragment>
-            //     { afficheVentes !== '' ?
-                    <Fragment>
-                        { this.state.vendeur_email !== '' ?
-                            <div className="vente">
-                    
-                                <table>
-                                    <caption>
-                                        { (this.state.typeVente === '1' && afficheVentes !== '') ?
-                                            <p>MES ANNONCES VENDUES<br/><br/><br/></p> : null
-                                        }
-                                        { (this.state.typeVente === '0' && afficheVentes !== '') ?
-                                            <p>MES ANNONCES EN ATTENTE DE PAIEMENT<br/><br/><br/></p> : null
-                                        }
 
-                                        <div className="selectType">
-                                            <p className="item_info" onClick={ () => this.typeVente('0') } >Paiement en attente</p>	
-                                            <p className="item_info" onClick={ () => this.typeVente('1') } >Vendu</p>	
-                                        </div>
+            <Fragment>
+                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"rgba(255,255,255,0.5)", cursor:"pointer", textDecoration:"none"}} >Retour</div>
+    
+                { this.state.vendeur_email !== '' ?
+                    <div className="vente">
+            
+                        <table>
+                            <caption>
+                                { (this.state.typeVente === '1' && afficheVentes !== '') ?
+                                    <p>MES ANNONCES VENDUES<br/><br/><br/></p> : null
+                                }
+                                { (this.state.typeVente === '0' && afficheVentes !== '') ?
+                                    <p>MES ANNONCES EN ATTENTE DE PAIEMENT<br/><br/><br/></p> : null
+                                }
 
-                                        <br/><br/>
-                                    
-                                    </caption>
+                                <div className="selectType">
+                                    <p className="item_info" onClick={ () => this.typeVente('0') } >Paiement en attente</p>	
+                                    <p className="item_info" onClick={ () => this.typeVente('1') } >Vendu</p>	
+                                </div>
 
-                                    { afficheVentes !== '' ?
-                                        <Fragment>
-                                            {/* En-tête du tableau */}
-                                            <thead>
-                                                <tr className="tabHead">
-                                                    <th>Acheteur</th>
-                                                    <th>Référence</th>
-                                                    <th>Auteur</th>
-                                                    <th>titre</th>
-                                                    <th>Prix</th>
-                                                    <th>Date</th>
-                                                    <th>Action</th>
-                                                    
-                                                </tr>
-                                            </thead>
+                                <br/><br/>
+                            
+                            </caption>
 
-                                            {/* Corps du tableau */}
-                                            <tbody>
-                                                {afficheVentes}
-                                            </tbody>
-                                        </Fragment>
+                            { afficheVentes !== '' ?
+                                <Fragment>
+                                    {/* En-tête du tableau */}
+                                    <thead>
+                                        <tr className="tabHead">
+                                            <th>Acheteur</th>
+                                            <th>Référence</th>
+                                            <th>Auteur</th>
+                                            <th>titre</th>
+                                            <th>Prix</th>
+                                            <th>Date</th>
+                                            <th>Action</th>
+                                            
+                                        </tr>
+                                    </thead>
+
+                                    {/* Corps du tableau */}
+                                    <tbody>
+                                        {afficheVentes}
+                                    </tbody>
+                                </Fragment>
+                                :
+                                <Fragment>
+                                    { this.state.typeVente === '1' ?
+                                        
+                                        <div style={{padding:"20px"}}>Il n'y a pas d'annonce vendu</div>
                                         :
-                                        <Fragment>
-                                            { this.state.typeVente === '1' ?
-                                                
-                                                <div style={{padding:"20px"}}>Il n'y a pas d'annonce vendu</div>
-                                                :
-                                                <div style={{padding:"20px"}}>Il n'y a pas d'annonce en attente de paiement</div>
-                                            }
-                                        </Fragment>
+                                        <div style={{padding:"20px"}}>Il n'y a pas d'annonce en attente de paiement</div>
                                     }
+                                </Fragment>
+                            }
 
-                                </table>
-                            </div>
-                            :
-                            <div className="textConnexion">
-                                Vous devez être connecté pour accéder à l'espace privé !
-                            </div>
-                        }
-                    </Fragment>    
+                        </table>
+                    </div>
+                    :
+                    <div className="textConnexion">
+                        Vous devez être connecté pour accéder à l'espace privé !
+                    </div>
+                }
+            </Fragment>    
   
         )
     }

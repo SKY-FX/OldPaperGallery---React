@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 import ListeAnnonce from '../components/modules/listeAnnonce/listeAnnonce'
 import SearchBar from '../components/modules/searchBar/searchBar'
@@ -12,7 +13,8 @@ export default class lienRecherche extends Component {
         this.state = {
             searchResult : [],
             searchText : props.match.params.searchText, // Recupère le props (match.params...) passé en url
-            searchTextDetails : props.match.params.searchTextDetails
+            searchTextDetails : props.match.params.searchTextDetails,
+            validFlag : '0'
         }
 
         // console.log("SEARCH 1", props.match.params.searchText);
@@ -41,6 +43,7 @@ export default class lienRecherche extends Component {
             const result = response.data;
             this.setState({
                 searchResult : result,
+                validFlag : result.titre[0]
             });
         })
 
@@ -62,19 +65,26 @@ export default class lienRecherche extends Component {
 
 
     render() {
-        const validFlag = this.state.searchResult.titre;
+        const validFlag = this.state.validFlag;
+        // console.log("RENDER", validFlag)
         return (
             <div className="lienRecherche"> 
+                
                 <SearchBar return={ (result) => this.searchResult(result) } />
                 <Fragment>
-                    { validFlag !== '' ?
+                    { validFlag !== "" ?
                         <ListeAnnonce liste={this.state.searchResult} isSold="true"/>
                         : 
-                        <div className="textConnexion">
-                            Aucun(e) <b>{this.state.searchText}</b> pour le thème <b>{this.state.searchTextDetails}</b> !
-                            <br/><br/>
-                            Veuillez cliquer sur <b>Recherche</b> pour visualiser toutes les annonces de la boutique.
-                        </div>
+                        <Fragment>
+
+                            <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"rgba(255,255,255,0.5)", cursor:"pointer", textDecoration:"none"}} >Retour</div>
+    
+                            <div className="textConnexion">
+                                Aucune annonce pour cette recherche !
+                                <br/><br/>
+                                Veuillez cliquer sur <b>Recherche</b> pour visualiser toutes les annonces de la boutique.
+                            </div>
+                        </Fragment>
                     }
                 </Fragment>
             </div>

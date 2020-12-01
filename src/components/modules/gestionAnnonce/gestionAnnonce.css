@@ -235,7 +235,6 @@ hr
 {
     display: flex;
     flex-direction: column;
-
 }
 
 .panneaux
@@ -249,6 +248,7 @@ hr
 
     /* margin: auto; */
     margin-bottom: 50px;
+    margin-top: 50px;
     font-family: 'MAIN';
 }
 
@@ -259,10 +259,10 @@ hr
     align-items: center;
 
     border: 1px solid rgba(255, 248, 193, .6);
-    background-color: rgba(0,0,0,.8);
+    background-color: rgba(0,0,0,.5);
 
     padding : 50px;
-    /* margin: auto; */
+    margin: auto;
 }
 
 .panneau_paiement
@@ -273,7 +273,7 @@ hr
     /* margin-bottom: auto; */
     
     border: 1px solid rgba(255, 248, 193, .6);
-    background-color: rgba(0,0,0,.8);
+    background-color: rgba(0,0,0,.5);
     
     padding : 50px;
     /* margin: auto; */

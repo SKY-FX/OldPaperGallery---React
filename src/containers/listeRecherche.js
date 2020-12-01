@@ -1,8 +1,12 @@
 import React, { Component, Fragment } from 'react'
-// import SearchBar from '../components/modules/searchBar/searchBar'
+
 import NavBarDetails from '../components/modules/navBar/navBarDetails'
 import ListeAnnonce from '../components/modules/listeAnnonce/listeAnnonce'
 import SearchFunc from '../components/modules/searchFunction/searchfunc'
+import SearchBar from '../components/modules/searchBar/searchBar'
+
+
+import {Link} from 'react-router-dom'
 
 export default class listeRecherche extends Component {
 
@@ -32,13 +36,22 @@ export default class listeRecherche extends Component {
             <Fragment>
                 {  this.state.validFlag !== '' ?
                     <div className="listeRecherche">
+                
                         <NavBarDetails searchText={this.state.searchText} />
+                        
                         
                         <SearchFunc searchText={this.state.searchText} axiosUrl={url} return={ (result) => this.searchResult(result) } />
                         <ListeAnnonce liste={this.state.searchResult} isSold="true" /> 
                     </div>
                     :
-                    null
+                    <Fragment>
+
+                        <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"rgba(255,255,255,0.5)", cursor:"pointer", textDecoration:"none"}} >Retour</div>
+    
+                        <div className="textConnexion">
+                            Aucune annonce pour cette recherche !
+                        </div>
+                    </Fragment>
                 }
             </Fragment>
         )

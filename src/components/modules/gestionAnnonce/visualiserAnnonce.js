@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 export default class visualiserAnnonce extends Component {
 
@@ -69,7 +70,6 @@ export default class visualiserAnnonce extends Component {
         }); 
     }
 
-
     render() {
         const basePathPic = "/ressources/";
         
@@ -92,12 +92,13 @@ export default class visualiserAnnonce extends Component {
             )
         });
 
-        // console.log("IMAGES", images)
+        console.log("IMAGES", this.props)
 
         return (
             
             <div className="visu_annonce">
-                
+                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"rgba(255,255,255,0.5)", cursor:"pointer", textDecoration:"none"}} >Retour</div>
+           
                 {/* <!-- SCAN --> */}
                 <div className="sectionScan">
                     {afficheImages}

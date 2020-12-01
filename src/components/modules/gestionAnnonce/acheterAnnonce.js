@@ -40,8 +40,8 @@ export default class AcheterAnnonce extends Component {
         formData.append('tel', this.state.tel);
         formData.append('mot_de_passe', this.state.mot_de_passe);
         formData.append('newsletters', this.state.newsletters);
-        formData.append('emailClient', this.state.emailClient);
-        formData.append('nameClient', this.state.nameClient);
+        formData.append('emailClient', this.state.email);
+        formData.append('nameClient', this.state.nom_prenom);
         // console.log("ON SUBMIT");
         
     
@@ -54,7 +54,7 @@ export default class AcheterAnnonce extends Component {
     
         // Renvoie le résultat de la recherche ( objet de tableau ) au parent
         .then(response => {
-            // console.log("ACHAT ANNONCE RESULTAT", response.data);
+            console.log("ACHAT ANNONCE RESULTAT", response.data);
 
             const result = response.data;
 
@@ -83,6 +83,7 @@ export default class AcheterAnnonce extends Component {
         });
     }
 
+
     render() {
 
         const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/search.php";
@@ -90,7 +91,8 @@ export default class AcheterAnnonce extends Component {
 
         return (
             <div className="BlockAchat">
-                
+                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"rgba(255,255,255,0.5)", cursor:"pointer", textDecoration:"none"}} >Retour</div>
+    
                 { (this.state.isSold === false) ?
                     <Fragment>
                         <div className="listeRecherche">
@@ -131,13 +133,16 @@ export default class AcheterAnnonce extends Component {
 
                                     <fieldset className="fieldSetConect">
                                         {/* <legend>Infos</legend> */}
-                                        <p className="textConect">Adresse de livraion</p><hr/>
+                                        <p className="textConect">Adresse de livraion</p><br/>
                                         <input className="item_connexion" required type="text" name="nom_prenom" placeholder="Nom-Prénom" onChange={this.onChange} /><br/>
                                         <textarea className="item_connexion" required type="text" name="adresse" placeholder="Adresse" onChange={this.onChange}  /><br/>
                                         <input className="item_connexion" required type="text" name="codePostal" placeholder="Code postal" onChange={this.onChange} /><br/>
                                         <input className="item_connexion" required type="text" name="ville" placeholder="Ville" onChange={this.onChange}  /><br/>
                                         <input className="item_connexion" required type="text" name="tel" placeholder="Téléphone" onChange={this.onChange} /><br/>
-                                        <p className="textConect">Infos de connection</p><hr/>
+                                    </fieldset>
+
+                                    <fieldset className="fieldSetConect">
+                                        <p className="textConect">Infos de connection</p><br/>
                                         <input className="item_connexion" required type="text" name="email" placeholder="Email" onChange={this.onChange} /><br/>
                                         <input className="item_connexion" required type="password" name="mot_de_passe" placeholder="Mot de passe" onChange={this.onChange}  /><br/>
                                         <br/>

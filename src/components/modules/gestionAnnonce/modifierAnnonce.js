@@ -191,6 +191,7 @@ export default class modifierAnnonce extends Component {
         }  
     }
 
+
     render() {
 
         const basePathPic = "/ressources/";
@@ -216,6 +217,8 @@ export default class modifierAnnonce extends Component {
 
         return (
             <Fragment>
+                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"rgba(255,255,255,0.5)", cursor:"pointer", textDecoration:"none"}} >Retour</div>
+    
                 { this.state.userName !== '' ?
                     <div className="detailsAnnonceForm">
                     

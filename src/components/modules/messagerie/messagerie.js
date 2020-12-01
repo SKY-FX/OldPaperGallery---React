@@ -136,12 +136,13 @@ export default class messagerie extends Component {
         }
     }
 
-    br2nl (str, replaceMode) {   
-	
+    br2nl (str, replaceMode) 
+    {   
         var replaceStr = (replaceMode) ? "\n" : '';
         // Includes <br>, <BR>, <br />, </br>
         return str.replace(/<\s*\/?br\s*[\/]?>/gi, replaceStr);
-      }
+    }
+
 
     render() {
 
@@ -155,8 +156,8 @@ export default class messagerie extends Component {
             else textButton = "Envoyez un message au vendeur";
 
             const passBool = result[0].EXP;
-            // console.log("MESSAGERIE CONVERTIE", passBool);
-            if (passBool)
+            console.log("MESSAGERIE CONVERTIE", result);
+            if (passBool !== '')
             {
                 visuMessa = result.map( (mess, id) => {
                     // console.log('MESS :', mess);
@@ -203,7 +204,9 @@ export default class messagerie extends Component {
         }
 
         return (
-            <Fragment>        
+            <Fragment>  
+                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"rgba(255,255,255,0.5)", cursor:"pointer", textDecoration:"none"}} >Retour</div>
+            
                 { this.state.nameClient !== '' ?
                     <Fragment>
                         <p className="_item" onClick={ () => this.changeSatut('nouveau', 0) } >{textButton}</p>
