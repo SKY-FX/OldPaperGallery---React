@@ -28,6 +28,7 @@ import AcheterAnnonce from './components/modules/gestionAnnonce/acheterAnnonce'
 
 import MesVentes from './components/modules/vente/vente'
 
+import defaultPage from './components/modules/defaultPage/defaultPage'
 
 
 import Footer from './components/footer';
@@ -66,8 +67,7 @@ class App extends Component {
           <Router>
             
             <Header />
-            
-            <div className="main" >
+
               <Switch>
 
                 {/* Page d'accueil */}
@@ -140,11 +140,12 @@ class App extends Component {
                 {/* Page d'achat d'une annonce */}
                 <Route exact path='/GestionAnnonces/AcheterAnnonce/:auteur/:titre/:prix' component={AcheterAnnonce}/>
 
-                
+                <Route component={defaultPage}/>
+
 
 
               </Switch>
-            </div>
+
 
             <Footer userType={UserProfile.getType()} checkConnect={this.state.checkConnect} />
 

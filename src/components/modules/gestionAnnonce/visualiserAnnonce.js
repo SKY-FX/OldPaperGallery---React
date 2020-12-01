@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
 import axios from 'axios'
-import {Link} from 'react-router-dom'
 
 export default class visualiserAnnonce extends Component {
 
@@ -92,7 +91,7 @@ export default class visualiserAnnonce extends Component {
             )
         });
 
-        console.log("IMAGES", this.props)
+        // console.log("IMAGES", this.props)
 
         return (
             

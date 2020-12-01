@@ -3,10 +3,7 @@ import React, { Component, Fragment } from 'react'
 import NavBarDetails from '../components/modules/navBar/navBarDetails'
 import ListeAnnonce from '../components/modules/listeAnnonce/listeAnnonce'
 import SearchFunc from '../components/modules/searchFunction/searchfunc'
-import SearchBar from '../components/modules/searchBar/searchBar'
 
-
-import {Link} from 'react-router-dom'
 
 export default class listeRecherche extends Component {
 

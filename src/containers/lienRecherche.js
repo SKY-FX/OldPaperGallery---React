@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
 import axios from 'axios'
-import {Link} from 'react-router-dom'
 
 import ListeAnnonce from '../components/modules/listeAnnonce/listeAnnonce'
 import SearchBar from '../components/modules/searchBar/searchBar'

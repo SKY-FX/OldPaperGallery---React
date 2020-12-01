@@ -83,7 +83,7 @@ export default class connexion extends Component {
                     <legend>Connexion</legend>
                     <input className="item_connexion" required type="text" name="email" placeholder="Email" onChange={this.onChange} /><br/>
                     <input className="item_connexion" required type="password" name="mot_de_passe" placeholder="Mot de passe" onChange={this.onChange}  /><br/>
-                    <button className="connectButton" type="submit" title="Cliquez pour se connecter" onClick={this.onSubmit} >Connexion</button>
+                    <button className="connectButton" title="Cliquez pour se connecter" onClick={this.onSubmit} >Connexion</button>
                 </fieldset>
                 
                    

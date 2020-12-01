@@ -10,21 +10,23 @@ export default class client extends Component {
         super(props);
         this.state = {
             userName : '',
-            userType : this.props.match.params.client
+            userType : ''
         }
     }
 
     componentDidMount()
     {
         const userName = UserProfile.getName();
-        // console.log("SESSION", userName);
+        console.log("SESSION", userName);
         
         this.setState({
-            userName : userName
+            userName : userName,
+            userType : this.props.match.params.client
         })
     }
 
     render() {
+        console.log("SESSION1", this.state.userName);
         return (
             <Fragment>
 

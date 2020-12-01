@@ -12,9 +12,16 @@ export default class AcheterAnnonce extends Component {
         super(props);
         this.state = {
             searchResult : '',
+            okBool : false,
             emailClient : UserProfile.getEmail(),
             nameClient : UserProfile.getName(),
-            isSold : false
+            isSold : false,
+
+            email : '',
+            adresse : '',
+            codePostal : '',
+            ville : '',
+            nom_prenom : ''
         }
     }
     
@@ -26,52 +33,69 @@ export default class AcheterAnnonce extends Component {
     }
 
     onSubmit = () => {
-        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/acheterAnnonce.php";
-        const idAnnonce = this.state.searchResult['img_id'][0];
+        var okBool = false;
+        if (this.state.email !== '' && this.state.adresse !== '' && this.state.codePostal !== ''  && this.state.ville !== '' && this.state.nom_prenom !== '')
+        {
+            okBool = true;
+            this.setState({
+                okBool : okBool
+            }) 
+        }
 
-        // En tete AXIOS + formatte la recherche pour axios
-        var formData = new FormData();
-        formData.append('id', idAnnonce);
-        formData.append('nom_prenom', this.state.nom_prenom);
-        formData.append('email', this.state.email);
-        formData.append('adresse', this.state.adresse);
-        formData.append('codePostal', this.state.codePostal);
-        formData.append('ville', this.state.ville);
-        formData.append('tel', this.state.tel);
-        formData.append('mot_de_passe', this.state.mot_de_passe);
-        formData.append('newsletters', this.state.newsletters);
-        formData.append('emailClient', this.state.email);
-        formData.append('nameClient', this.state.nom_prenom);
-        // console.log("ON SUBMIT");
+        if (okBool)
+        {
+            const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/acheterAnnonce.php";
+            const idAnnonce = this.state.searchResult['img_id'][0];
+
+            // En tete AXIOS + formatte la recherche pour axios
+            var formData = new FormData();
+            formData.append('id', idAnnonce);
+            formData.append('nom_prenom', this.state.nom_prenom);
+            formData.append('email', this.state.email);
+            formData.append('adresse', this.state.adresse);
+            formData.append('codePostal', this.state.codePostal);
+            formData.append('ville', this.state.ville);
+            formData.append('tel', this.state.tel);
+            formData.append('mot_de_passe', this.state.mot_de_passe);
+            formData.append('newsletters', this.state.newsletters);
+            formData.append('emailClient', this.state.email);
+            formData.append('nameClient', this.state.nom_prenom);
+            // console.log("ON SUBMIT");
         
     
-        // Fait appel à l'API PHP "SEARCH",  en paramètre "la recherche utilisateur"
-        axios({
-            method: 'post',
-            url: url,
-            data: formData
-        })
-    
-        // Renvoie le résultat de la recherche ( objet de tableau ) au parent
-        .then(response => {
-            console.log("ACHAT ANNONCE RESULTAT", response.data);
+        
+            // Fait appel à l'API PHP "SEARCH",  en paramètre "la recherche utilisateur"
+            axios({
+                method: 'post',
+                url: url,
+                data: formData
+            })
+        
+            // Renvoie le résultat de la recherche ( objet de tableau ) au parent
+            .then(response => {
+                console.log("ACHAT ANNONCE RESULTAT", response.data);
 
-            const result = response.data;
+                const result = response.data;
 
-            if (result===1)
-            {  
-                this.setState({
-                    result : result,
-                    isSold : true
-                });
+                if (result===1)
+                {  
+                    this.setState({
+                        result : result,
+                        isSold : true
+                    });
 
-            }
-        })
-    
-        // Affiche l'erreur
-        .catch(error => {
-            console.log(error);
-        }); 
+                }
+            })
+        
+            // Affiche l'erreur
+            .catch(error => {
+                console.log(error);
+            }); 
+        }
+        else
+        {
+
+        }
     }
 
     onChange = (e) => {
@@ -92,7 +116,7 @@ export default class AcheterAnnonce extends Component {
         return (
             <div className="BlockAchat">
                 <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"rgba(255,255,255,0.5)", cursor:"pointer", textDecoration:"none"}} >Retour</div>
-    
+
                 { (this.state.isSold === false) ?
                     <Fragment>
                         <div className="listeRecherche">
@@ -131,27 +155,34 @@ export default class AcheterAnnonce extends Component {
                                 <p>Entrez les informations de livraison de de connection !</p>
                                 <br/><br/>
 
-                                    <fieldset className="fieldSetConect">
-                                        {/* <legend>Infos</legend> */}
-                                        <p className="textConect">Adresse de livraion</p><br/>
-                                        <input className="item_connexion" required type="text" name="nom_prenom" placeholder="Nom-Prénom" onChange={this.onChange} /><br/>
-                                        <textarea className="item_connexion" required type="text" name="adresse" placeholder="Adresse" onChange={this.onChange}  /><br/>
-                                        <input className="item_connexion" required type="text" name="codePostal" placeholder="Code postal" onChange={this.onChange} /><br/>
-                                        <input className="item_connexion" required type="text" name="ville" placeholder="Ville" onChange={this.onChange}  /><br/>
-                                        <input className="item_connexion" required type="text" name="tel" placeholder="Téléphone" onChange={this.onChange} /><br/>
-                                    </fieldset>
+                                <fieldset className="fieldSetConect">
+                                    {/* <legend>Infos</legend> */}
+                                    <p className="textConect">Adresse de livraion</p><br/>
+                                    <input className="item_connexion" required type="text" name="nom_prenom" placeholder="Nom-Prénom" onChange={this.onChange} /><br/>
+                                    <textarea className="item_connexion" required type="text" name="adresse" placeholder="Adresse" onChange={this.onChange}  /><br/>
+                                    <input className="item_connexion" required type="text" name="codePostal" placeholder="Code postal" onChange={this.onChange} /><br/>
+                                    <input className="item_connexion" required type="text" name="ville" placeholder="Ville" onChange={this.onChange}  /><br/>
+                                    <input className="item_connexion" required type="text" name="tel" placeholder="Téléphone" onChange={this.onChange} /><br/>
+                                </fieldset>
 
-                                    <fieldset className="fieldSetConect">
-                                        <p className="textConect">Infos de connection</p><br/>
-                                        <input className="item_connexion" required type="text" name="email" placeholder="Email" onChange={this.onChange} /><br/>
-                                        <input className="item_connexion" required type="password" name="mot_de_passe" placeholder="Mot de passe" onChange={this.onChange}  /><br/>
-                                        <br/>
-                                        <button className="connectButton" title="Cliquez pour valider ma commande" onClick={this.onSubmit} >Valider ma commande</button>      
-                                    </fieldset>
-                                
-
+                                <fieldset className="fieldSetConect">
+                                    <p className="textConect">Infos de connection</p><br/>
+                                    <input className="item_connexion" required type="text" name="email" placeholder="Email" onChange={this.onChange} /><br/>
+                                    <input className="item_connexion" required type="password" name="mot_de_passe" placeholder="Mot de passe" onChange={this.onChange}  /><br/>
+                                    <br/>
+                                    <button className="connectButton" title="Cliquez pour valider ma commande" onClick={this.onSubmit} >Valider ma commande</button>      
+                                </fieldset>
                             </div>
+
                         </div>
+
+                        { (!this.state.okBool) ?
+                            <div className="textConnexion">
+                                Vous devez remplir les informations de livraison et de connection pour valider la commande !
+                            </div>
+                            :
+                            null
+                        }
                     </Fragment> 
                     :
                     <p className="textConnexion">
