@@ -1,38 +1,169 @@
-.App {
-  text-align: center;
+*{margin:0;padding:0;}
+
+.HomeClass
+{
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    background-repeat: no-repeat;
+    background-size: cover;   
+
+    /* animation: fondu 100s ease-in-out infinite; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    text-align: center;
+    color: white;
+
+    /* background-image: url("./components/modules/navPic/baniere/portrai.jpg"); */
+    width: 100vw;
+    min-height: 100vh;
+
+    /* Create the parallax scrolling effect */
+    /* background-color: black; */
+    background-attachment: fixed;
+    background-position-y: top;
+    background-position-x: center;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    
+    animation: fondu 100s ease-in-out infinite;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@keyframes fondu {
+    0% { background-image: url("./baniereImages/Victor-Hugo.jpg"); }
+    10% { background-image: url("./baniereImages/Aquarelle2.jpg"); }
+    20% { background-image: url("./baniereImages/port-marseille.jpg"); }
+    30% { background-image: url("./baniereImages/Marie-Antoinette.jpg"); }
+    40% { background-image: url("./baniereImages/Revolution.jpg"); }
+    50% { background-image: url("./baniereImages/Aquarelle1.jpg"); }
+    60% { background-image: url("./baniereImages/Celine-Louis.jpg"); }
+    70% { background-image: url("./baniereImages/Toulouse-Lautrec.jpg"); }
+    80% { background-image: url("./baniereImages/Vernet-port-Bordeaux.jpg"); }
+    90% { background-image: url("./baniereImages/Maréchal-Michel-Ney.jpg"); }
+    100% { background-image: url("./baniereImages/Victor-Hugo.jpg"); }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+.header, .listeRecherche, .lienRecherche, .visualiserAnnonce .footer
+{
+    /* border: 1px solid red; */
+    background-color: transparent;
+    
 }
 
-.App-link {
-  color: #61dafb;
+.header, .footer
+{
+    padding : 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    flex:1;
+
+    /* max-width: 50vw; */
+}
+
+.listeRecherche, .lienRecherche, .visualiserAnnonce
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* flex:1; */
+
+    padding: 30px 0 30px 0;
+}
+
+.footer
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    color:#fff6c5;
+    font-size: 15px;
+    font-family: 'MAIN';
+
+    text-shadow: 1px 1px 1px black, 2px 2px 1px black;
+    
+    background-color: rgba(0, 0, 0, .6);
+    border-top : 1px solid rgba(255, 248, 193, 0.5);
+}
+
+.footer a 
+{
+    text-decoration: none;
+    color:white;
+    font-size: 15px;
+    font-family: Main;
+}
+
+.footer a:hover
+{
+    color: seashell;
+    text-shadow: 1px 1px 1px red, 2px 2px 1px red;
+}
+
+.footer_bg
+{
+    display: flex;
+    flex-direction: column;
+    margin-left:30px;
+}
+
+.footer_bd
+{
+    display: flex;
+    flex-direction: column;
+    margin-right:30px;
+}
+
+@media screen and (max-width: 1200px)
+{
+    .app
+    {
+        background-size: cover;
+    }
+
+
+        
+}
+
+@media screen and (max-width: 700px)
+{
+    .header
+    {
+        flex-direction: column;
+    }
+
+    
+}
+
+
+
+@font-face {
+    font-family: 'police-titre';
+    src: url('./polices/Simple-script.ttf');
+}
+
+@font-face {
+    font-family: 'Main';
+    src: url('./polices/Cinzel-Regular.otf');
 }
