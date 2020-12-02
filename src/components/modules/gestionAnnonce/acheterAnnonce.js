@@ -44,8 +44,10 @@ export default class AcheterAnnonce extends Component {
 
         if (okBool)
         {
-            const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/acheterAnnonce.php";
-            const idAnnonce = this.state.searchResult['img_id'][0];
+            //const url = "/api/acheterAnnonce.php";
+            const url = "/api/acheterAnnonce.php";
+			
+			const idAnnonce = this.state.searchResult['img_id'][0];
 
             // En tete AXIOS + formatte la recherche pour axios
             var formData = new FormData();
@@ -110,7 +112,9 @@ export default class AcheterAnnonce extends Component {
 
     render() {
 
-        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/search.php";
+        //const url = "/api/search.php";
+		const url = "/api/search.php";
+		
         const style={textDecoration:"none", color:"rgba(255, 248, 193, .6)"}
 
         return (

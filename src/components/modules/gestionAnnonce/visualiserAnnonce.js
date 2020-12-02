@@ -13,7 +13,7 @@ export default class visualiserAnnonce extends Component {
 
     componentDidMount()
     {
-        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/readAnnonce.php";
+        const url = "/api/readAnnonce.php";
         const id = this.state.idAnnonce;
 
         // En tete AXIOS + formatte la recherche pour axios

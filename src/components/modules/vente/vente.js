@@ -25,7 +25,7 @@ export default class vente extends Component {
         // console.log("Gestion VENTE", typeVente);
         
         // En tete AXIOS + formatte la recherche pour axios
-        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/mesVentes.php";
+        const url = "/api/mesVentes.php";
         var formData = new FormData();
         formData.append('type', typeVente);
         
@@ -58,7 +58,7 @@ export default class vente extends Component {
 
     onClick = (infoAnnonce, functType) => {
         
-        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/validePaiement.php";
+        const url = "/api/validePaiement.php";
         var alertToDisplay = "";
         var formData = new FormData();
         formData.append('annonce_ref', infoAnnonce['annonce_ref']);
@@ -134,7 +134,7 @@ export default class vente extends Component {
         var result="";
         
         // En tete AXIOS + formatte la recherche pour axios
-        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/mesVentes.php";
+        const url = "/api/mesVentes.php";
         var formData = new FormData();
         formData.append('type', typeVente);
         

@@ -13,8 +13,7 @@ export default class auteur extends Component {
     componentDidMount() {
         
         // En tete AXIOS + formatte la recherche pour axios
-        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/searchAuteur.php";
-        // const url = this.props.axiosUrl;
+        const url = "/api/searchAuteur.php";
 
         // Fait appel à l'API PHP "SEARCH",  en paramètre "la recherche utilisateur"
         axios({

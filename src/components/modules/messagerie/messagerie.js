@@ -20,7 +20,7 @@ export default class messagerie extends Component {
     {
         const userSession = this.state.nameClient;
 
-        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/messagerie.php";
+        const url = "/api/messagerie.php";
         var formData = new FormData();
         formData.append('nom_prenom', userSession);
 
@@ -52,7 +52,7 @@ export default class messagerie extends Component {
     {
         const userSession = this.state.nameClient;
 
-        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/messagerie.php";
+        const url = "/api/messagerie.php";
         var formData = new FormData();
         formData.append('nom_prenom', userSession);
 
@@ -99,7 +99,7 @@ export default class messagerie extends Component {
 
         if ( statuts === 'efface' && window.confirm( "Etes-vous sûr de vouloir supprimer ce message ?" ))
         {
-            url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/effaceMessage.php";
+            url = "/api/effaceMessage.php";
         
             formData.append('date', date);
             formData.append('emailClient', emailClient);

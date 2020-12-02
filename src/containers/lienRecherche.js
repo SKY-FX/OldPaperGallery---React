@@ -23,7 +23,7 @@ export default class lienRecherche extends Component {
     componentDidMount() {
         
         // En tete AXIOS + formatte la recherche pour axios
-        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/searchDetails.php";
+        const url = "/api/searchDetails.php";
         var formData = new FormData();
         formData.append('searchText', this.state.searchText);
         formData.append('searchTextDetails', this.state.searchTextDetails);

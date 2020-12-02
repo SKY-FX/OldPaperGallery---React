@@ -18,7 +18,8 @@ export default class connexion extends Component {
     onSubmit = (event) => {
         event.preventDefault(); 
 
-        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/checkUserInBd.php";
+		const url = "/api/checkUserInBd.php";
+		
         var formData = new FormData();
         formData.append('email', this.state.email);
         formData.append('mot_de_passe', this.state.mot_de_passe);
