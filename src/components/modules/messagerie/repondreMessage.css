@@ -59,7 +59,7 @@
 .repondreMessage fieldset textarea
 {
 	text-align: center;
-	/* border-radius: 15px; */
+	width: 100%;
 	margin-bottom: 10px;
 	font-family: 'MAIN';
 	font-size: 15px;
@@ -76,4 +76,42 @@
 	background-color:  rgba(0, 0, 0, 1);
 	cursor: pointer;
 	/* color: rgba(255, 248, 193, 0.5); */
+}
+
+@media screen and (max-width: 700px)
+{
+	.repondreMessage
+	{
+		margin:10px;
+		margin-bottom: 100px;
+		/* padding:10px; */
+	}
+
+	.repondreMessage fieldset 
+	{
+		padding-top : 30px;
+		margin : 0px;
+	}
+
+	.repondreMessage fieldset legend{
+		font-size: 15px;
+	}
+
+	.repondreMessage fieldset textarea
+	{
+		margin-bottom: 10px;
+		font-size: 12px;
+		padding: 10px;
+		width: 100%;
+	}
+
+	.repondreMessage fieldset input
+	{
+		padding : 20px;
+		
+		background-color:  rgba(0, 0, 0, .6);
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 30px;
+	}
 }

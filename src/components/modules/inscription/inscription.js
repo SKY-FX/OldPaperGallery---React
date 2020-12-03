@@ -78,7 +78,7 @@ export default class inscription extends Component {
     render() {
         return (
             <Fragment>
-
+                
                 { (this.state.result==='') ?
                     <form onSubmit={this.handleSubmit} > 
                         <fieldset className="fieldSetConect"><legend>Inscription</legend>

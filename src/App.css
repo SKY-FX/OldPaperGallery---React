@@ -78,6 +78,19 @@
     /* max-width: 50vw; */
 }
 
+.header_contact
+{
+    position: fixed;
+    right:0;
+    top:0;
+    font-Size:20px; 
+    font-Family:"MAIN";
+    padding:10px;
+    margin:10px;
+    border-radius: 20px;
+    z-index: 999;
+}
+
 .header_text
 {
     position: fixed;

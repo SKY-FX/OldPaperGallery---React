@@ -53,7 +53,9 @@ export default class repondreMessage extends Component {
 
     sendMessage = () => {
        
-        var url = "/api/repondreMessage.php";
+        // var url = "/api/repondreMessage.php"; 
+        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/repondreMessage.php";
+        
         
         const exp = this.state.exp;
         const dst = this.state.dst;
@@ -126,8 +128,8 @@ export default class repondreMessage extends Component {
                     <div className="repondreMessage">     
                         <fieldset>
                             <legend>{titre}</legend>
-                            <textarea name="objet" value= {this.state.objet} placeholder="objet..." rows="1" cols="50" onChange={this.onChangeText} ></textarea>
-                            <textarea name="text_message" value={this.state.text_message} placeholder="Corps..." rows="10" cols="50" onChange={this.onChangeText}></textarea>
+                            <textarea name="objet" value= {this.state.objet} placeholder="objet..." rows="1" onChange={this.onChangeText} ></textarea>
+                            <textarea name="text_message" value={this.state.text_message} placeholder="Corps..." rows="10" onChange={this.onChangeText}></textarea>
                             <input className="bouton_abonnes" type="button" value="Envoyer" onClick={this.sendMessage} title="envoyer message"></input>
                         </fieldset>
                     </div>
