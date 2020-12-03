@@ -262,7 +262,7 @@ hr
     background-color: rgba(0,0,0,.5);
 
     padding : 50px;
-    margin: auto;
+    /* margin: auto; */
 }
 
 .panneau_paiement
@@ -338,3 +338,25 @@ hr
     }
 
 }
+
+@media screen and (max-width: 900px)
+{
+    .panneaux
+    {
+        flex-direction: column;
+    }
+
+    
+    .panneau_paiement
+    {
+        padding : auto;
+        margin : 0 auto 40px auto;
+    }
+    .panneau_facturation
+    {
+        padding : auto;
+        margin : 0 auto 0 auto;
+    }
+
+}
+
