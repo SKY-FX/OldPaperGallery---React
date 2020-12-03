@@ -185,6 +185,10 @@ export default class ajouterAnnonce extends Component {
                     <div className="detailsAnnonceForm">
                         <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"rgba(255,255,255,0.5)", cursor:"pointer", textDecoration:"none"}} >Retour</div>
     
+                        <p>Ajouter une annonce</p>
+                        <br/>
+                        <br/>
+
 
                         <fieldset><legend>REFERENCE</legend>
                             <textarea name="reference" value={this.state.reference} rows="1" placeholder="Référence" onChange={this.onChange} ></textarea>

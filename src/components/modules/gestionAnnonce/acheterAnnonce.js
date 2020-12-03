@@ -44,7 +44,7 @@ export default class AcheterAnnonce extends Component {
 
         if (okBool)
         {
-            //const url = "/api/acheterAnnonce.php";
+            // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/acheterAnnonce.php";
             const url = "/api/acheterAnnonce.php";
 			
 			const idAnnonce = this.state.searchResult['img_id'][0];
@@ -112,7 +112,6 @@ export default class AcheterAnnonce extends Component {
 
     render() {
 
-        //const url = "/api/search.php";
 		const url = "/api/search.php";
 		
         const style={textDecoration:"none", color:"rgba(255, 248, 193, .6)"}

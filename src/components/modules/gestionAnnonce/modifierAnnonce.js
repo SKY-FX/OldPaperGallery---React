@@ -222,8 +222,7 @@ export default class modifierAnnonce extends Component {
                 { this.state.userName !== '' ?
                     <div className="detailsAnnonceForm">
                     
-                        <h1>Annonce n° {this.state.idAnnonce}</h1>
-                        <br/>
+                        <p>Annonce n° {this.state.idAnnonce}</p>
                         <br/>
                         <br/>
 

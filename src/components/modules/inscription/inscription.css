@@ -101,3 +101,24 @@ legend
     font-size: 25px;
     text-shadow: 0px 0px 10px black, 0px 0px 20px black, 0px 0px 30px black;
 }
+
+
+@media screen and (max-width: 700px)
+{
+    .fieldSetConect 
+    {
+        width : 200px;
+        padding: 20px;
+        border: 1px solid rgba(255, 248, 193, 0.5);
+        border-radius: 15px;
+        
+        margin-bottom:50px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .item_connexion
+    {
+        margin-bottom:10px;
+    }
+}

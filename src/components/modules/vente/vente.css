@@ -14,36 +14,41 @@
     padding:50px;
 }
 
-.tabHead
+.tabHeadVente
 {
     background-color: rgba(0, 0, 0, 1);
     color:#fff6c5;
     font-family: Main;
 }
 
-.tabBody
+.tabBodyVente
 {
     background-color: rgba(0, 0, 0, 0.8);
     color:white;
-    padding:20px;
     font-family: Main;
     /* font-size: large; */
 }
 
-.tabBody a
+.tabBodyVente a
 {
     text-decoration: none;
     color:white;
 }
 
-table, td, th {
-    border: 1px solid rgba(255, 248, 193, .3);;
-    padding:20px;
+.tabBodyVente td{
+    border: 1px solid rgba(255, 248, 193, .3);
+    padding:10px;
   }
 
-table {
+.tabHeadVente th{
+    border: 1px solid rgba(255, 248, 193, .3);
+    padding:5px;
+}
+
+.messagerie table {
     border-collapse: collapse;
   }
+
 
 .selectType
 {
@@ -101,4 +106,26 @@ table {
 .action h5:hover
 {
     color : rgba(255, 248, 193, 1);;
+}
+
+
+@media screen and (max-width: 1000px)
+{
+
+    .vente{
+        padding:0px;
+        padding-top:30px;
+        /* padding-bottom:30px; */
+    }
+
+
+    .tabBodyVente td{
+        border: 1px solid rgba(255, 248, 193, .3);
+        padding:5px;
+    }
+
+    .tabHeadVente th{
+        border: 1px solid rgba(255, 248, 193, .3);
+        padding:5px;
+    }
 }

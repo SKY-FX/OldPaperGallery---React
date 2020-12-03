@@ -135,6 +135,8 @@ export default class vente extends Component {
         
         // En tete AXIOS + formatte la recherche pour axios
         const url = "/api/mesVentes.php";
+        // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/mesVentes.php";
+        
         var formData = new FormData();
         formData.append('type', typeVente);
         
@@ -207,7 +209,7 @@ export default class vente extends Component {
                 // console.log("__render", annonce_nomAuteur)
 
                 return (
-                    <tr key={id} className="tabBody">
+                    <tr key={id} className="tabBodyVente">
                         <td>{acheteur_nom}<br/>({acheteur_email})</td>
                         <td>{annonce_ref}</td>
                         <td>{annonce_nomAuteur}</td>
@@ -273,7 +275,7 @@ export default class vente extends Component {
                                 <Fragment>
                                     {/* En-tête du tableau */}
                                     <thead>
-                                        <tr className="tabHead">
+                                        <tr className="tabHeadVente">
                                             <th>Acheteur</th>
                                             <th>Référence</th>
                                             <th>Auteur</th>

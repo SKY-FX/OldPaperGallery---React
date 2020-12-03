@@ -1,12 +1,13 @@
 .zone{
-    margin-bottom: 50px;
+    
     border : 1px solid #fff6c5;
     background-color: rgba(0, 0, 0, 0.6);
     color:white;
     font-size: 15px;
     font-family: Main;
-    margin: auto;
     margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
     padding:100px;
     /* width: min-content; */
 }
@@ -52,3 +53,10 @@
 	transform: scale(1.1);
 }
 
+@media screen and (max-width: 700px)
+{
+    .zone{
+        padding:30px;
+        margin:0 25px 100px 25px;
+    }
+}

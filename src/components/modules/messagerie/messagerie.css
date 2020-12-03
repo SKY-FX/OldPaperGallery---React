@@ -10,7 +10,8 @@
     font-size: 15px;
     font-family: Main;
     margin:auto;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
+    margin-top: 100px;
     padding:50px;
 }
 
@@ -25,7 +26,7 @@
 {
     background-color: rgba(0, 0, 0, 0.8);
     color:white;
-    padding:20px;
+    /* padding:20px; */
     font-family: Main;
     
     /* font-size: large; */
@@ -41,11 +42,32 @@
 }
 
 
-table, td, th {
-    border: 1px solid rgba(255, 248, 193, .3);;
+.tabBody td{
+    border: 1px solid rgba(255, 248, 193, .3);
     padding:20px;
   }
 
-table {
-    border-collapse: collapse;
-  }
+.tabHead th{
+    border: 1px solid rgba(255, 248, 193, .3);
+    padding:5px;
+}
+
+@media screen and (max-width: 1000px)
+{
+
+    .messagerie{
+        padding:0px;
+        padding-top:30px;
+    }
+
+
+    .tabBody td{
+        border: 1px solid rgba(255, 248, 193, .3);
+        padding:5px;
+    }
+
+    .tabHead th{
+        border: 1px solid rgba(255, 248, 193, .3);
+        padding:5px;
+    }
+}

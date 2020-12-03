@@ -15,13 +15,14 @@ export default class inscription extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault(); 
+
+        console.log("RESULTAT1");
         
         var news = this.state.checked;
         if (news==="false")  news = "non";
         else news = "oui";
 
         const url = "/api/addUserInBd.php";
-        // const url = "/api/addUserInBd.php";
         var formData = new FormData();
         formData.append('nom_prenom', this.state.nom_prenom);
         formData.append('email', this.state.email);
@@ -39,7 +40,7 @@ export default class inscription extends Component {
         // Renvoie le résultat de la recherche ( objet de tableau ) au parent
         .then(response => {
             // console.log("SEARCH", this.state.email);
-            // console.log("RESULTAT", response.data);
+            console.log("RESULTAT", response.data);
 
             this.setState({
                 result : response.data

@@ -31,7 +31,9 @@ export default class gestionAnnonce extends Component {
     }
 
     searchText = (text) => {
-        const url = "/api/search.php";
+        const url = "/api/search.php"; 
+        // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/search.php";
+        
             
         // En tete AXIOS + formatte la recherche pour axios
         var formData = new FormData();

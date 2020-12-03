@@ -26,17 +26,17 @@ export default function footer(props) {
             
             <div className="footer_bg">
                 <a href="https://www.ebay.fr/usr/oldpapergallery" target="_blank" rel="noreferrer noopener">
-                    Boutique Ebay <br/><br/>
+                    Boutique Ebay 
                 </a>
 
                 <a href="https://www.ebay.fr/fdbk/feedback_profile/oldpapergallery?filter=feedback_page:All" target="_blank" rel="noreferrer noopener">
-                    AVIS
+                    Avis
                 </a>
             </div>
             
             <p>
-                Old Paper Gallery<br/>
-                2 rue de la concorde, 33000 Bordeaux<br/>
+                {/* Old Paper Gallery<br/><br/> */}
+                2 rue de la concorde - 33000 Bordeaux<br/>
                 06 86 76 86 04 - fr.chabaud@gmail.com<br/>
                 sarl - siren : XXXX
             </p>
@@ -44,7 +44,6 @@ export default function footer(props) {
             <div className="footer_bd">
                 <Link to={connecLink[0]}>
                     {connecName[0]}
-                    <br/><br/>
                 </Link>
 
                 <Link to={connecLink[1]}>

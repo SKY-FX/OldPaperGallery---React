@@ -8,9 +8,9 @@
     text-align: center;
     margin-right: auto;
     margin-left: auto;
-    margin-bottom: 50px;
     padding : 50px;
-    width: 500px;
+    padding-bottom:20px;
+    width: 50vw;
 
 	background-color: rgba(0, 0, 0, .6);
     border:1px solid #fff6c580;
@@ -173,7 +173,7 @@
 /****************************/
 .sectionDesc fieldset p
 {
-    font-size:20px;
+    font-size:15px;
     color:rgba(255, 255, 255, .8);
     margin:10px;
 }
@@ -293,4 +293,48 @@ hr
 .link p:hover
 {
     color:red;
+}
+
+@media screen and (max-width: 800px)
+{
+    .visu_annonce
+    {
+        flex-direction: column;
+    }
+
+    .sectionDesc
+    {
+        order: 0;
+        padding: 30px 10px 0 10px;
+    }
+
+    .sectionScan
+    {
+        order: 1;margin:0;
+    }
+
+    .flexDiv
+    {
+        flex-direction: column;    
+    }
+
+    .sectionScan a img:hover
+    {
+        transform: scale(3);
+        transform-origin: center top;
+    }
+
+    .detailsAnnonceForm
+    {
+        margin-right: auto;
+        margin-left: auto;
+        padding : 0;
+        padding-top : 20px;
+        width: 100vw;
+
+        background-color: rgba(0, 0, 0, .6);
+        border:1px solid #fff6c580;
+        font-family: 'MAIN';
+    }
+
 }

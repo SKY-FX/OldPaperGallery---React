@@ -27,6 +27,7 @@ export default class listeRecherche extends Component {
 
     render() {
         const url = "/api/search.php";
+        // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/search.php";
         
         return (
             
