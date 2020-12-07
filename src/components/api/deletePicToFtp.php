@@ -8,7 +8,7 @@
     $dirToModify    = $basePathServer . "/" . $refAnnonce;
 
     // Existe t'il au moins une ref d'annonce à supprimer
-    if ($ref != '')
+    if ($refAnnonce != '')
     {
         // Now do your FTP connection
         $ftp_server     = "oldpapergallery.com";

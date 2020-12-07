@@ -49,18 +49,18 @@ export default class gestionAnnonce extends Component {
         // Renvoie le résultat de la recherche ( objet de tableau ) au parent
         .then(response => {
             // console.log("SEARCH FUNCTION SEARCH", text);
-            console.log("SEARCH FUNCTION RESULTAT", response);
+            // console.log("SEARCH FUNCTION RESULTAT", response);
             var reponse = response.data;
             const listeRef = reponse['ref']; 
             const listeAnnonces = reponse;
     
 
             // Vérifie si des annonces ont été trouvés (si des parametres existent)
-            console.log("listeRef",listeRef);
+            // console.log("listeRef",listeRef);
             if (listeRef) {
                 const nbParams = Object.keys(listeAnnonces).length;
                 const nbAnnonce = listeRef.length;
-                console.log("nbAnnonce",nbAnnonce);
+                // console.log("nbAnnonce",nbAnnonce);
 
                 // convertie l'objet des parametres en tableau
                 var array = Object.keys(listeAnnonces).map((key) => {
@@ -78,7 +78,7 @@ export default class gestionAnnonce extends Component {
                     }
                 }
 
-                console.log("tabParam",tabParam);
+                // console.log("tabParam",tabParam);
             
                 this.setState({
                     searchText : text,
@@ -104,7 +104,7 @@ export default class gestionAnnonce extends Component {
  
         // Construit les annonces
         const tab = this.state.searchResult;
-        console.log("search : ", this.state.searchResult);
+        // console.log("search : ", this.state.searchResult);
         const listeAnnonce = tab.map( (param,id) => {
             return <AnnonceAdmin key={id} params={param} />
         });

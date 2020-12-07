@@ -22,10 +22,10 @@
 	else {$etat = trim(strip_tags(addslashes($_POST['etat'])));}
 	
 	if (!isset($_POST['notice'])){$notice = "";}
-	else {$notice = trim(strip_tags(addslashes($_POST['notice'])));}
+	else {$notice = nl2br(trim(strip_tags(addslashes($_POST['notice']))));}
 
 	if (!isset($_POST['infos'])){$infos = "";}
-	else {$infos = trim(strip_tags(addslashes($_POST['infos'])));}
+	else {$infos = nl2br(trim(strip_tags(addslashes($_POST['infos']))));}
 	
 	
 	
@@ -42,7 +42,7 @@
 	else {$A_lieu = trim(strip_tags(addslashes($_POST['A_lieu'])));}
 	
 	if (!isset($_POST['A_biographie'])){$A_biographie = "";}
-	else {$A_biographie = trim(strip_tags(addslashes($_POST['A_biographie'])));}	
+	else {$A_biographie = nl2br(trim(strip_tags(addslashes($_POST['A_biographie']))));}	
 	
 	if (!isset($_POST['dimension'])){$dimension = "";}
 	else {$dimension = trim(strip_tags(addslashes($_POST['dimension'])));}

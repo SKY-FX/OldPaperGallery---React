@@ -13,7 +13,10 @@ export default class modifierAnnonce extends Component {
             idAnnonce : this.props.match.params.idAnnonce,
             userName : '',
             portraitIsChange : false,
-            imagesIsChange : false
+            imagesIsChange : false,
+            A_biographie : '',
+            infos : '',
+            notice : ''
         }
         this.fileInput = React.createRef();
     }
@@ -228,6 +231,16 @@ export default class modifierAnnonce extends Component {
             )
         });
 
+        // Conversion html <br /> en saut de ligne pour la notice
+        const notice = this.state.notice.replace(/<br \/>/g, "\n");
+
+        // Conversion html <br /> en saut de ligne pour la biographie de l'auteur
+        const A_biographie = this.state.A_biographie.replace(/<br \/>/g, "\n");
+
+        // Conversion html <br /> en saut de ligne pour les informations du vendeur
+        const infos = this.state.infos.replace(/<br \/>/g, "\n");
+
+
         return (
             <Fragment>
                 <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"rgba(255,255,255,0.5)", cursor:"pointer", textDecoration:"none"}} >Retour</div>
@@ -273,7 +286,7 @@ export default class modifierAnnonce extends Component {
                             <textarea name="A_profession" onChange={this.onChange} value={this.state.A_profession} placeholder="Profession"></textarea><br/>
                             <textarea name="A_annees" onChange={this.onChange} value={this.state.A_annees} placeholder="Date de naissance et de décès"></textarea><br/>
                             <textarea name="A_lieu" onChange={this.onChange} value={this.state.A_lieu} placeholder="Lieu de naissance et de décès"></textarea><br/>
-                            <textarea name="A_biographie" onChange={this.onChange} value={this.state.A_biographie} placeholder="Biographie"></textarea><br/>
+                            <textarea name="A_biographie" onChange={this.onChange} value={A_biographie} placeholder="Biographie"></textarea><br/>
                         </fieldset>
 
                         <fieldset><legend>IDENTITE DU DESTINATAIRE</legend>
@@ -292,11 +305,11 @@ export default class modifierAnnonce extends Component {
                         </fieldset>
                             
                         <fieldset><legend>NOTICE</legend>					
-                            <textarea name="notice" onChange={this.onChange} value={this.state.notice} placeholder="Notice" ></textarea>
+                            <textarea name="notice" onChange={this.onChange} value={notice} placeholder="Notice" ></textarea>
                         </fieldset>
                             
                         <fieldset><legend>INFORMATIONS SUR LE VENDEUR</legend>	
-                            <textarea name="infos" onChange={this.onChange} value={this.state.infos} placeholder="Infos" ></textarea>
+                            <textarea name="infos" onChange={this.onChange} value={infos} placeholder="Infos" ></textarea>
                         </fieldset>
                                 
                         <fieldset><legend>CHOISIR LES IMAGES</legend>

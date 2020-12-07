@@ -8,6 +8,9 @@ export default class visualiserAnnonce extends Component {
         super(props);
         this.state = {
             idAnnonce : this.props.match.params.idAnnonce,
+            notice : '',
+            A_biographie : '',
+            infos : ''
         }
     }
 
@@ -94,7 +97,14 @@ export default class visualiserAnnonce extends Component {
             )
         });
 
-        // console.log("IMAGES", this.props)
+        // Conversion html <br /> en saut de ligne pour la notice
+        const notice = this.state.notice.replace(/<br \/>/g, "<br/>");
+
+        // Conversion html <br /> en saut de ligne pour la biographie de l'auteur
+        const A_biographie = this.state.A_biographie.replace(/<br \/>/g, "<br/>");
+
+        // Conversion html <br /> en saut de ligne pour les informations du vendeur
+        const infos = this.state.infos.replace(/<br \/>/g, "<br/>");
 
         return (
             
@@ -148,7 +158,7 @@ export default class visualiserAnnonce extends Component {
                             <fieldset><legend>Biographie</legend>	
                                 <div className="flexDiv">
                                     { (this.state.img_portrait) ? <img src={portraitPath} alt="scan" /> : null }
-                                    { (this.state.A_biographie) ? <p>{this.state.A_biographie}</p> : null }
+                                    { (this.state.A_biographie) ? <p dangerouslySetInnerHTML={{ __html: A_biographie }} /> : null }
                                 </div>
                             </fieldset>
                             <br/>
@@ -182,7 +192,11 @@ export default class visualiserAnnonce extends Component {
                     { (this.state.notice) ?
                         <Fragment>
                             <fieldset><legend>Notice</legend>
-                                <p>{this.state.notice}</p>
+                                {/* <div>
+                                    {notice}
+                                </div> */}
+                                <p dangerouslySetInnerHTML={{ __html: notice }} />
+    
                             </fieldset>     
                         </Fragment>:null
                     }
