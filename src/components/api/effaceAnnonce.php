@@ -17,5 +17,27 @@
     $sth = $cnx->prepare($req);
     $return = $sth->execute();	
 
+    echo"";
+
+    if ($return)
+	{
+        echo "L'annonce a été effacée en base\n";
+
+        // On récupère la ref de l'annonce pour la suprimer sur le serveur
+        $req = "SELECT ref FROM images WHERE img_id = '".$id."'";
+        $sth = $cnx->prepare($req);
+        $sth->execute();
+        $col = $sth->fetch(PDO::FETCH_BOTH);
+
+        $ref = $col[0];
+
+        // Supprime les images et le répertoire parent de Hostinger via FTP
+        include ("deletePicToFtp.php");	
+	}
+	else
+	{
+		echo "Un prôblème est survenue lors de la suppression de l'annonce en base\n";
+    }
+    
     echo json_encode($return);
 ?>

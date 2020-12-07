@@ -18,7 +18,8 @@ class annonce extends Component {
         
         // cherche l'image dans public/ressources
         // Pas besoin de mettre "./" car "ressources" est situé dans le dossier "public"
-        const basePathPic = "/ressources/";
+        // const basePathPic = "/ressources/";
+		const basePathPic = "/uploadPics/" + ref + "/";
         const picPath = basePathPic.concat(nomImage);
         
         const pathVisu = "/GestionAnnonces/Visualiser/" + idImage;

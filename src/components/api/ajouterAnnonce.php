@@ -6,15 +6,11 @@
 
 	$return = 0;
 
-    if (!isset($_POST['id'])){$id = "";}
-	else {$id = $_POST['id'];}
-
 	if (!isset($_POST['reference'])){$reference = "";}
 	else {$reference = trim(strip_tags(addslashes($_POST['reference'])));}
 	
 	if (!isset($_POST['titre'])){$titre = "";}
 	else {$titre = trim(strip_tags(addslashes($_POST['titre'])));}
-
 
 	$discipline = trim(strip_tags(addslashes($_POST['discipline'])));
 	$type_doc = trim(strip_tags(addslashes($_POST['type_doc'])));
@@ -64,24 +60,46 @@
 	if (!isset($_POST['D_lieu'])){$D_lieu = "";}
 	else {$D_lieu = trim(strip_tags(addslashes($_POST['D_lieu'])));}
 
-	
-	if (!isset($_POST['img_portrait'])){$img_portrait = "";}
-	else {$img_portrait = trim(strip_tags(addslashes($_POST['img_portrait'])));}
 
-	if (!isset($_POST['img_nom1'])){$img_nom1 = "";}
-	else {$img_nom1 = trim(strip_tags(addslashes($_POST['img_nom1'])));}
-	
-	if (!isset($_POST['img_nom2'])){$img_nom2 = "";}
-	else {$img_nom2 = trim(strip_tags(addslashes($_POST['img_nom2'])));}
-	
-	if (!isset($_POST['img_nom3'])){$img_nom3 = "";}
-	else {$img_nom3 = trim(strip_tags(addslashes($_POST['img_nom3'])));}
-	
-	if (!isset($_POST['img_nom4'])){$img_nom4 = "";}
-	else {$img_nom4 = trim(strip_tags(addslashes($_POST['img_nom4'])));}
-	
-	if (!isset($_POST['img_nom5'])){$img_nom5 = "";}
-	else {$img_nom5 = trim(strip_tags(addslashes($_POST['img_nom5'])));}
+
+
+	if (!isset($_FILES['img_file1']['name'])){$img_nom1 = "";}
+	else {$img_nom1 = trim(strip_tags(addslashes($_FILES['img_file1']['name'])));}
+
+	if (!isset($_FILES['img_file2']['name'])){$img_nom2 = "";}
+	else {$img_nom2 = trim(strip_tags(addslashes($_FILES['img_file2']['name'])));}
+
+	if (!isset($_FILES['img_file3']['name'])){$img_nom3 = "";}
+	else {$img_nom3 = trim(strip_tags(addslashes($_FILES['img_file3']['name'])));}
+
+	if (!isset($_FILES['img_file4']['name'])){$img_nom4 = "";}
+	else {$img_nom4 = trim(strip_tags(addslashes($_FILES['img_file4']['name'])));}
+
+	if (!isset($_FILES['img_file5']['name'])){$img_nom5 = "";}
+	else {$img_nom5 = trim(strip_tags(addslashes($_FILES['img_file5']['name'])));}
+
+	if (!isset($_FILES['portrait_file']['name'])){$img_portrait = "";}
+	else {$img_portrait = trim(strip_tags(addslashes($_FILES['portrait_file']['name'])));}
+
+
+	if (!isset($_FILES['img_file1']['tmp_name'])){$img_tmp1 = "";}
+	else {$img_tmp1 = trim(strip_tags(addslashes($_FILES['img_file1']['tmp_name'])));}
+
+	if (!isset($_FILES['img_file2']['tmp_name'])){$img_tmp2 = "";}
+	else {$img_tmp2 = trim(strip_tags(addslashes($_FILES['img_file2']['tmp_name'])));}
+
+	if (!isset($_FILES['img_file3']['tmp_name'])){$img_tmp3 = "";}
+	else {$img_tmp3 = trim(strip_tags(addslashes($_FILES['img_file3']['tmp_name'])));}
+
+	if (!isset($_FILES['img_file4']['tmp_name'])){$img_tmp4 = "";}
+	else {$img_tmp4 = trim(strip_tags(addslashes($_FILES['img_file4']['tmp_name'])));}
+
+	if (!isset($_FILES['img_file5']['tmp_name'])){$img_tmp5 = "";}
+	else {$img_tmp5 = trim(strip_tags(addslashes($_FILES['img_file5']['tmp_name'])));}
+
+	if (!isset($_FILES['portrait_file']['tmp_name'])){$img_tmp6 = "";}
+	else {$img_tmp6 = trim(strip_tags(addslashes($_FILES['portrait_file']['tmp_name'])));}
+
 	
 	setlocale (LC_TIME, 'fr_FR.utf8','fra'); 
     date_default_timezone_set('Europe/Paris');
@@ -121,6 +139,21 @@
 						"'" . $reference . "', " .
 						"'" . $date . "') ";
 	$return = $cnx->exec($req);
+
+
+	if ($return=='1')
+	{
+		echo "L'ajout de l'annonce a été réalisé en base\n";
+
+		// Ajoute les images vers Hostinger via FTP
+		include ("addPicToFtp.php");	
+	}
+	else
+	{
+		echo "Un prôblème est survenue lors de l'ajout de l'annonce en base\n";
+	}
+
+
 	
 	
     echo json_encode($return);

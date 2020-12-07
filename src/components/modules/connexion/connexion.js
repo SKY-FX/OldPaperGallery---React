@@ -18,7 +18,7 @@ export default class connexion extends Component {
     onSubmit = (event) => {
         event.preventDefault(); 
 
-		// const url = "/api/checkUserInBd.php";
+        // const url = "/api/checkUserInBd.php";
 		const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/checkUserInBd.php";
         
         var formData = new FormData();
@@ -58,9 +58,8 @@ export default class connexion extends Component {
 
             this.props.return(connect);
 
-            // console.log("RESULTAT",connect);
+            // console.log("RESULTAT",response.data);
 
-            
         })
 
         // Affiche l'erreur

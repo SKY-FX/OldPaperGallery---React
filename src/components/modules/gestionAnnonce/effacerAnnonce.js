@@ -21,11 +21,12 @@ export default class effacerAnnonce extends Component {
             userName : userName
         });
 
-        if (userName !== '')
+        if (userName !== '') 
         {
-            
+            // const url = "/api/effaceAnnonce.php";
+            const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/effaceAnnonce.php";
 
-            const url = "/api/effaceAnnonce.php";
+
             const id = this.props.match.params.idAnnonce;
 
             // En tete AXIOS + formatte la recherche pour axios

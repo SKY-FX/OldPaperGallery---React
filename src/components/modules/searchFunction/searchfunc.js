@@ -17,7 +17,6 @@ export default class searchfunc extends Component {
         
         // console.log("SEARCH FUNCTION DID MOUNT TEXT",this.props.searchText);
         // En tete AXIOS + formatte la recherche pour axios
-        // const url = "/api/search.php";
         const url = this.state.axiosUrl;
         var formData = new FormData();
         formData.append('searchText', this.state.searchText);

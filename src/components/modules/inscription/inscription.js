@@ -23,6 +23,7 @@ export default class inscription extends Component {
         else news = "oui";
 
         const url = "/api/addUserInBd.php";
+		
         var formData = new FormData();
         formData.append('nom_prenom', this.state.nom_prenom);
         formData.append('email', this.state.email);

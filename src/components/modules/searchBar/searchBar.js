@@ -7,7 +7,6 @@ class searchBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            userType : this.props.userType,
             searchText : '',
             nbResult : 0,
             Presence : ''            

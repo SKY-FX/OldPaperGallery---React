@@ -18,7 +18,7 @@ export default class gestionAnnonce extends Component {
         // console.log("SEARCHTEXT", searchText);
         this.state = {
             searchResult : [],
-            searchText : ' ',
+            searchText : "",
             userName : UserProfile.getName()
         };
         // console.log("MAIN : ", this.state.searchText);
@@ -27,12 +27,12 @@ export default class gestionAnnonce extends Component {
     componentDidMount()
     {
         // console.log("Gestion annonce");
-        this.searchText(' ');
+        this.searchText('');
     }
 
     searchText = (text) => {
-        const url = "/api/search.php"; 
-        // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/search.php";
+        // const url = "/api/search.php"; 
+        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/search.php";
         
             
         // En tete AXIOS + formatte la recherche pour axios
@@ -49,16 +49,18 @@ export default class gestionAnnonce extends Component {
         // Renvoie le résultat de la recherche ( objet de tableau ) au parent
         .then(response => {
             // console.log("SEARCH FUNCTION SEARCH", text);
-            // console.log("SEARCH FUNCTION RESULTAT", response.data);
+            console.log("SEARCH FUNCTION RESULTAT", response);
             var reponse = response.data;
-            const listeRef = reponse['ref'];
+            const listeRef = reponse['ref']; 
             const listeAnnonces = reponse;
     
 
             // Vérifie si des annonces ont été trouvés (si des parametres existent)
+            console.log("listeRef",listeRef);
             if (listeRef) {
                 const nbParams = Object.keys(listeAnnonces).length;
                 const nbAnnonce = listeRef.length;
+                console.log("nbAnnonce",nbAnnonce);
 
                 // convertie l'objet des parametres en tableau
                 var array = Object.keys(listeAnnonces).map((key) => {
@@ -75,6 +77,8 @@ export default class gestionAnnonce extends Component {
                         tabParam[ii][jj] = array[jj][ii];
                     }
                 }
+
+                console.log("tabParam",tabParam);
             
                 this.setState({
                     searchText : text,
@@ -100,6 +104,7 @@ export default class gestionAnnonce extends Component {
  
         // Construit les annonces
         const tab = this.state.searchResult;
+        console.log("search : ", this.state.searchResult);
         const listeAnnonce = tab.map( (param,id) => {
             return <AnnonceAdmin key={id} params={param} />
         });
@@ -113,7 +118,7 @@ export default class gestionAnnonce extends Component {
                     </div>
                     :
                     <div className="listeRecherche">
-                        <SearchBar userType={this.props.match.params.client} return={ (result) => this.searchText(result) }/>
+                        <SearchBar return={ (result) => this.searchText(result) }/>
                         <p className="_item" onClick={ this.onClick } >Ajouter une annonce</p>
                         <br/> <br/> 
                         {listeAnnonce}

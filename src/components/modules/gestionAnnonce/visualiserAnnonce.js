@@ -72,7 +72,8 @@ export default class visualiserAnnonce extends Component {
     }
 
     render() {
-        const basePathPic = "/ressources/";
+        // const basePathPic = "/ressources/";
+        const basePathPic = "/uploadPics/" + this.state.reference + "/";
         
         const portraitPath = basePathPic.concat(this.state.img_portrait);
 

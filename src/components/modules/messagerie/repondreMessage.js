@@ -53,8 +53,8 @@ export default class repondreMessage extends Component {
 
     sendMessage = () => {
        
-        // var url = "/api/repondreMessage.php"; 
-        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/repondreMessage.php";
+        var url = "/api/repondreMessage.php"; 
+        // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/repondreMessage.php";
         
         
         const exp = this.state.exp;

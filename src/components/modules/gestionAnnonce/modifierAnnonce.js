@@ -11,7 +11,9 @@ export default class modifierAnnonce extends Component {
         super(props);
         this.state = {
             idAnnonce : this.props.match.params.idAnnonce,
-            userName : ''
+            userName : '',
+            portraitIsChange : false,
+            imagesIsChange : false
         }
         this.fileInput = React.createRef();
     }
@@ -24,7 +26,8 @@ export default class modifierAnnonce extends Component {
             userName : userName
         })
 
-        const url = "/api/readAnnonce.php";
+        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/readAnnonce.php";
+        // const url = "/api/readAnnonce.php";
         const id = this.state.idAnnonce;
 
         // En tete AXIOS + formatte la recherche pour axios
@@ -46,7 +49,6 @@ export default class modifierAnnonce extends Component {
             const result = response.data;
 
             this.setState({
-                // result : result,
                 reference : result[23],
                 titre : result[5],
                 type_doc : result[21],
@@ -70,7 +72,13 @@ export default class modifierAnnonce extends Component {
                 img_nom3 : result[2],
                 img_nom4 : result[3],
                 img_nom5 : result[4],
-                img_portrait : result[22]
+                img_portrait : result[22],
+                img_file1 : '',
+                img_file2 : '',
+                img_file3 : '',
+                img_file4 : '',
+                img_file5 : '',
+                portrait_file : ''
             });
         })
     
@@ -83,7 +91,8 @@ export default class modifierAnnonce extends Component {
     onModifierAnnonce = (e) => {
         e.preventDefault();
 
-        const url = "/api/modifierAnnonce.php";
+        // const url = "/api/modifierAnnonce.php";
+        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/modifierAnnonce.php";
 
         // En tete AXIOS + formatte la recherche pour axios
         var formData = new FormData();
@@ -106,12 +115,25 @@ export default class modifierAnnonce extends Component {
         formData.append('notice', this.state.notice);
         formData.append('infos', this.state.infos);
         formData.append('prix', this.state.prix);
+
+        formData.append('img_file1', this.state.img_file1);
+        formData.append('img_file2', this.state.img_file2);
+        formData.append('img_file3', this.state.img_file3);
+        formData.append('img_file4', this.state.img_file4);
+        formData.append('img_file5', this.state.img_file5);
+        formData.append('portrait_file', this.state.portrait_file);
+
         formData.append('img_nom1', this.state.img_nom1);
         formData.append('img_nom2', this.state.img_nom2);
         formData.append('img_nom3', this.state.img_nom3);
         formData.append('img_nom4', this.state.img_nom4);
         formData.append('img_nom5', this.state.img_nom5);
         formData.append('img_portrait', this.state.img_portrait);
+
+        formData.append('portraitIsChange', this.state.portraitIsChange);
+        formData.append('imagesIsChange', this.state.imagesIsChange);
+
+        // console.log ("img_file1 : ", this.state.img_file1)
     
         
 
@@ -124,7 +146,7 @@ export default class modifierAnnonce extends Component {
     
         // Renvoie le résultat de la recherche ( objet de tableau ) au parent
         .then(response => {
-            // console.log("ECRIT ANNONCE RESULTAT", response.data);
+            console.log("MODIFIER ANNONCE RESULTAT", response.data);
 
             this.props.history.push('/GestionAnnonces/');
         })
@@ -149,12 +171,12 @@ export default class modifierAnnonce extends Component {
         const filesTab = event.target.files;
         const nbFiles =  filesTab.length;
 
-        if (nbFiles) 
+        if (nbFiles>0) 
         {
-            const value = event.target.files[0].name;
 
             this.setState({
-                img_portrait : value
+                portrait_file : event.target.files[0],
+                portraitIsChange : true
             })
         }
        
@@ -165,26 +187,16 @@ export default class modifierAnnonce extends Component {
         const filesTab = event.target.files;
         const nbFiles =  filesTab.length;
 
-        // Réinitialise à vide les noms d'image dans le state du composant
-        for (var iii=1; iii<=5; iii++)
-        {
-            const name = "img_nom" + iii;
-            this.setState({
-                [name] : ''
-            });
-        }
-
         if (nbFiles<=5)
         {
             for (var ii=1; ii<=nbFiles; ii++)
             {
-                const fileName = event.target.files[ii-1].name;
-                const name = "img_nom" + ii;
+                const nameFile = "img_file" + ii;
                 this.setState({
-                    [name] : fileName
+                    [nameFile] : event.target.files[ii-1],
+                    imagesIsChange : true
                 });
             }
-            // console.log("COUCOU", nbFiles)   
         }   
         else{
             window.alert("Vous pouvez télécharher au maximum 5 images !")
@@ -194,7 +206,8 @@ export default class modifierAnnonce extends Component {
 
     render() {
 
-        const basePathPic = "/ressources/";
+        // const basePathPic = "/ressources/";
+		const basePathPic = "/uploadPics/" + this.state.reference + "/";
         const portraitPath = basePathPic.concat(this.state.img_portrait);
         // const picPath = portraitPath.concat(this.state.img_portrait);
 

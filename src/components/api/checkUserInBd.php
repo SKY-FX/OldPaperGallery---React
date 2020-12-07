@@ -37,11 +37,6 @@
         // MOT DE PASSE OK
         if ($col[0] == $mot_de_passe)
         {        
-            // $result = "Vous êtes connecté en tant que \" $col[1]\" !";
-            // $_SESSION['username'] = $col[1];
-            // $_SESSION['login'] = $email;
-            // $_SESSION['pwd'] = $mot_de_passe;
-
             $return[0] = $col[1];
             $return[1] = $col[2];
         }
