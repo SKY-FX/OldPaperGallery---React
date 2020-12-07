@@ -160,7 +160,7 @@ export default class messagerie extends Component {
             else textButton = "Envoyez un message au vendeur";
 
             const passBool = result[0].EXP;
-            console.log("MESSAGERIE CONVERTIE", result);
+            // console.log("MESSAGERIE CONVERTIE", result);
             if (passBool !== '')
             {
                 visuMessa = result.map( (mess, id) => {

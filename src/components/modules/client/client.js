@@ -17,7 +17,7 @@ export default class client extends Component {
     componentDidMount()
     {
         const userName = UserProfile.getName();
-        console.log("SESSION", userName);
+        // console.log("SESSION", userName);
         
         this.setState({
             userName : userName,
@@ -26,7 +26,7 @@ export default class client extends Component {
     }
 
     render() {
-        console.log("SESSION1", this.state.userName);
+        // console.log("SESSION1", this.state.userName);
         return (
             <Fragment>
 

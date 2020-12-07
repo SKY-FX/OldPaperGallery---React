@@ -52,8 +52,8 @@ export default class ajouterAnnonce extends Component {
         console.log("TARGET", e.target);
 
         
-        // const url = "/api/ajouterAnnonce.php";
-        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/ajouterAnnonce.php";
+        const url = "/api/ajouterAnnonce.php";
+        // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/ajouterAnnonce.php";
         
         // En tete AXIOS + formatte la recherche pour axios
         var formData = new FormData();
@@ -93,7 +93,7 @@ export default class ajouterAnnonce extends Component {
     
         // Renvoie le résultat de la recherche ( objet de tableau ) au parent
         .then(response => {
-            console.log("AJOUTE ANNONCE RESULTAT", response.data);
+            // console.log("AJOUTE ANNONCE RESULTAT", response.data);
             const result = response.data;
 
             if (result!==0) this.props.history.push('/GestionAnnonces/');
@@ -165,7 +165,7 @@ export default class ajouterAnnonce extends Component {
                     [file] : fileContents
                 });
 
-                console.log("COUCOU", fileContents)   
+                // console.log("COUCOU", fileContents)   
             }
             
         }   

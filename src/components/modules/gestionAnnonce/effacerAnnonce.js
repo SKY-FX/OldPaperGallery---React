@@ -23,8 +23,8 @@ export default class effacerAnnonce extends Component {
 
         if (userName !== '') 
         {
-            // const url = "/api/effaceAnnonce.php";
-            const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/effaceAnnonce.php";
+            const url = "/api/effaceAnnonce.php";
+            // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/effaceAnnonce.php";
 
 
             const id = this.props.match.params.idAnnonce;

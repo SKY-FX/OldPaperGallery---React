@@ -75,7 +75,7 @@ export default class AcheterAnnonce extends Component {
         
             // Renvoie le résultat de la recherche ( objet de tableau ) au parent
             .then(response => {
-                console.log("ACHAT ANNONCE RESULTAT", response.data);
+                // console.log("ACHAT ANNONCE RESULTAT", response.data);
 
                 const result = response.data;
 
