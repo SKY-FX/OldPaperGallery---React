@@ -22,7 +22,9 @@ export default class inscription extends Component {
         if (news==="false")  news = "non";
         else news = "oui";
 
-        const url = "/api/addUserInBd.php";
+        // const url = "/api/addUserInBd.php";
+         const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/addUserInBd.php";
+        
 		
         var formData = new FormData();
         formData.append('nom_prenom', this.state.nom_prenom);
@@ -105,7 +107,7 @@ export default class inscription extends Component {
                     <div className="textConnexion">
                         L'adresse électronique <b style={{ color:'#fff6c5' }}>{this.state.email}</b> a bien été enregistré sur ce site.
                         <br/><br/>
-                        Vous pouvez désormais vous connecter et accéder à votre messagerie privée !
+                        Vous pouvez désormais vous connecter et accéder à votre messagerie privée à l'aide de cette adresse et du mot de passe <b style={{ color:'#fff6c5' }}>{this.state.mot_de_passe}</b> !
                     </div>
                     :
                     null
