@@ -10,14 +10,15 @@ export default class visualiserAnnonce extends Component {
             idAnnonce : this.props.match.params.idAnnonce,
             notice : '',
             A_biographie : '',
-            infos : ''
+            infos : '',
+            titre : ''
         }
     }
 
     componentDidMount()
     {
-        const url = "/api/readAnnonce.php";
-        // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/readAnnonce.php";
+        // const url = "/api/readAnnonce.php";
+        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/readAnnonce.php";
         
         const id = this.state.idAnnonce;
 
@@ -106,6 +107,9 @@ export default class visualiserAnnonce extends Component {
         // Conversion html <br /> en saut de ligne pour les informations du vendeur
         const infos = this.state.infos.replace(/<br \/>/g, "<br/>");
 
+        // Conversion html <br /> en saut de ligne pour le titre de l'annonce
+        const titre = this.state.titre.replace(/<br \/>/g, "<br/>");
+
         return (
             
             <div className="visu_annonce">
@@ -118,14 +122,14 @@ export default class visualiserAnnonce extends Component {
                     { (this.state.prix) ?
                         <Fragment>
                             <br/><br/>
-                            <span>{this.state.prix} €</span>
+                            <div className="pHead">{this.state.prix} €</div>
                             <br/><br/>                          
                         </Fragment>:null
                     }
 
                     { (this.state.etat || this.state.dimension) ?
                             <fieldset>
-                                <p>		
+                                <div className="pBody">		
                                     { (this.state.etat) ?
                                         <Fragment>{this.state.etat}</Fragment>:null
                                     }
@@ -133,7 +137,7 @@ export default class visualiserAnnonce extends Component {
                                     { (this.state.dimension) ?
                                         <Fragment>{this.state.dimension}</Fragment>:null
                                     }
-                                </p>
+                                </div>
                             </fieldset>:null
                     }
                 </div>
@@ -142,15 +146,15 @@ export default class visualiserAnnonce extends Component {
                 <div className="sectionDesc">
 
                     { (this.state.A_nom_prenom) ?
-                        <Fragment><h1>{this.state.A_nom_prenom}</h1></Fragment>:null
+                        <div className="pHHead">{this.state.A_nom_prenom}</div>:null
                     }
                     
                     { (this.state.A_annees) ?
-                        <Fragment><h5>{this.state.A_annees}</h5><br/></Fragment>:null
+                        <Fragment><p>{this.state.A_annees}</p><br/></Fragment>:null
                     }
 
                     { (this.state.A_profession) ?
-                        <Fragment><h5>{this.state.A_profession}</h5><br/><br/></Fragment>:null
+                        <Fragment><p>{this.state.A_profession}</p><br/><br/></Fragment>:null
                     }
 
                     { (this.state.A_biographie || this.state.img_portrait) ?
@@ -158,7 +162,7 @@ export default class visualiserAnnonce extends Component {
                             <fieldset><legend>Biographie</legend>	
                                 <div className="flexDiv">
                                     { (this.state.img_portrait) ? <img src={portraitPath} alt="scan" /> : null }
-                                    { (this.state.A_biographie) ? <p dangerouslySetInnerHTML={{ __html: A_biographie }} /> : null }
+                                    { (this.state.A_biographie) ? <div className="pBBody" dangerouslySetInnerHTML={{ __html: A_biographie }} /> : null }
                                 </div>
                             </fieldset>
                             <br/>
@@ -168,15 +172,15 @@ export default class visualiserAnnonce extends Component {
                    
                     { (this.state.D_nom_prenom) ?
                         <Fragment>
-                            <h6>Document adressé à</h6><hr/><br/>
-                            <h1>{this.state.D_nom_prenom}</h1>
+                            <p>Document adressé à</p><hr/><br/>
+                            <div className="pHHead">{this.state.D_nom_prenom}</div>
                             { (this.state.D_annees) ? 
                                 <Fragment>
-                                    <h5>{this.state.D_annees}</h5>
+                                    <p>{this.state.D_annees}</p>
                                     <br/>
                                     { (this.state.D_profession) ? 
                                         <Fragment>
-                                             <h4>{this.state.D_profession}</h4>
+                                             <p>{this.state.D_profession}</p>
                                              <br/><hr/>
                                         </Fragment>:null
                                     }
@@ -186,17 +190,13 @@ export default class visualiserAnnonce extends Component {
                     }
 
                     { (this.state.titre) ?
-                        <Fragment><br/><br/><h6><i>{this.state.titre}</i></h6></Fragment>:null
+                        <Fragment><br/><br/><i><p dangerouslySetInnerHTML={{ __html: titre }} /></i></Fragment>:null
                     }
 
                     { (this.state.notice) ?
                         <Fragment>
                             <fieldset><legend>Notice</legend>
-                                {/* <div>
-                                    {notice}
-                                </div> */}
-                                <p dangerouslySetInnerHTML={{ __html: notice }} />
-    
+                                <div className="pBBody" dangerouslySetInnerHTML={{ __html: notice }} />
                             </fieldset>     
                         </Fragment>:null
                     }

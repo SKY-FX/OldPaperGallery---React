@@ -214,7 +214,7 @@ export default class ajouterAnnonce extends Component {
                             </fieldset>	
                         
                             <fieldset><legend>TITRE</legend>
-                                <textarea name="titre" value={this.state.titre} rows="1" placeholder="Titre" onChange={this.onChange}></textarea>
+                                <textarea name="titre" value={this.state.titre} rows="3" placeholder="Titre" onChange={this.onChange}></textarea>
                             </fieldset>	
                             
                             <fieldset><legend>TYPE DE DOCUMENT</legend>
@@ -239,30 +239,30 @@ export default class ajouterAnnonce extends Component {
                             </fieldset>
 
                             <fieldset><legend>IDENTITE DE L'AUTEUR</legend>
-                                <textarea name="A_nom_prenom" onChange={this.onChange} value={this.state.A_nom_prenom} placeholder="Nom Prénom"></textarea><br/>
-                                <textarea name="A_profession" onChange={this.onChange} value={this.state.A_profession} placeholder="Profession"></textarea><br/>
-                                <textarea name="A_annees" onChange={this.onChange} value={this.state.A_annees} placeholder="Date de naissance et de décès"></textarea><br/>
-                                <textarea name="A_lieu" onChange={this.onChange} value={this.state.A_lieu} placeholder="Lieu de naissance et de décès"></textarea><br/>
-                                <textarea name="A_biographie" onChange={this.onChange} value={this.state.A_biographie} placeholder="Biographie"></textarea><br/>
+                                <textarea name="A_nom_prenom" onChange={this.onChange} value={this.state.A_nom_prenom} rows="1" placeholder="Nom Prénom"></textarea><br/>
+                                <textarea name="A_profession" onChange={this.onChange} value={this.state.A_profession} rows="1" placeholder="Profession"></textarea><br/>
+                                <textarea name="A_annees" onChange={this.onChange} value={this.state.A_annees} rows="1" placeholder="Date de naissance et de décès"></textarea><br/>
+                                <textarea name="A_lieu" onChange={this.onChange} value={this.state.A_lieu} rows="1" placeholder="Lieu de naissance et de décès"></textarea><br/>
+                                <textarea name="A_biographie" onChange={this.onChange} value={this.state.A_biographie} rows="3" placeholder="Biographie"></textarea><br/>
                             </fieldset>
 
                             <fieldset><legend>IDENTITE DU DESTINATAIRE</legend>
-                                <textarea name="D_nom_prenom" onChange={this.onChange} value={this.state.D_nom_prenom} placeholder="Nom Prénom" ></textarea><br/>
-                                <textarea name="D_profession" onChange={this.onChange} value={this.state.D_profession} placeholder="Profession" ></textarea><br/>
-                                <textarea name="D_annees" onChange={this.onChange} value={this.state.D_annees} placeholder="Date de naissance et de décès" ></textarea><br/>
-                                <textarea name="D_lieu" onChange={this.onChange} value={this.state.D_lieu} placeholder="Lieu de naissance et de décès" ></textarea><br/>
+                                <textarea name="D_nom_prenom" onChange={this.onChange} value={this.state.D_nom_prenom} rows="1" placeholder="Nom Prénom" ></textarea><br/>
+                                <textarea name="D_profession" onChange={this.onChange} value={this.state.D_profession} rows="1" placeholder="Profession" ></textarea><br/>
+                                <textarea name="D_annees" onChange={this.onChange} value={this.state.D_annees} rows="1" placeholder="Date de naissance et de décès" ></textarea><br/>
+                                <textarea name="D_lieu" onChange={this.onChange} value={this.state.D_lieu} rows="1" placeholder="Lieu de naissance et de décès" ></textarea><br/>
                             </fieldset>
 
                             <fieldset><legend>ETAT</legend>
-                                <textarea name="etat" onChange={this.onChange} value={this.state.etat} placeholder="Etat" ></textarea>
+                                <textarea name="etat" onChange={this.onChange} value={this.state.etat} rows="1" placeholder="Etat" ></textarea>
                             </fieldset>
                                     
                             <fieldset><legend>DIMENSION</legend>
-                                <textarea name="dimension" onChange={this.onChange} value={this.state.dimension} placeholder="Dimension" ></textarea>
+                                <textarea name="dimension" onChange={this.onChange} value={this.state.dimension} rows="1" placeholder="Dimension" ></textarea>
                             </fieldset>
                                 
                             <fieldset><legend>NOTICE</legend>					
-                                <textarea name="notice" onChange={this.onChange} value={this.state.notice} placeholder="Notice" ></textarea>
+                                <textarea name="notice" onChange={this.onChange} value={this.state.notice} rows="3" placeholder="Notice" ></textarea>
                             </fieldset>
                                 
                             <fieldset><legend>INFORMATIONS SUR LE VENDEUR</legend>	
@@ -306,7 +306,7 @@ export default class ajouterAnnonce extends Component {
                             </fieldset>	
 
                             <fieldset><legend>PRIX (€)</legend>	
-                                <textarea name="prix" onChange={this.onChange} value={this.state.prix} placeholder="Prix"></textarea>
+                                <textarea name="prix" onChange={this.onChange} value={this.state.prix} rows="1" placeholder="Prix"></textarea>
                             </fieldset>
                             
                             <fieldset><legend>AJOUTER L'ANNONCE</legend>	

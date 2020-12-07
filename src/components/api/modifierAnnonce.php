@@ -13,7 +13,7 @@
 	else {$reference = trim(strip_tags(addslashes($_POST['reference'])));}
 	
 	if (!isset($_POST['titre'])){$titre = "";}
-	else {$titre = trim(strip_tags(addslashes($_POST['titre'])));}
+	else {$titre = nl2br(trim(strip_tags(addslashes($_POST['titre']))));}
 
 	$discipline = trim(strip_tags(addslashes($_POST['discipline'])));
 	$type_doc = trim(strip_tags(addslashes($_POST['type_doc'])));

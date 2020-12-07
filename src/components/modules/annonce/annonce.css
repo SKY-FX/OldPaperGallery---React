@@ -41,22 +41,22 @@
 
 }
 
-.infoAnnonce h2
+.pBody
 {
 	color: rgba(255, 255, 255, .8);
-	font-size: 0.9em;
+	font-size: .9em;
 }
 
-.infoAnnonce h1
+.pHead
 {
 	color: rgba(255, 248, 193, .8);
 	font-size: 1.2em;
 }
 
-.infoAnnonce p
+.infoAnnonce .pVendu
 {
 	color:red;
-	font-size : 25px;
+	font-size : 1.5em;
 }
 
 .scanLink

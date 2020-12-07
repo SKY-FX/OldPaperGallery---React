@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {BrowserRouter as Router , Route, Switch} from 'react-router-dom'
+import {Helmet} from "react-helmet";
 
 
 
@@ -59,8 +60,21 @@ class App extends Component {
   render() {
 
     return (
+      
       <div className="HomeClass">
+
+        <Helmet>
+
+          {/* <!-- HTML Meta Tags --> */}
+          <title>Old Paper Gallery</title>
+          <meta name="description" content="Achète lettres autographes, collections de lettres ou de documents et archives" />
         
+          {/* <!-- Google / Search Engine Tags --> */}
+          <meta itemprop="name" content="Old Paper Gallery" />
+          <meta itemprop="description" content="Achète lettres autographes, collections de lettres ou de documents et archives" />
+
+        </Helmet>
+
         <div className="app">
           
           <Router>

@@ -26,6 +26,9 @@ class annonce extends Component {
         const pathModif = "/GestionAnnonces/Modifier/" + idImage;
         const pathEfface = "/GestionAnnonces/Effacer/" + idImage;
 
+        console.log("titre :", titre);
+        
+
         return (
             <div className="annonce">
 
@@ -40,22 +43,22 @@ class annonce extends Component {
                     {/* Affiche VENDU si l'annonce est vendu*/}
                     {annonceVendu===0 && 
                         <Fragment>
-                            <p>VENDU</p>
+                            <p className="pVendu">VENDU</p>
                             <hr/>
                             <br/><br/>
                         </Fragment>
                     }
     
-                    <h1>{auteur}</h1>
+                    <div className="pHead">{auteur}</div>
                     <hr/>
                     <br/>
-                    <h2>{titre}</h2>
+                    <div className="pBody" dangerouslySetInnerHTML={{ __html: titre }} />
                     <hr/>
                     <br/>
-                    <h2>référence : {ref}</h2>
+                    <div className="pBody">référence : {ref}</div>
                     <hr/>
                     <br/>
-                    <h1>{prix} euros</h1>
+                    <div className="pHead">{prix} euros</div>
 
                 </div>
 
