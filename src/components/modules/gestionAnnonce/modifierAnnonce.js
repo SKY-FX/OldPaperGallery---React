@@ -30,8 +30,8 @@ export default class modifierAnnonce extends Component {
             userName : userName
         })
 
-        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/readAnnonce.php";
-        // const url = "/api/readAnnonce.php";
+        // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/readAnnonce.php";
+        const url = "/api/readAnnonce.php";
         const id = this.state.idAnnonce;
 
         // En tete AXIOS + formatte la recherche pour axios
@@ -95,8 +95,8 @@ export default class modifierAnnonce extends Component {
     onModifierAnnonce = (e) => {
         e.preventDefault();
 
-        // const url = "/api/modifierAnnonce.php";
-        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/modifierAnnonce.php";
+        const url = "/api/modifierAnnonce.php";
+        // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/modifierAnnonce.php";
 
         // En tete AXIOS + formatte la recherche pour axios
         var formData = new FormData();
