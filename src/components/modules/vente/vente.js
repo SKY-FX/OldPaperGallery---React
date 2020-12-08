@@ -26,6 +26,8 @@ export default class vente extends Component {
         
         // En tete AXIOS + formatte la recherche pour axios
         const url = "/api/mesVentes.php";
+        // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/mesVentes.php";
+        
         var formData = new FormData();
         formData.append('type', typeVente);
         
@@ -206,16 +208,18 @@ export default class vente extends Component {
                 const annonce_ref           = infoAnnonce['annonce_ref'];
                 const annonce_titre         = infoAnnonce['annonce_titre'];
             
-                // console.log("__render", annonce_nomAuteur)
+                const titre = annonce_titre.split("<br />").map((i,key) => {
+                    return <div key={key}>{i}</div>;
+                })
 
                 return (
                     <tr key={id} className="tabBodyVente">
-                        <td>{acheteur_nom}<br/>({acheteur_email})</td>
-                        <td>{annonce_ref}</td>
-                        <td>{annonce_nomAuteur}</td>
-                        <td>{annonce_titre}</td>
-                        <td>{annonce_prix} €</td>
-                        <td>{annonce_date}</td>
+                        <td><p>{acheteur_nom}<br/>({acheteur_email})</p></td>
+                        <td><p>{annonce_ref}</p></td>
+                        <td><p>{annonce_nomAuteur}</p></td>
+                        <td><p>{titre}</p></td>
+                        <td><p>{annonce_prix} €</p></td>
+                        <td><p>{annonce_date}</p></td>
                         <td>
                             <div className="action">
                                 { (this.state.typeVente === '0') ?
@@ -232,18 +236,10 @@ export default class vente extends Component {
                         </td>
                     </tr>
                 )
-
-
-
             });
 
             // console.log("afficheVentes",afficheVentes);
-
         }    
-        
-        
-        
-
 
         return (
 
@@ -276,13 +272,13 @@ export default class vente extends Component {
                                     {/* En-tête du tableau */}
                                     <thead>
                                         <tr className="tabHeadVente">
-                                            <th>Acheteur</th>
-                                            <th>Référence</th>
-                                            <th>Auteur</th>
-                                            <th>titre</th>
-                                            <th>Prix</th>
-                                            <th>Date</th>
-                                            <th>Action</th>
+                                            <th><p>Acheteur</p></th>
+                                            <th><p>Référence</p></th>
+                                            <th><p>Auteur</p></th>
+                                            <th><p>titre</p></th>
+                                            <th><p>Prix</p></th>
+                                            <th><p>Date</p></th>
+                                            <th><p>Action</p></th>
                                             
                                         </tr>
                                     </thead>

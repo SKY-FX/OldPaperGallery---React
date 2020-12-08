@@ -226,12 +226,12 @@ export default class messagerie extends Component {
                                     <thead>
                                         
                                         <tr className="tabHead">
-                                            <th>Expéditeur</th>
-                                            <th>Destinataire</th>
-                                            <th>Date</th>
-                                            <th>Objet</th>
-                                            <th>Message</th>
-                                            <th>Action</th>   
+                                            <th><p>Expéditeur</p></th>
+                                            <th><p>Destinataire</p></th>
+                                            <th><p>Date</p></th>
+                                            <th><p>Objet</p></th>
+                                            <th><p>Message</p></th>
+                                            <th><p>Action</p></th>   
                                         </tr>
                                     </thead>
 

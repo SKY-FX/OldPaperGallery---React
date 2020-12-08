@@ -16,8 +16,8 @@
 
 .tabHeadVente
 {
-    background-color: rgba(0, 0, 0, 1);
-    color:#fff6c5;
+    background-color: rgba(0, 0, 0, .8);
+    color : rgba(255, 248, 193, .8);
     font-family: Main;
 }
 
@@ -105,9 +105,8 @@
 
 .action h5:hover
 {
-    color : rgba(255, 248, 193, 1);;
+    color : rgba(255, 248, 193, 1);
 }
-
 
 @media screen and (max-width: 1000px)
 {
