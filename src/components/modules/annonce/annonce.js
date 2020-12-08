@@ -44,14 +44,17 @@ class annonce extends Component {
 
                     {/* Affiche VENDU si l'annonce est vendu*/}
                     {annonceVendu===0 && 
-                        <p>VENDU<br/><br/></p>
+                        <p className="pVendu">VENDU<br/><br/></p>
                     }
     
-                    <h1>{this.state.auteur}</h1>
+            
+                    <div className="pHead">{this.state.auteur}</div>
+                    <hr/>
                     <br/>
-                    <h2>{this.state.titre}</h2>
+                    <div className="pBody" dangerouslySetInnerHTML={{ __html: this.state.titre }} />
+                    <hr/>
                     <br/>
-                    <h1>{this.state.prix} euros</h1>
+                    <div className="pHead">{this.state.prix} euros</div>
 
                 </div>
 

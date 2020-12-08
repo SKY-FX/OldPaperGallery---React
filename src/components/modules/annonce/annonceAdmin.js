@@ -25,8 +25,6 @@ class annonce extends Component {
         const pathVisu = "/GestionAnnonces/Visualiser/" + idImage;
         const pathModif = "/GestionAnnonces/Modifier/" + idImage;
         const pathEfface = "/GestionAnnonces/Effacer/" + idImage;
-
-        console.log("titre :", titre);
         
 
         return (

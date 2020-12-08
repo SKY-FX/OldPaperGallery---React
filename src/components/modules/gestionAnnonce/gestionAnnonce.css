@@ -206,6 +206,12 @@
     align-items: center;
 }
 
+.sectionDesc .flexDiv img
+{
+    margin-right:30px;
+    margin-left:10px;
+}
+
 
 .sectionDesc legend
 {
@@ -338,6 +344,13 @@ hr
     .flexDiv
     {
         flex-direction: column;    
+    }
+
+    .flexDiv img
+    {
+        flex-direction: column;  
+        margin-top: 10px;  
+        margin-bottom: 30px;  
     }
 
     .sectionScan a img:hover
