@@ -30,17 +30,29 @@ export default function footer(props) {
                 </a>
 
                 <a href="https://www.ebay.fr/fdbk/feedback_profile/oldpapergallery?filter=feedback_page:All" target="_blank" rel="noreferrer noopener">
-                    Avis
+                    Avis clients
                 </a>
             </div>
             
-            <p>
-                {/* Old Paper Gallery<br/><br/> */}
-                2 rue de la concorde - 33000 Bordeaux<br/>
-                06 86 76 86 04 - fr.chabaud@gmail.com<br/>
-                sarl - siren : XXXX
-            </p>
+            <div className="footer_bc">
+                <p>
+                    Old Paper Gallery<br/>
+                    2 rue de la concorde - 33000 Bordeaux<br/>
+                </p>
+                <p1>
+                    <Link to="/GestionMessagerie/NewMessage" style={{color:"red", cursor:"pointer", textDecoration:"none", fontFamily:"Antic Slab"}} >fr.chabaud@gmail.com<br/></Link>
+                </p1>
+                <p>
+                    06 86 76 86 04<br/>
+                    sarl - siren : 305 365 132
+                </p>
+                
 
+                <img src="https://counter8.stat.ovh/private/compteurdevisite.php?c=dy8cx3kqu4ld69cg31dndg6296upqzjj" title="Compteur de visite" alt="Compteur de visite" />
+          
+            </div>
+
+            
             <div className="footer_bd">
                 <Link to={connecLink[0]}>
                     {connecName[0]}

@@ -14,20 +14,17 @@ export default class gestionAnnonce extends Component {
     constructor (props) {
         super(props);
 
-        
-        // console.log("SEARCHTEXT", searchText);
         this.state = {
             searchResult : [],
             searchText : "",
             userName : UserProfile.getName()
         };
-        // console.log("MAIN : ", this.state.searchText);
     }
 
     componentDidMount()
     {
         // console.log("Gestion annonce");
-        this.searchText('');
+        this.searchText(' ');
     }
 
     searchText = (text) => {
@@ -48,16 +45,16 @@ export default class gestionAnnonce extends Component {
 
         // Renvoie le résultat de la recherche ( objet de tableau ) au parent
         .then(response => {
-            // console.log("SEARCH FUNCTION SEARCH", text);
-            // console.log("SEARCH FUNCTION RESULTAT", response);
+            
             var reponse = response.data;
             const listeRef = reponse['ref']; 
             const listeAnnonces = reponse;
-    
+            var tabParam = [];   
 
             // Vérifie si des annonces ont été trouvés (si des parametres existent)
             // console.log("listeRef",listeRef);
             if (listeRef) {
+
                 const nbParams = Object.keys(listeAnnonces).length;
                 const nbAnnonce = listeRef.length;
                 // console.log("nbAnnonce",nbAnnonce);
@@ -68,7 +65,6 @@ export default class gestionAnnonce extends Component {
                 }); 
 
                 // Fabrique un tableau en réorganisant les parametres de l'annonce
-                var tabParam = [];
                 for (let ii=0; ii<nbAnnonce; ii++)
                 {
                     tabParam[ii] = new Array(nbParams);
@@ -78,13 +74,21 @@ export default class gestionAnnonce extends Component {
                     }
                 }
 
-                // console.log("tabParam",tabParam);
-            
-                this.setState({
-                    searchText : text,
-                    searchResult : tabParam
-                });
+                
+                
             }
+            
+            
+            this.setState({
+                searchText : text,
+                searchResult : tabParam
+            });
+
+            
+            
+            
+            // console.log("SEARCH FUNCTION SEARCH", textSearch);
+            // console.log("SEARCH FUNCTION RESULTAT", tabParam);
         })
 
         // Affiche l'erreur
@@ -104,10 +108,12 @@ export default class gestionAnnonce extends Component {
  
         // Construit les annonces
         const tab = this.state.searchResult;
-        // console.log("search : ", this.state.searchResult);
+        
         const listeAnnonce = tab.map( (param,id) => {
             return <AnnonceAdmin key={id} params={param} />
         });
+
+        // console.log("SEARCH FUNCTION SEARCH", this.state.searchText);
 
         return (
             
@@ -121,6 +127,36 @@ export default class gestionAnnonce extends Component {
                         <SearchBar return={ (result) => this.searchText(result) }/>
                         <p className="_item" onClick={ this.onClick } >Ajouter une annonce</p>
                         <br/> <br/> 
+
+                        { listeAnnonce.length === 0 ?
+                            <Fragment>
+                                { this.state.searchText !== ' ' ?
+                                    <Fragment>
+                                        <h1>Pas d'annonce pour la recherche</h1>
+                                        <h2>"{this.state.searchText}"</h2>
+                                    </Fragment>
+                                    :
+                                    <Fragment>
+                                        <h1>Pas d'annonce en boutique</h1>
+                                    </Fragment>
+                                }
+                            </Fragment>
+                            :
+                            <Fragment>
+                                { this.state.searchText === ' ' ?
+                                    <Fragment>
+                                        <h1>Toutes les annonces</h1>
+                                        <h2>"Lettres autographes, manuscrits, gravures"</h2>
+                                    </Fragment>
+                                    :
+                                    <Fragment>
+                                        <h1>Résultat pour la recherche</h1>
+                                        <h2>"{this.state.searchText}"</h2>
+                                    </Fragment>
+                                }
+                            </Fragment>
+                        }
+                        <br/>
                         {listeAnnonce}
                     </div>
                 }

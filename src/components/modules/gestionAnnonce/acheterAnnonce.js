@@ -119,7 +119,7 @@ export default class AcheterAnnonce extends Component {
 
         return (
             <div className="BlockAchat">
-                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"rgba(255,255,255,0.5)", cursor:"pointer", textDecoration:"none"}} >Retour</div>
+                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"red", cursor:"pointer", textDecoration:"none"}} >Retour</div>
 
                 { (this.state.isSold === false) ?
                     <Fragment>

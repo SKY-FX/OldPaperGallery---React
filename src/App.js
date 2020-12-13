@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import {BrowserRouter as Router , Route, Switch} from 'react-router-dom'
-import {Helmet} from "react-helmet";
+import {Helmet} from "react-helmet"
 
 
+import Header from "./components/header"
 
-import Header from "./components/header";
-
-import ListeRecherche from './containers/listeRecherche';
-import LienRecherche from './containers/lienRecherche';
+import ListeRecherche from './containers/listeRecherche'
+import LienRecherche from './containers/lienRecherche'
 
 import NavBar from './components/modules/navBar/navBar'
 import Auteurs from './components/modules/auteur/listeAuteur'
@@ -28,13 +27,14 @@ import AjouterAnnonce from './components/modules/gestionAnnonce/ajouterAnnonce'
 import AcheterAnnonce from './components/modules/gestionAnnonce/acheterAnnonce'
 import MesVentes from './components/modules/vente/vente'
 import Contact from './components/modules/contact/contact'
+import NewMessage from './components/modules/messagerie/newMessage'
 
 import defaultPage from './components/modules/defaultPage/defaultPage'
 
 
-import Footer from './components/footer';
+import Footer from './components/footer'
 
-import './App.css';
+import './App.css'
 
 import UserProfile from './components/modules/utiles/sessionFct'
 
@@ -53,7 +53,7 @@ class App extends Component {
     // console.log("APP", connect);
     this.setState({
       checkConnect : connect
-    })
+    });
   };
 
 
@@ -65,105 +65,126 @@ class App extends Component {
 
         <Helmet>
 
+          {/* <!-- Meta Tags Generated via http://heymeta.com --> */} 
           {/* <!-- HTML Meta Tags --> */}
           <title>Old Paper Gallery</title>
-          <meta name="description" content="Achète lettres autographes, collections de lettres ou de documents et archives" />
-        
+          <meta name="description" content="Nous achetons et vendons des lettres autographes, manuscrits, gravures et documents anciens."/>
+
           {/* <!-- Google / Search Engine Tags --> */}
-          <meta itemprop="name" content="Old Paper Gallery" />
-          <meta itemprop="description" content="Achète lettres autographes, collections de lettres ou de documents et archives" />
+          <meta itemprop="name" content="Old Paper Gallery"/>
+          <meta itemprop="description" content="Nous achetons et vendons des lettres autographes, manuscrits, gravures et documents anciens."/>
+          <meta itemprop="image" content="/ressources/favicon.png" />
+
+          {/* <!-- Facebook Meta Tags --> */}
+          <meta property="og:url" content="http://oldpapergallery.com"/>
+          <meta property="og:type" content="website"/>
+          <meta property="og:title" content="Old Paper Gallery"/>
+          <meta property="og:description" content="Nous achetons et vendons des lettres autographes, manuscrits, gravures et documents anciens."/>
+          <meta property="og:image" content="/ressources/favicon.png" />
+
+          {/* <!-- Twitter Meta Tags --> */}
+          <meta name="twitter:card" content="summary_large_image"/>
+          <meta name="twitter:title" content="Old Paper Gallery"/>
+          <meta name="twitter:description" content="Nous achetons et vendons des lettres autographes, manuscrits, gravures et documents anciens."/>
+          <meta name="twitter:image" content="/ressources/favicon.png" />
+          
+
+          {/* <script src="C:\wamp64\www\Site_PHP\monAppReact\old-paper-gallery-react\sitemap-builder.js" /> */}
 
         </Helmet>
 
         <div className="app">
           
-          <Router>
-            
-            <Header />
+            <Router>
+              <Header />
+              <Switch>
+                
+                {/* Page d'accueil */}
+                <Route exact path="/" component={NavBar} />
 
-            <Switch>
-              
-              {/* Page d'accueil */}
-              <Route exact path="/" component={NavBar} />
+                {/* Page de contact */}
+                <Route exact path="/Contact" component={Contact} />
 
-              {/* Page de contact */}
-              <Route exact path="/Contact" component={Contact} />
+                {/* USER */}
+                {/* Page de toute les annonces */}
+                <Route exact path='/Inscription' component={Inscription}/>
 
-              {/* USER */}
-              {/* Page de toute les annonces */}
-              <Route exact path='/Inscription' component={Inscription}/>
+                {/* Page de recherche (2 critères de recherche)     */}
+                <Route exact path="/Search/:searchText/:searchTextDetails" component={LienRecherche} />
 
-              {/* Page de recherche (2 critères de recherche)     */}
-              <Route exact path="/Search/:searchText/:searchTextDetails" component={LienRecherche} />
+                {/* Page de recherche (1 critère de recherche) */}
+                <Route exact path="/Search/:searchText" component={ListeRecherche} />
 
-              {/* Page de recherche (1 critère de recherche) */}
-              <Route exact path="/Search/:searchText" component={ListeRecherche} />
-
-              {/* Page de toute les annonces */}
-              <Route exact path='/SearchAuteurs' component={Auteurs}/>
+                {/* Page de toute les annonces */}
+                <Route exact path='/SearchAuteurs' component={Auteurs}/>
 
 
-              {/* CLIENT */}
-              {/* Page de connexion */}
-              <Route 
-                exact path='/logIn' 
-                render={(props) => (
-                  <Connexion {...props} return={ (res) => this.checkConnect(res) } />
-                )} 
-              />
+                {/* CLIENT */}
+                {/* Page de connexion */}
+                <Route 
+                  exact path='/logIn' 
+                  render={(props) => (
+                    <Connexion {...props} return={ (res) => this.checkConnect(res) } />
+                  )} 
+                />
 
-              {/* Page de deconnexion */}
-              <Route  
-                exact path='/logOut' 
-                render={ (props) => (
-                  <Deconnection {...props} return={ (res) => this.checkConnect(res) } />
-                )} 
-              />
+                {/* Page de deconnexion */}
+                <Route  
+                  exact path='/logOut' 
+                  render={ (props) => (
+                    <Deconnection {...props} return={ (res) => this.checkConnect(res) } />
+                  )} 
+                />
 
-              {/* *** */}
-              {/* Espace privé pour le client */}
-              <Route exact path='/Connexion/:client' component={Client} />
-
-
-              {/* *** */}
-              {/* MeVentes : Admin */}
-              <Route exact path='/GestionVentes/' component={MesVentes}/>
+                {/* *** */}
+                {/* Espace privé pour le client */}
+                <Route exact path='/Connexion/:client' component={Client} />
 
 
-              {/* *** */}
-              {/* Messagerie du client */}
-              <Route exact path='/GestionMessagerie' component={Messagerie}/>
-              {/* Messagerie du client */}
-              <Route exact path='/GestionMessagerie/Repondre/:type/:exp/:dst/:objet/:message/' component={RepondreMessage}/>
+                {/* *** */}
+                {/* MeVentes : Admin */}
+                <Route exact path='/GestionVentes' component={MesVentes}/>
 
 
-              {/* *** */}   
-              {/* Gestion des annonces : Admin */}
-              <Route exact path='/GestionAnnonces/' component={GestionAnnonce}/>
+                {/* *** */}
+                {/* Messagerie du client */}
+                <Route exact path='/GestionMessagerie' component={Messagerie}/>
+                
+                {/* Messagerie du client */}
+                <Route exact path='/GestionMessagerie/Repondre/:type/:exp/:dst/:objet' component={RepondreMessage}/>
 
-              {/* VisualiserAnnonce : Admin */}
-              <Route exact path='/GestionAnnonces/Visualiser/:idAnnonce' component={VisualiserAnnonce}/>
-
-              {/* EffacerAnnonce : Admin */}
-              <Route exact path='/GestionAnnonces/Effacer/:idAnnonce' component={EffacerAnnonce}/>
-
-              {/* ModifierAnnonce : Admin */}
-              <Route exact path='/GestionAnnonces/Modifier/:idAnnonce' component={ModifierAnnonce}/>
-
-              {/* AjouterAnnonce : Admin */}
-              <Route exact path='/GestionAnnonces/Ajouter' component={AjouterAnnonce}/>
-
-              {/* Page d'achat d'une annonce */}
-              <Route exact path='/GestionAnnonces/AcheterAnnonce/:auteur/:titre/:prix' component={AcheterAnnonce}/>
-
-              <Route component={defaultPage}/>
-
-            </Switch>
+                {/* Page pour un nouveau message depuis la page d'accueil */}
+                <Route exact path='/GestionMessagerie/NewMessage' component={NewMessage}/>
 
 
-            <Footer userType={UserProfile.getType()} checkConnect={this.state.checkConnect} />
+                {/* *** */}   
+                {/* Gestion des annonces : Admin */}
+                <Route exact path='/GestionAnnonces' component={GestionAnnonce}/>
 
-          </Router>
+                {/* VisualiserAnnonce : Admin */}
+                <Route exact path='/GestionAnnonces/Visualiser/:idAnnonce' component={VisualiserAnnonce}/>
+
+                {/* EffacerAnnonce : Admin */}
+                <Route exact path='/GestionAnnonces/Effacer/:idAnnonce' component={EffacerAnnonce}/>
+
+                {/* ModifierAnnonce : Admin */}
+                <Route exact path='/GestionAnnonces/Modifier/:idAnnonce' component={ModifierAnnonce}/>
+
+                {/* AjouterAnnonce : Admin */}
+                <Route exact path='/GestionAnnonces/Ajouter' component={AjouterAnnonce}/>
+
+                {/* Page d'achat d'une annonce */}
+                <Route exact path='/GestionAnnonces/AcheterAnnonce/:auteur/:titre/:prix' component={AcheterAnnonce}/>              
+
+
+                <Route exact component={defaultPage}/>
+
+              </Switch>
+
+
+              <Footer userType={UserProfile.getType()} checkConnect={this.state.checkConnect} />
+
+            </Router>
 
         </div>
       </div>

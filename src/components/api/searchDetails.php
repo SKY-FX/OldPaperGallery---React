@@ -24,8 +24,12 @@
             FROM 
                 images 
             WHERE 
-                type_doc LIKE '%".$searchText."%'
-            AND
+                (
+                    type_doc LIKE '%".$searchText."%'
+                    OR
+                    A_nom_prenom LIKE '%".$searchText."%'
+                )
+                AND
                 discipline LIKE '%".$searchTextDetails."%'
             ";
             
@@ -43,8 +47,12 @@
         FROM 
             images 
         WHERE 
-            type_doc LIKE '%".$searchText."%'
-        AND
+            (
+                type_doc LIKE '%".$searchText."%'
+                OR
+                A_nom_prenom LIKE '%".$searchText."%'
+            )
+            AND
             discipline LIKE '%".$searchTextDetails."%'
         ";
 

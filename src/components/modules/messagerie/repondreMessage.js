@@ -37,7 +37,7 @@ export default class repondreMessage extends Component {
             if (type === '0')  objet = "Re : " + objet + " : "; // Reponse de l'acheteur au vendeur
             else if (type === '1')  objet = ""; // L'acheteur envoie un nouveau message au vendeur
         }
-
+;
         // console.log("DID MOUNT" , objet)
         this.setState({
             clientName : UserProfile.getName(),
@@ -46,7 +46,7 @@ export default class repondreMessage extends Component {
             exp : this.props.match.params.exp,
             dst : this.props.match.params.dst,
             objet : objet,
-            message : this.props.match.params.message,
+            text_message : '',
             type : type
         })
     }
@@ -65,6 +65,7 @@ export default class repondreMessage extends Component {
         const clientName = this.state.clientName;
         const type = this.state.type;
         // console.log("SEND MESSAGE", dst);
+
         
         var formData = new FormData();
         formData.append('exp', exp);
@@ -86,7 +87,7 @@ export default class repondreMessage extends Component {
 
         // Renvoie le résultat de la recherche ( objet de tableau ) au parent
         .then(response => {
-            // const result = response.data;
+            const result = response.data;
             // console.log("RESULT REPONDRE", result);
             this.props.history.push('/GestionMessagerie/');
         })
@@ -108,21 +109,21 @@ export default class repondreMessage extends Component {
 
     render() {
 
-        var titre="";
+        var titre="Nouveau message au vendeur"
         if (this.state.clientType === "User") 
         {
             if (this.state.type === '0')  titre = "Répondre au vendeur";
-            else titre = "Nouveau message au vendeur " + this.state.exp;
+            else titre = "Nouveau message au vendeur";
         }
         else if (this.state.clientType === "Admin") 
         {
-            if (this.state.type === '0')  titre = "Répondre à " + this.state.exp;
+            if (this.state.type === '0')  titre = "Répondre à " + this.state.dst;
             else titre = "Envoie d'une NewsLetter !";
         }
 
         return (
             <Fragment>   
-                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"rgba(255,255,255,0.5)", cursor:"pointer", textDecoration:"none"}} >Retour</div>
+                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"red", cursor:"pointer", textDecoration:"none"}} >Retour</div>
          
                 { this.state.clientName !== '' ?
                     <div className="repondreMessage">     

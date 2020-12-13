@@ -15,33 +15,36 @@ class navBarDetails extends Component {
 
     handleClick = (path) => {
         this.props.history.push(path);
+        // console.log("path", path);
     }
 
     render () {
+        var search = this.state.searchText;
+        if (search === '') search = ' ';
 
         const items = [
             {
-                path: '/Search/' + this.state.searchText + '/Litterature',
+                path: '/Search/' + search + '/Litterature',
                 text: 'Litterature'
             },
             {
-                path: '/Search/' + this.state.searchText + '/Arts',
+                path: '/Search/' + search + '/Arts',
                 text: 'Arts'
             },
             {
-                path: '/Search/' + this.state.searchText + '/Histoire',
+                path: '/Search/' + search + '/Histoire',
                 text: 'Histoire'
             },
             {
-                path: '/Search/' + this.state.searchText + '/Sciences',
+                path: '/Search/' + search + '/Sciences',
                 text: 'Sciences'
             },
             {
-                path: '/Search/' + this.state.searchText + '/Politique',
+                path: '/Search/' + search + '/Politique',
                 text: 'Politique'
             },
             {
-                path: '/Search/Boutique/Tout',
+                path: '/Search/ /',
                 text: 'Toute la boutique'
             }
         ];
@@ -49,7 +52,7 @@ class navBarDetails extends Component {
         return (
             <div className="navBar">
                 {items.map(item => (
-                    <Link to={item.path} key={item.path} onClick={(item) => this.handleClick(item.path)} className="item" title={item.text}>{item.text}</Link>
+                    <Link to={item.path} key={item.path} onClick={(item) => this.handleClick(item.path)} className="item" title={item.text}><h2>{item.text}</h2></Link>
                 ))}
             </div>
         )

@@ -11,8 +11,6 @@ export default class lienRecherche extends Component {
         super(props);
         this.state = {
             searchResult : [],
-            searchText : props.match.params.searchText, // Recupère le props (match.params...) passé en url
-            searchTextDetails : props.match.params.searchTextDetails,
             validFlag : '0'
         }
 
@@ -27,8 +25,8 @@ export default class lienRecherche extends Component {
         // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/searchDetails.php";
         
         var formData = new FormData();
-        formData.append('searchText', this.state.searchText);
-        formData.append('searchTextDetails', this.state.searchTextDetails);
+        formData.append('searchText', this.props.match.params.searchText);
+        formData.append('searchTextDetails', this.props.match.params.searchTextDetails);
 
         // console.log("DETAILS", this.state.searchTextDetails);
         // Fait appel à l'API PHP "SEARCH",  en paramètre "la recherche utilisateur"
@@ -57,11 +55,7 @@ export default class lienRecherche extends Component {
 
 
     searchResult = (result) => {
-        // console.log("SEARCH BIS :", result)
-
-        if (result !== '') {
-            this.props.history.push('/search/' + result)
-        }   
+        this.props.history.push('/Search/' + result)
     }
 
 
@@ -74,14 +68,28 @@ export default class lienRecherche extends Component {
                 <SearchBar return={ (result) => this.searchResult(result) } />
                 <Fragment>
                     { validFlag !== "" ?
-                        <ListeAnnonce liste={this.state.searchResult} isSold="true"/>
+                        <Fragment>
+                            { this.props.match.params.searchText !== '%20' ?
+                                <Fragment>
+                                    <h1>Résultat pour la recherche</h1>
+                                    <h2>"{this.props.match.params.searchText} --> {this.props.match.params.searchTextDetails}"</h2>
+                                </Fragment>
+                                :
+                                <Fragment>
+                                    <h1>Toutes les annonces</h1>
+                                    <h2>"Lettres autographes, manuscrits, gravures"</h2>
+                                </Fragment>
+                            }
+                            <ListeAnnonce liste={this.state.searchResult} isSold="true"/>
+                        </Fragment>
                         : 
                         <Fragment>
 
-                            <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"rgba(255,255,255,0.5)", cursor:"pointer", textDecoration:"none"}} >Retour</div>
+                            <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"red", cursor:"pointer", textDecoration:"none"}} >Retour</div>
     
                             <div className="textConnexion">
                                 Aucune annonce pour cette recherche !
+                                <br/>"{this.props.match.params.searchText} --> {this.props.match.params.searchTextDetails}"
                                 <br/><br/>
                                 Veuillez cliquer sur <b>Recherche</b> pour visualiser toutes les annonces de la boutique.
                             </div>

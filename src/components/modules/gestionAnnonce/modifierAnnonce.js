@@ -17,7 +17,8 @@ export default class modifierAnnonce extends Component {
             A_biographie : '',
             infos : '',
             notice : '',
-            titre : ''
+            titre : '',
+            reference : ''
         }
         this.fileInput = React.createRef();
     }
@@ -150,7 +151,7 @@ export default class modifierAnnonce extends Component {
     
         // Renvoie le résultat de la recherche ( objet de tableau ) au parent
         .then(response => {
-            console.log("MODIFIER ANNONCE RESULTAT", response.data);
+            // console.log("MODIFIER ANNONCE RESULTAT", response.data);
 
             this.props.history.push('/GestionAnnonces/');
         })
@@ -213,7 +214,7 @@ export default class modifierAnnonce extends Component {
         // const basePathPic = "/ressources/";
 		const basePathPic = "/uploadPics/" + this.state.reference + "/";
         const portraitPath = basePathPic.concat(this.state.img_portrait);
-        // const picPath = portraitPath.concat(this.state.img_portrait);
+        // console.log('PORTRAIT : ', portraitPath);
 
         const images = [
             this.state.img_nom1,
@@ -243,10 +244,10 @@ export default class modifierAnnonce extends Component {
 
         // Conversion html <br /> en saut de ligne pour le titre de l'annonce
         const titre = this.state.titre.replace(/<br \/>/g, "\n");
-        console.log("TITRE : ", titre)
+        // console.log("TITRE : ", titre)
         return (
             <Fragment>
-                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"rgba(255,255,255,0.5)", cursor:"pointer", textDecoration:"none"}} >Retour</div>
+                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"red", cursor:"pointer", textDecoration:"none"}} >Retour</div>
     
                 { this.state.userName !== '' ?
                     <div className="detailsAnnonceForm">
@@ -267,7 +268,7 @@ export default class modifierAnnonce extends Component {
                             <select name="type_doc" onChange={this.onChange}>
                                 <option value="">{this.state.type_doc}</option>
                                 <option value="Lettre autographe">Lettre autographe</option>
-                                <option value="Plaquette">Plaquette</option>
+                                {/* <option value="Plaquette">Plaquette</option> */}
                                 <option value="Manuscrit">Manuscrit</option>
                                 <option value="Gravure">Gravure</option>
                             </select>
@@ -341,10 +342,8 @@ export default class modifierAnnonce extends Component {
                                 </div>
                                 
                                 <Fragment>
-                                    <a href={portraitPath}>
                                     <br/>
-                                        <img src={portraitPath} width="70" alt={this.state.img_portrait} />
-                                    </a>
+                                    <img src={portraitPath} width="70" alt={this.state.img_portrait} />
                                 </Fragment>
 
                             </Fragment>

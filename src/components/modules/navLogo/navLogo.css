@@ -19,10 +19,37 @@
 	color: #fff6c5;
 
 	text-shadow: 1px 1px 2px black, 5px 5px 20px  #fff6c5;
-	font-family: police-titre;
+	font-family: body;
 }
 
 .navLogo:hover
 {
 	transform: scale(1.1);
+}
+
+/* Format smartPhone : iPhone 6,7,8 et plus 414*736 px  */
+@media screen and (min-width: 0px) and (max-width: 600px)
+{
+	.navLogo a
+	{
+		font-size: 40px;
+	}
+}
+
+/* Format tablette nIpad Pro : 1024*1366 px */
+@media screen and (min-width: 601px) and (max-width: 1100px)
+{
+	.navLogo a
+	{
+		font-size: 60px;
+	}
+}
+
+/* Format tablette nIpad Pro : 1024*1366 px */
+@media screen and (min-width: 1101px)
+{
+	.navLogo a
+	{
+		font-size: 70px;
+	}
 }

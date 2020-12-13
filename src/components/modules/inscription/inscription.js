@@ -16,7 +16,7 @@ export default class inscription extends Component {
     handleSubmit = (event) => {
         event.preventDefault(); 
 
-        console.log("RESULTAT1");
+        // console.log("RESULTAT1");
         
         var news = this.state.checked;
         if (news==="false")  news = "non";

@@ -49,7 +49,7 @@ export default class ajouterAnnonce extends Component {
     onClick = (e) => {
         e.preventDefault();
 
-        console.log("TARGET", e.target);
+        // console.log("TARGET", e.target);
 
         
         const url = "/api/ajouterAnnonce.php";
@@ -142,15 +142,6 @@ export default class ajouterAnnonce extends Component {
         const filesTab = event.target.files;
         const nbFiles =  filesTab.length;
 
-        // // Réinitialise à vide les noms d'image dans le state du composant
-        // for (var iii=1; iii<=5; iii++)
-        // {
-        //     const name = "img_nom" + iii;
-        //     this.setState({
-        //         [name] : ''
-        //     });
-        // }
-
         if (nbFiles<=5)
         {
             for (var ii=1; ii<=nbFiles; ii++)
@@ -202,7 +193,7 @@ export default class ajouterAnnonce extends Component {
             <Fragment>
                 { this.state.userName !== '' ?
                     <div className="detailsAnnonceForm">
-                        <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"rgba(255,255,255,0.5)", cursor:"pointer", textDecoration:"none"}} >Retour</div>
+                        <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"red", cursor:"pointer", textDecoration:"none"}} >Retour</div>
     
                         <p>Ajouter une annonce</p>
                         <br/>
@@ -294,12 +285,16 @@ export default class ajouterAnnonce extends Component {
                                         <input type="file" name="fic_portrait" size="40" accept="image/png, image/jpeg" onChange={this.onChangePortrait} />
                                     </div>
                                     
-                                    <Fragment>
-                                        <a href={portraitPath}>
-                                        <br/>
+                                    
+                                    
+                                    { this.state.img_portrait ?
+                                        <Fragment>
+                                            <br/>
                                             <img src={portraitPath} width="70" alt={this.state.img_portrait} />
-                                        </a>
-                                    </Fragment>
+                                        </Fragment>
+                                        :null
+                                    }
+                                    
 
                                 </Fragment>
                                 

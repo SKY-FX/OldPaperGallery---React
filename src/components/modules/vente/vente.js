@@ -61,6 +61,9 @@ export default class vente extends Component {
     onClick = (infoAnnonce, functType) => {
         
         const url = "/api/validePaiement.php";
+        // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/validePaiement.php";
+        
+
         var alertToDisplay = "";
         var formData = new FormData();
         formData.append('annonce_ref', infoAnnonce['annonce_ref']);
@@ -111,15 +114,14 @@ export default class vente extends Component {
 
             // Renvoie le résultat de la recherche ( objet de tableau ) au parent
             .then(response => {
-                const result = response.data;
-                // console.log("SEARCH VENTES", userSession);
+                // const result = response.data;
+                // console.log("SEARCH VENTES", result);
                 // console.log("onClick", result);
 
                 // Redirige vers l'url pour l'envoie d'email
                 // Simule le comportement d'un href
-                if (functType==='email') window.location.href = result;
-                // else this.props.history.push('/GestionVentes/');
-                else this.typeVente('0')
+                // if (functType==='email') window.location.href = result;
+                // else this.typeVente('0')
             })
 
             // Affiche l'erreur
@@ -244,7 +246,7 @@ export default class vente extends Component {
         return (
 
             <Fragment>
-                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"rgba(255,255,255,0.5)", cursor:"pointer", textDecoration:"none"}} >Retour</div>
+                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"red", cursor:"pointer", textDecoration:"none"}} >Retour</div>
     
                 { this.state.vendeur_email !== '' ?
                     <div className="vente">

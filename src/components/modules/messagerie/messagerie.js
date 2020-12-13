@@ -18,37 +18,7 @@ export default class messagerie extends Component {
 
     componentDidMount()
     {
-        const userSession = this.state.nameClient;
-
-        const url = "/api/messagerie.php";
-        // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/messagerie.php";
-        
-
-        var formData = new FormData();
-        formData.append('nom_prenom', userSession);
-
-        // Fait appel à l'API PHP
-        axios({
-            method: 'post',
-            url: url,
-            data: formData
-        })
-
-        // Renvoie le résultat de la recherche ( objet de tableau ) au parent
-        .then(response => {
-            const result = response.data;
-            // console.log("RESULTAT MESSAGERIE", result);
-
-            this.setState({
-                result : result
-            });
-
-        })
-
-        // Affiche l'erreur
-        .catch(error => {
-            console.log(error);
-        }); 
+        this.updateResult();
     }
 
     updateResult ()
@@ -56,6 +26,7 @@ export default class messagerie extends Component {
         const userSession = this.state.nameClient;
 
         const url = "/api/messagerie.php";
+        // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/messagerie.php";
 		
         var formData = new FormData();
         formData.append('nom_prenom', userSession);
@@ -117,7 +88,7 @@ export default class messagerie extends Component {
 
             // Renvoie le résultat de la recherche ( objet de tableau ) au parent
             .then(response => {
-                // const result = response.data;
+                const result = response.data;
                 // console.log("SEARCH MESSAGERIE", result);
                 this.updateResult();    
         
@@ -131,12 +102,12 @@ export default class messagerie extends Component {
         else if ( statuts === 'repondre' )
         {
             // console.log("PUSH REPONDRE", exp);
-            this.props.history.push("/GestionMessagerie/Repondre/0/" + exp + "/" + dst + "/" + objet + "/" + message + "/");
+            this.props.history.push("/GestionMessagerie/Repondre/0/" + exp + "/" + dst + "/" + objet + "/");
         }
         else if ( statuts === 'nouveau' )
         {
             // console.log("PUSH NOUVEAU", message);
-            this.props.history.push("/GestionMessagerie/Repondre/1/ / / / /");
+            this.props.history.push("/GestionMessagerie/Repondre/1/ / / /");
         }
     }
 
@@ -209,7 +180,7 @@ export default class messagerie extends Component {
 
         return (
             <Fragment>  
-                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"rgba(255,255,255,0.5)", cursor:"pointer", textDecoration:"none"}} >Retour</div>
+                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"red", cursor:"pointer", textDecoration:"none"}} >Retour</div>
             
                 { this.state.nameClient !== '' ?
                     <Fragment>

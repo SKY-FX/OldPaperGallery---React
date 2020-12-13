@@ -105,7 +105,7 @@ export default class visualiserAnnonce extends Component {
         const A_biographie = this.state.A_biographie.replace(/<br \/>/g, "<br/>");
 
         // Conversion html <br /> en saut de ligne pour les informations du vendeur
-        const infos = this.state.infos.replace(/<br \/>/g, "<br/>");
+        // const infos = this.state.infos.replace(/<br \/>/g, "<br/>");
 
         // Conversion html <br /> en saut de ligne pour le titre de l'annonce
         const titre = this.state.titre.replace(/<br \/>/g, "<br/>");
@@ -113,7 +113,7 @@ export default class visualiserAnnonce extends Component {
         return (
             
             <div className="visu_annonce">
-                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"rgba(255,255,255,0.5)", cursor:"pointer", textDecoration:"none"}} >Retour</div>
+                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"red", cursor:"pointer", textDecoration:"none"}} >Retour</div>
            
                 {/* <!-- SCAN --> */}
                 <div className="sectionScan">
@@ -146,7 +146,7 @@ export default class visualiserAnnonce extends Component {
                 <div className="sectionDesc">
 
                     { (this.state.A_nom_prenom) ?
-                        <div className="pHHead">{this.state.A_nom_prenom}</div>:null
+                        <h1 className="pHHead">{this.state.A_nom_prenom}</h1>:null
                     }
                     
                     { (this.state.A_annees) ?
@@ -161,7 +161,7 @@ export default class visualiserAnnonce extends Component {
                         <Fragment>
                             <fieldset><legend>Biographie</legend>	
                                 <div className="flexDiv">
-                                    { (this.state.img_portrait) ? <img src={portraitPath} alt="scan" /> : null }
+                                    { (this.state.img_portrait) ? <a href={portraitPath} ><img src={portraitPath} alt={this.state.img_portrait} /></a> : null }
                                     { (this.state.A_biographie) ? <div className="pBBody" dangerouslySetInnerHTML={{ __html: A_biographie }} /> : null }
                                 </div>
                             </fieldset>
@@ -190,7 +190,7 @@ export default class visualiserAnnonce extends Component {
                     }
 
                     { (this.state.titre) ?
-                        <Fragment><br/><br/><i><p dangerouslySetInnerHTML={{ __html: titre }} /></i></Fragment>:null
+                        <Fragment><br/><br/><br/><i><p dangerouslySetInnerHTML={{ __html: titre }} /></i></Fragment>:null
                     }
 
                     { (this.state.notice) ?

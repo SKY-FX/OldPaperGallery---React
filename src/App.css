@@ -35,23 +35,24 @@
     background-repeat: no-repeat;
     background-size: contain;
 
+    /* opacity:1; */
+
     
     animation: fondu 100s ease-in-out infinite;
-
 }
 
 @keyframes fondu {
-    0% { background-image: url("./baniereImages/Victor-Hugo.jpg"); }
-    10% { background-image: url("./baniereImages/Aquarelle2.jpg"); }
-    20% { background-image: url("./baniereImages/port-marseille.jpg"); }
-    30% { background-image: url("./baniereImages/Marie-Antoinette.jpg"); }
-    40% { background-image: url("./baniereImages/Revolution.jpg"); }
+    0% { background-image: url("./baniereImages/Aquarelle2.jpg"); }
+    10% { background-image: url("./baniereImages/port-marseille.jpg"); }
+    20% { background-image: url("./baniereImages/Marie-Antoinette.jpg"); }
+    30% { background-image: url("./baniereImages/Revolution.jpg"); }
+    40% { background-image: url("./baniereImages/Victor-Hugo.jpg"); }
     50% { background-image: url("./baniereImages/Aquarelle1.jpg"); }
     60% { background-image: url("./baniereImages/Celine-Louis.jpg"); }
     70% { background-image: url("./baniereImages/Toulouse-Lautrec.jpg"); }
     80% { background-image: url("./baniereImages/Vernet-port-Bordeaux.jpg"); }
     90% { background-image: url("./baniereImages/Maréchal-Michel-Ney.jpg"); }
-    100% { background-image: url("./baniereImages/Victor-Hugo.jpg"); }
+    100% { background-image: url("./baniereImages/Aquarelle2.jpg"); }
 }
 
 
@@ -104,14 +105,17 @@
     z-index: 999;
 }
 
-.header_text:hover
+.header_text:hover, .header_contact:hover
 {
-    background-color: rgba(0,0,0,0.2);
+    /* background-color: rgba(0,0,0,0.2);*/
+    text-shadow: 0px 0px 10px #fff6c5, 0px 0px 20px #fff6c5;
+    color : grey;
 }
 
 .main
 {
-    /* flex:1; */
+    /* flex:0; */
+    /* margin-bottom: 100px; */
 }
 
 .listeRecherche, .lienRecherche, .visualiserAnnonce
@@ -121,23 +125,48 @@
     justify-content: center;
     align-items: center;
     
-    /* flex:1; */
+    flex:0;
 
     padding: 30px 0 0px 0;
 }
 
+.listeRecherche h1, .lienRecherche h1
+{
+    font-weight: lighter;
+    font-size: 18px;
+    font-family: main;
+    color: white;
+    text-shadow: 0px 0px 10px black, 0px 0px 10px black, 0px 0px 10px black, 0px 0px 10px black;
+    opacity : 0.8;
+}
+
+.listeRecherche h2, .lienRecherche h2
+{
+    font-weight: lighter;
+    font-size: 15px;
+    font-family: main;
+    color: white;
+    text-shadow: 0px 0px 10px black, 0px 0px 10px black, 0px 0px 10px black, 0px 0px 10px black;
+    opacity : 0.8;
+}
+
 .footer
 {
+    /* position : relative;
+    bottom: 0; left: 0;
+    width : 100%; */
+
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 
-    color:#fff6c5;
+    color:white;
     font-size: 14px;
     font-family: 'MAIN';
 
-    text-shadow: 1px 1px 1px black, 2px 2px 1px black;
+    text-shadow: 0px 0px 1px black, 0px 0px 1px black;
     
     background-color: rgba(0, 0, 0, .6);
     border-top : 1px solid rgba(255, 248, 193, 0.5);
@@ -148,7 +177,8 @@
 .footer a 
 {
     text-decoration: none;
-    color:white;
+    /* color:#fff6c5; */
+    color:red;
     font-size: 15px;
     font-family: Main;
 }
@@ -156,7 +186,8 @@
 .footer a:hover
 {
     color: seashell;
-    text-shadow: 1px 1px 1px red, 2px 2px 1px red;
+    opacity:0.5;
+    /* text-shadow: 1px 1px 1px white, 2px 2px 1px white; */
 }
 
 .footer_bg
@@ -178,15 +209,42 @@
     margin-right:30px;
 }
 
+.footer_bc
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer_bc img
+{
+    width: 50px;
+    margin-top: 10px;
+}
+
+.footer_bc p
+{
+    /* font-family: 'Times New Roman'; */
+    font-weight: lighter;
+    opacity : 0.8;
+    color :white;
+}
+
+.footer_bc p1
+{
+    font-family: "Antic Slab";
+    font-weight: lighter;
+    opacity : 0.8;
+    color :white;
+    font-size: 17px;
+}
+
 @media screen and (max-width: 1200px)
 {
     .app
     {
         background-size: cover;
-    }
-
-
-        
+    }      
 }
 
 @media screen and (max-width: 700px)
@@ -196,7 +254,7 @@
         flex-direction: column;
     }
 
-    .footer >p
+    .footer_bc >p
     {
         display : none;
     }
@@ -219,11 +277,26 @@
 
 
 @font-face {
-    font-family: 'police-titre';
+    font-family: 'body';
     src: url('./polices/Simple-script.ttf');
 }
 
 @font-face {
-    font-family: 'Main';
+    font-family: 'main';
     src: url('./polices/Cinzel-Regular.otf');
+}
+
+@font-face {
+    font-family: 'description';
+    src: url('./polices/Cinzel-Regular.otf');
+}
+
+@font-face {
+    font-family: 'descriptionAccueil';
+    src: url('./polices/line/Deuxieme_Rang.otf');
+}
+
+@font-face {
+    font-family: 'oldAdresseFooter';
+    src: url('./polices/ImperatorPlaque.ttf');
 }
