@@ -11,7 +11,7 @@ export default class header extends Component {
 
                 {/* <Link to="/Contact/" className="header_contact" style={{color:"#fff6c5", cursor:"pointer", textDecoration:"none"}} title="Page de contact - Old Paper Gallery"> */}
                 <Link to="/Contact/" className="header_contact" style={{color:"red", cursor:"pointer", textDecoration:"none"}} title="Page de contact - Old Paper Gallery">
-                    Contact
+                    Qui sommes Nous ?
                 </Link>
                 
             </div>

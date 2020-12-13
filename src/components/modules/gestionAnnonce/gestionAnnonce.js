@@ -73,20 +73,13 @@ export default class gestionAnnonce extends Component {
                         tabParam[ii][jj] = array[jj][ii];
                     }
                 }
-
-                
-                
-            }
-            
-            
+            }    
+        
             this.setState({
                 searchText : text,
                 searchResult : tabParam
             });
 
-            
-            
-            
             // console.log("SEARCH FUNCTION SEARCH", textSearch);
             // console.log("SEARCH FUNCTION RESULTAT", tabParam);
         })
@@ -94,8 +87,7 @@ export default class gestionAnnonce extends Component {
         // Affiche l'erreur
         .catch(error => {
             console.log(error);
-        }); 
-        
+        });   
     }
 
     onClick = (e) => {

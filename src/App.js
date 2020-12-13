@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {BrowserRouter as Router , Route, Switch} from 'react-router-dom'
-import {Helmet} from "react-helmet"
+// import {Helmet} from "react-helmet"
 
 
 import Header from "./components/header"
@@ -62,36 +62,6 @@ class App extends Component {
     return (
       
       <div className="HomeClass">
-
-        <Helmet>
-
-          {/* <!-- Meta Tags Generated via http://heymeta.com --> */} 
-          {/* <!-- HTML Meta Tags --> */}
-          <title>Old Paper Gallery</title>
-          <meta name="description" content="Nous achetons et vendons des lettres autographes, manuscrits, gravures et documents anciens."/>
-
-          {/* <!-- Google / Search Engine Tags --> */}
-          <meta itemprop="name" content="Old Paper Gallery"/>
-          <meta itemprop="description" content="Nous achetons et vendons des lettres autographes, manuscrits, gravures et documents anciens."/>
-          <meta itemprop="image" content="/ressources/favicon.png" />
-
-          {/* <!-- Facebook Meta Tags --> */}
-          <meta property="og:url" content="http://oldpapergallery.com"/>
-          <meta property="og:type" content="website"/>
-          <meta property="og:title" content="Old Paper Gallery"/>
-          <meta property="og:description" content="Nous achetons et vendons des lettres autographes, manuscrits, gravures et documents anciens."/>
-          <meta property="og:image" content="/ressources/favicon.png" />
-
-          {/* <!-- Twitter Meta Tags --> */}
-          <meta name="twitter:card" content="summary_large_image"/>
-          <meta name="twitter:title" content="Old Paper Gallery"/>
-          <meta name="twitter:description" content="Nous achetons et vendons des lettres autographes, manuscrits, gravures et documents anciens."/>
-          <meta name="twitter:image" content="/ressources/favicon.png" />
-          
-
-          {/* <script src="C:\wamp64\www\Site_PHP\monAppReact\old-paper-gallery-react\sitemap-builder.js" /> */}
-
-        </Helmet>
 
         <div className="app">
           
