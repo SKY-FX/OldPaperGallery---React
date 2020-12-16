@@ -343,6 +343,24 @@ hr
     width:25em;
 }
 
+
+._fieldSetConect
+{
+    border:1px solid rgba(255, 248, 193, .6);
+    margin-bottom: 20px;
+    padding:30px;
+    background-color: rgba(255,255,255,.3);
+}
+
+.field
+{
+    padding:20px;
+    font-size: 20px;
+    color : #fff6c5;
+    margin-bottom: 20px;
+    /* border:1px solid #fff6c5; */
+}
+
 .panneau_paiement
 {
     display: flex;
@@ -364,10 +382,16 @@ hr
     flex-direction: column;
     justify-content: center;
 
-    background-color: rgba(0,0,0,.8);
-    border : 1px solid rgba(255,255,255,.3);
+    background-color: rgba(0,0,0,.6);
+    border : 1px solid rgba(255, 248, 193, .7);
     padding : 30px;
     margin-bottom : 10px;
+}
+
+.link p
+{
+    color :#fff6c5;
+    font-size: 15px;
 }
 
 .link p:hover

@@ -115,7 +115,7 @@ export default class AcheterAnnonce extends Component {
 		const url = "/api/search.php";
 		// const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/search.php";
 		
-        const style={textDecoration:"none", color:"rgba(255, 248, 193, .6)"}
+        const style={textDecoration:"none", color:"white", fontSize:"15px", color:"#fff6c5"}
 
         return (
             <div className="BlockAchat">
@@ -161,7 +161,7 @@ export default class AcheterAnnonce extends Component {
                                 <br/><br/>
 
                                 <fieldset className="_fieldSetConect">
-                                    <p className="textConect">Adresse de livraion</p><br/>
+                                    <div className="field"><p>Adresse de livraion</p></div>
                                     <input className="item_connexion" required type="text" name="nom_prenom" placeholder="Nom-Prénom" onChange={this.onChange} /><br/>
                                     <textarea className="item_connexion" required type="text" name="adresse" placeholder="Adresse" onChange={this.onChange}  /><br/>
                                     <input className="item_connexion" required type="text" name="codePostal" placeholder="Code postal" onChange={this.onChange} /><br/>
@@ -170,7 +170,7 @@ export default class AcheterAnnonce extends Component {
                                 </fieldset>
 
                                 <fieldset className="_fieldSetConect">
-                                    <p className="textConect">Infos de connection</p><br/>
+                                    <div className="field"><p>Infos de connection</p></div>
                                     <input className="item_connexion" required type="text" name="email" placeholder="Email" onChange={this.onChange} /><br/>
                                     <input className="item_connexion" required type="password" name="mot_de_passe" placeholder="Mot de passe" onChange={this.onChange}  /><br/>
                                     <br/>
