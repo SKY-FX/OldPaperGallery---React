@@ -129,20 +129,21 @@ export default class AcheterAnnonce extends Component {
                         </div> 
 
                         <div className="panneaux">
-                            <div className="panneau_paiement">
+                            <div className="panneau_paiement"> 
 
                                 <p>Vous pouvez payer par chèque, virement banquaire<br/>ou directement avec votre compte Paypal !</p>
                                 <br/><br/>
                                 
                                 <div className="paiement">
-                                    <p>Paiement par paypal :</p>
-                                    <Link className="link" to="/" style={style}><p>Paypal</p></Link>
+                                    <p>Paiement par 
+                                        <Link className="link" to="/" style={style}><p> Paypal</p></Link>
+                                    </p>
                                 </div>
 
                                 <div className="paiement">
-                                    <p>Paiement par virement banquaire :</p>
-                                    <Link className="link" to='/docsAdmin/RIB.png' target="_blank" download style={style}><p>Télécharger le RIB</p></Link>
-                                    {/* <Link to="/docsAdmin/RIB.png" target="_blank" download>RIB</Link> */}
+                                    <p>Paiement par virement banquaire :<br/>
+                                        <Link className="link" to='/docsAdmin/RIB.jpg' target="_blank" download style={style}><p>Télécharger le RIB</p></Link>
+                                    </p>
                                 </div>
 
                                 <div className="paiement">
@@ -160,7 +161,6 @@ export default class AcheterAnnonce extends Component {
                                 <br/><br/>
 
                                 <fieldset className="fieldSetConect">
-                                    {/* <legend>Infos</legend> */}
                                     <p className="textConect">Adresse de livraion</p><br/>
                                     <input className="item_connexion" required type="text" name="nom_prenom" placeholder="Nom-Prénom" onChange={this.onChange} /><br/>
                                     <textarea className="item_connexion" required type="text" name="adresse" placeholder="Adresse" onChange={this.onChange}  /><br/>

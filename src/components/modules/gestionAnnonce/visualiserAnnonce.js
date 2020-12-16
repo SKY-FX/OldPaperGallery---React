@@ -150,7 +150,7 @@ export default class visualiserAnnonce extends Component {
                     }
                     
                     { (this.state.A_annees) ?
-                        <Fragment><p>{this.state.A_annees}</p><br/></Fragment>:null
+                        <Fragment><div className='annee'>{this.state.A_annees}</div><br/></Fragment>:null
                     }
 
                     { (this.state.A_profession) ?
@@ -190,7 +190,7 @@ export default class visualiserAnnonce extends Component {
                     }
 
                     { (this.state.titre) ?
-                        <Fragment><br/><br/><br/><i><p dangerouslySetInnerHTML={{ __html: titre }} /></i></Fragment>:null
+                        <Fragment><br/><br/><br/><p dangerouslySetInnerHTML={{ __html: titre }} /><br/></Fragment>:null
                     }
 
                     { (this.state.notice) ?

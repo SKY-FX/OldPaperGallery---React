@@ -87,7 +87,7 @@ export default class repondreMessage extends Component {
 
         // Renvoie le résultat de la recherche ( objet de tableau ) au parent
         .then(response => {
-            const result = response.data;
+            // const result = response.data;
             // console.log("RESULT REPONDRE", result);
             this.props.history.push('/GestionMessagerie/');
         })

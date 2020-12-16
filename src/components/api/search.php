@@ -50,7 +50,7 @@
     { 
         //On envoie ensuite une requête de sélection pour obtenir des infos sur les annonces
         $req = "SELECT 
-            titre, prix, A_nom_prenom, img_id, img_nom1, ref, etat_annonce
+            titre, prix, A_nom_prenom, img_id, img_nom1, ref, etat_annonce, A_profession
         FROM 
             images 
         WHERE 
@@ -83,6 +83,7 @@
             $return['img_nom1'][$i] = $col[4];
             $return['ref'][$i] = $col[5];
             $return['etat_annonce'][$i] = $col[6];
+            $return['A_profession'][$i] = $col[7];
             ++$i;
         }
     }

@@ -1,0 +1,52 @@
+.contact
+{
+    background-color: rgba(0, 0, 0, .7);
+    padding: 40px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    /* z-index: 999; */
+    width : 80%;
+    margin-bottom: 150px;
+    /* margin-bottom:100px; */
+}
+
+.contact h1
+{
+    font-family: "Antic Slab";
+    /* font-family: serif; */
+    text-shadow: 0px 0px 10px black, 0px 0px 10px black, 0px 0px 10px black, 0px 0px 10px black, 0px 0px 10px black;
+    font-size: 19px;
+    font-weight: lighter;
+    letter-spacing: 0px;
+    color : white;
+    opacity : 0.8;
+
+    text-align: justify;
+}
+
+.contact h2
+{
+    font-family: 'description';
+    text-shadow: 0px 0px 10px black, 0px 0px 10px black, 0px 0px 10px black, 0px 0px 10px black, 0px 0px 10px black;
+    font-size: 20px;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    color : #fff6c5;
+}
+
+.contact .letrine
+{
+    font-family: body;
+    font-size: 50px;
+    color: #fff6c5;
+}
+
+@media screen and (max-width: 800px)
+{
+    .contact
+    {
+        margin-bottom: 0;
+    }
+}

@@ -4,7 +4,7 @@
 	flex-direction: row;
 	justify-content: space-evenly;
 
-	background-color: rgba(0, 0, 0, .8);
+	background-color: rgba(0, 0, 0, .85);
 	border:1px solid #fff6c580;
 	border-radius: 15px;
 	margin-top: 15px;

@@ -6,12 +6,9 @@ import {Link, withRouter} from 'react-router-dom'
 
 class navBarDetails extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            searchText : this.props.searchText
-        }
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     handleClick = (path) => {
         this.props.history.push(path);
@@ -19,7 +16,7 @@ class navBarDetails extends Component {
     }
 
     render () {
-        var search = this.state.searchText;
+        var search = this.props.searchText;
         if (search === '') search = ' ';
 
         const items = [
@@ -43,16 +40,16 @@ class navBarDetails extends Component {
                 path: '/Search/' + search + '/Politique',
                 text: 'Politique'
             },
-            {
-                path: '/Search/ /',
-                text: 'Toute la boutique'
-            }
+            // {
+            //     path: '/Search/ /',
+            //     text: 'Toute la boutique'
+            // }
         ];
 
         return (
             <div className="navBar">
                 {items.map(item => (
-                    <Link to={item.path} key={item.path} onClick={(item) => this.handleClick(item.path)} className="item" title={item.text}><h2>{item.text}</h2></Link>
+                    <Link className="item" to={item.path} key={item.path} onClick={(item) => this.handleClick(item.path)} title={item.text}><h2>{item.text}</h2></Link>
                 ))}
             </div>
         )

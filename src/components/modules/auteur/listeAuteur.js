@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 
@@ -41,10 +41,28 @@ export default class auteur extends Component {
     render() {
 
         const tabResult = this.state.result;
+
+        var firstLetter = '';
         const listeAuteur = tabResult.map( (auteur, id) => {
-            const searchText = "/Search/" + auteur
-            return <Link to={searchText} className="unAuteur" key={id}>{auteur}</Link>
-        });
+            const searchText = "/Search/" + auteur;
+            
+            if (auteur[0]!==firstLetter) {
+                firstLetter = auteur[0];
+                return (
+                    <Fragment>
+                        <div className="uneLettre">{firstLetter}</div>
+                        <Link to={searchText} className="unAuteur" key={id}>{auteur}</Link>
+                    </Fragment>
+                )
+            }
+            else{
+                return (
+                    <Link to={searchText} className="unAuteur" key={id}>{auteur}</Link>
+                )
+            }
+
+            console.log("auteur",auteur[0]);
+            });
 
         
         return (

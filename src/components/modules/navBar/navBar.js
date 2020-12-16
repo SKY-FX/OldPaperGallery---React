@@ -7,10 +7,6 @@ const items = [
         path: '/Search/Autographe',
         text: 'Autographes'
     },
-    // {
-    //     path: '/Search/Plaquette',
-    //     text: 'Plaquette'
-    // },
     {
         path: '/Search/Manuscrit',
         text: 'Manuscrits'
@@ -19,10 +15,6 @@ const items = [
         path: '/Search/Gravure',
         text: 'Gravures'
     },
-    // {
-    //     path: '/Search/Art',
-    //     text: 'Art'
-    // },
     {
         path: '/SearchAuteurs',
         text: 'Auteurs'
@@ -37,6 +29,13 @@ function navBar(props) {
 
     return (
         <Fragment>
+
+            <div className="navBar">   
+                {items.map(item => (
+                    <Link className="item" to={item.path} key={item.path} onClick={handleClick.bind(null, item.path)} title={item.text}><h2>{item.text}</h2></Link>
+                    ))}
+            </div>
+            
             <div className="mainText">
                 <h1 >
                     ACHATS - VENTES
@@ -48,23 +47,16 @@ function navBar(props) {
                     Autographes - Manuscrits - Archives - Gravures
                 </h2>
 
-                <br/>
-                <br/>
-
                 <h3>
-                    Nous achetons et vendons des lettres autographes, manuscrits, gravures, archives et documents anciens.<br/>
+                    <p className="letrine">N</p>
+                    ous achetons et vendons des lettres autographes, manuscrits, gravures, archives et documents anciens.<br/>
                     Nous faisons des estimations. Paiement comptant.
                 </h3>
 
 
             </div>
             
-            <div className="navBar">   
-                {items.map(item => (
-                    <Link className="item" to={item.path} key={item.path} onClick={handleClick.bind(null, item.path)} title={item.text}><h2>{item.text}</h2></Link>
-                    ))}
-                
-            </div>
+            
         </Fragment>
     )
 }

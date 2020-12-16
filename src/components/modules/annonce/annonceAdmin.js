@@ -6,7 +6,8 @@ import './annonce.css'
 class annonce extends Component {
 
     render() {
-      
+        
+        const profession = this.props.params[7];
         const etatAnnonce = this.props.params[6];
         const ref = this.props.params[5];
         const nomImage = this.props.params[4];
@@ -49,8 +50,11 @@ class annonce extends Component {
     
                     <div className="pHead">{auteur}</div>
                     <hr/>
+                    <div className="pBody" dangerouslySetInnerHTML={{ __html: profession }} />
                     <br/>
-                    <div className="pBody" dangerouslySetInnerHTML={{ __html: titre }} />
+                    <br/>
+                    {/* <hr/> */}
+                    <div className="pBody" dangerouslySetInnerHTML={{ __html: titre }} />                  
                     <hr/>
                     <br/>
                     <div className="pBody">référence : {ref}</div>

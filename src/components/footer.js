@@ -32,6 +32,10 @@ export default function footer(props) {
                 <a href="https://www.ebay.fr/fdbk/feedback_profile/oldpapergallery?filter=feedback_page:All" target="_blank" rel="noreferrer noopener">
                     Avis clients
                 </a>
+
+                <Link to="/Contact/" title="Qui sommes-nous ?">
+                    Qui sommes Nous ?
+                </Link>
             </div>
             
             <div className="footer_bc">
@@ -39,9 +43,9 @@ export default function footer(props) {
                     Old Paper Gallery<br/>
                     2 rue de la concorde - 33000 Bordeaux<br/>
                 </p>
-                <p1>
+                <div className="p1">
                     <Link to="/GestionMessagerie/NewMessage" style={{color:"red", cursor:"pointer", textDecoration:"none", fontFamily:"Antic Slab"}} >fr.chabaud@gmail.com<br/></Link>
-                </p1>
+                </div>
                 <p>
                     06 86 76 86 04<br/>
                     sarl - siren : 305 365 132
@@ -54,11 +58,11 @@ export default function footer(props) {
 
             
             <div className="footer_bd">
-                <Link to={connecLink[0]}>
+                <Link to={connecLink[0]} title="Se connecter à votre compte">
                     {connecName[0]}
                 </Link>
 
-                <Link to={connecLink[1]}>
+                <Link to={connecLink[1]} title="S'inscrire sur Old Paper Gallery">
                     {connecName[1]}
                 </Link>
             </div>

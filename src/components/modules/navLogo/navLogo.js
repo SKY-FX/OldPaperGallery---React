@@ -9,6 +9,7 @@ export default function navLogo() {
         <div className="navLogo">
             <Link to="/" title="Page d'accueil - Old Paper Gallery">
                 Old Paper Gallery
+                {/* En construction... */}
             </Link>
         </div>  
     )

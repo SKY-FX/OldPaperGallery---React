@@ -8,8 +8,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    z-index: 999;
-    /* margin-bottom: 400px; */
+    /* z-index: 999; */
+    margin-bottom: 40px;
 }
 
 .navBar h2
@@ -17,6 +17,7 @@
     font-family: Main;
     font-size: 15px;
     font-weight: lighter; 
+    color: #fff6c5;
 }
 
 .item
@@ -24,34 +25,35 @@
 	border: 1px solid rgba(255,255,255,0.5);
     background-color: rgba(0, 0, 0, .6);
     
-    padding: 15px;
-	color: #fff6c5;
+	
     cursor: pointer;
     
     opacity: 1;
 	text-align: center;
 	text-decoration: none;
 	
-	border-radius: 15px;
+    border-radius: 15px;
+    padding: 15px;
 	margin: 10px;
 }
 
 .item:hover
 {
-	opacity:.8;
-    border:1px solid rgba(255, 248, 193, 1);
+	/* opacity:.8; */
+    border:1px solid rgba(255, 248, 193, 5);
     background-color: rgba(0, 0, 0, .9);
+    
 }
 
 .mainText
 {
-    background-color: rgba(0, 0, 0, .7);
+    background-color: rgba(0, 0, 0, .75);
     padding: 40px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-self: center;
-    z-index: 999;
+    /* z-index: 999; */
     width : 80%;
     margin-bottom: 30px;
 }
@@ -83,7 +85,7 @@
     font-family: "Antic Slab";
     /* font-family: serif; */
     text-shadow: 0px 0px 10px black, 0px 0px 10px black, 0px 0px 10px black, 0px 0px 10px black, 0px 0px 10px black;
-    font-size: 18px;
+    font-size: 19px;
     font-weight: lighter;
     letter-spacing: 0px;
     color : white;
@@ -92,13 +94,19 @@
     /* text-align: justify; */
 }
 
+.letrine
+{
+    font-family: body;
+    font-size: 50px;
+    color: #fff6c5;
+}
 
 @media screen and (max-width: 700px)
 {
     .item
     {
         flex:1; 
-        padding:40px;
+        padding:30px;
     }
 
 }

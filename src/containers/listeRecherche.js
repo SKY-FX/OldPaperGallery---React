@@ -15,11 +15,12 @@ export default class listeRecherche extends Component {
             searchText : '',
             validFlag : '0'
         };
-        // console.log("MAIN : ", this.state.searchText);
+        // console.log("CONSTRUCTOR : ", this.state.searchText);
     }
 
     componentDidMount()
     {
+        // console.log("DIDMOUNT : ", this.state.searchText);
         const textSearch = this.props.match.params.searchText;
         this.updateResult(textSearch);
     }
@@ -27,7 +28,12 @@ export default class listeRecherche extends Component {
     updateResult (textSearch)
     {
         // En tete AXIOS + formatte la recherche pour axios
-        
+        // if (!textSearch)
+        // {
+        //     textSearch = this.props.match.params.searchText;
+        // }
+
+
         const url = "/api/search.php";
         // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/search.php";
         
@@ -62,23 +68,28 @@ export default class listeRecherche extends Component {
     }
 
     barResult = (result) => {
-        // console.log("SEARCH BIS :", result);
-        this.props.history.push('/Search/' + result);
+        // console.log("BAR RESULT :", result);
+        // this.props.history.push('/Search/' + result);
         this.updateResult(result); 
+        window.history.pushState('', '', '/Search/' + result);
     }
 
     render() {
-        
+        // console.log("RENDER LISTE1 :", this.state.searchText);
+        // console.log("RENDER LISTE2 :", this.state.searchResult);
+        // console.log("RENDER LISTE3 :", this.state.validFlag);
         return (
             
             <Fragment>
                 {  this.state.validFlag !== '' ?
                     <div className="listeRecherche">
-                
-                        
+
+                        {/* Menu de recherche rapide détaillé */}
                         <NavBarDetails searchText={this.state.searchText} />
-                        <br/><br/>
-                        
+
+                        {/* Barre de recherche */}
+                        <SearchBar return={ (result) => this.barResult(result) } />
+
                         { this.state.searchText !== ' ' ?
                             
                             <Fragment>
@@ -94,6 +105,9 @@ export default class listeRecherche extends Component {
                         
                         {/* <SearchFunc searchText={this.state.searchText} axiosUrl={url} return={ (result) => this.searchResult(result) } /> */}
                         <ListeAnnonce liste={this.state.searchResult} isSold="true" /> 
+                        {/* <br/><br/> */}
+                        
+                    
                     </div>
                     :
                     <div className="listeRecherche">

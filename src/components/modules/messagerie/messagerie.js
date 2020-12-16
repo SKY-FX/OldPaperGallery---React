@@ -67,7 +67,7 @@ export default class messagerie extends Component {
         const dst = result[indiceAnnonce]['EXP'];
         const exp = result[indiceAnnonce]['DST'];
         const objet = result[indiceAnnonce]['OBJET'];
-        const message = result[indiceAnnonce]['CORPS'];
+        // const message = result[indiceAnnonce]['CORPS'];
 
         // console.log("SEARCH MESSAGERIE", statuts);
                 
@@ -88,7 +88,7 @@ export default class messagerie extends Component {
 
             // Renvoie le résultat de la recherche ( objet de tableau ) au parent
             .then(response => {
-                const result = response.data;
+                // const result = response.data;
                 // console.log("SEARCH MESSAGERIE", result);
                 this.updateResult();    
         

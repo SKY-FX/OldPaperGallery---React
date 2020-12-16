@@ -10,23 +10,31 @@
 
     display:flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: left;
+    /* align-items: left; */
 
     font-family: 'Main';
+    /* z-index:999; */
     
 }
 
 .unAuteur
 {
-    padding: 10px;
+    padding: 0 10px 0 10px;
     color: seashell;
     font-size: 15px;
     text-decoration: none;
+    text-align: justify;
 }
 
 .unAuteur:hover{
     cursor: pointer;
     color: seashell;
     text-shadow: 1px 1px 1px red, 2px 2px 1px red;
+}
+
+.uneLettre
+{
+    padding: 10px 0 0 10px;
+    text-align: left;
+    color: red;
 }

@@ -5,16 +5,19 @@ import './listeAnnonce.css'
 
 export default function listeAnnonce (props) {
     
-    // console.log("LISTE ANNONCE", props.liste['ref']);
+    // console.log("LISTE ANNONCE1", props.liste);
 
     const listeRef = props.liste['ref'];
     const listeAnnonces = props.liste;
+
+    
     
 
     // Vérifie si des annonces ont été trouvés (si des parametres existent)
     if (listeRef) {
         const nbParams = Object.keys(listeAnnonces).length;
         const nbAnnonce = listeRef.length;
+        // console.log("LISTE ANNONCE2", nbAnnonce);
 
         // convertie l'objet des parametres en tableau
         var array = Object.keys(listeAnnonces).map((key) => {

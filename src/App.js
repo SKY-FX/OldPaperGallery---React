@@ -35,6 +35,7 @@ import defaultPage from './components/modules/defaultPage/defaultPage'
 import Footer from './components/footer'
 
 import './App.css'
+import './containers/backgroundSlider.css'
 
 import UserProfile from './components/modules/utiles/sessionFct'
 
@@ -63,94 +64,106 @@ class App extends Component {
       
       <div className="HomeClass">
 
+        <li><span>Image 01</span></li>
+        <li><span>Image 02</span></li>
+        <li><span>Image 03</span></li>
+        <li><span>Image 04</span></li>
+        <li><span>Image 05</span></li>
+        <li><span>Image 06</span></li>
+        <li><span>Image 07</span></li>
+        <li><span>Image 08</span></li>
+        <li><span>Image 09</span></li>
+        <li><span>Image 10</span></li>
+  
+
         <div className="app">
           
             <Router>
               <Header />
-              <Switch>
-                
-                {/* Page d'accueil */}
-                <Route exact path="/" component={NavBar} />
+              <div className="main">
+                <Switch>
+                  {/* Page d'accueil */}
+                  <Route exact path="/" component={NavBar} />
 
-                {/* Page de contact */}
-                <Route exact path="/Contact" component={Contact} />
+                  {/* Page de contact */}
+                  <Route exact path="/Contact" component={Contact} />
 
-                {/* USER */}
-                {/* Page de toute les annonces */}
-                <Route exact path='/Inscription' component={Inscription}/>
+                  {/* USER */}
+                  {/* Page de toute les annonces */}
+                  <Route exact path='/Inscription' component={Inscription}/>
 
-                {/* Page de recherche (2 critères de recherche)     */}
-                <Route exact path="/Search/:searchText/:searchTextDetails" component={LienRecherche} />
+                  {/* Page de recherche (2 critères de recherche)     */}
+                  <Route exact path="/Search/:searchText/:searchTextDetails" component={LienRecherche} />
 
-                {/* Page de recherche (1 critère de recherche) */}
-                <Route exact path="/Search/:searchText" component={ListeRecherche} />
+                  {/* Page de recherche (1 critère de recherche) */}
+                  <Route exact path="/Search/:searchText" component={ListeRecherche} />
 
-                {/* Page de toute les annonces */}
-                <Route exact path='/SearchAuteurs' component={Auteurs}/>
-
-
-                {/* CLIENT */}
-                {/* Page de connexion */}
-                <Route 
-                  exact path='/logIn' 
-                  render={(props) => (
-                    <Connexion {...props} return={ (res) => this.checkConnect(res) } />
-                  )} 
-                />
-
-                {/* Page de deconnexion */}
-                <Route  
-                  exact path='/logOut' 
-                  render={ (props) => (
-                    <Deconnection {...props} return={ (res) => this.checkConnect(res) } />
-                  )} 
-                />
-
-                {/* *** */}
-                {/* Espace privé pour le client */}
-                <Route exact path='/Connexion/:client' component={Client} />
+                  {/* Page de toute les annonces */}
+                  <Route exact path='/SearchAuteurs' component={Auteurs}/>
 
 
-                {/* *** */}
-                {/* MeVentes : Admin */}
-                <Route exact path='/GestionVentes' component={MesVentes}/>
+                  {/* CLIENT */}
+                  {/* Page de connexion */}
+                  <Route 
+                    exact path='/logIn' 
+                    render={(props) => (
+                      <Connexion {...props} return={ (res) => this.checkConnect(res) } />
+                    )} 
+                  />
+
+                  {/* Page de deconnexion */}
+                  <Route  
+                    exact path='/logOut' 
+                    render={ (props) => (
+                      <Deconnection {...props} return={ (res) => this.checkConnect(res) } />
+                    )} 
+                  />
+
+                  {/* *** */}
+                  {/* Espace privé pour le client */}
+                  <Route exact path='/Connexion/:client' component={Client} />
 
 
-                {/* *** */}
-                {/* Messagerie du client */}
-                <Route exact path='/GestionMessagerie' component={Messagerie}/>
-                
-                {/* Messagerie du client */}
-                <Route exact path='/GestionMessagerie/Repondre/:type/:exp/:dst/:objet' component={RepondreMessage}/>
-
-                {/* Page pour un nouveau message depuis la page d'accueil */}
-                <Route exact path='/GestionMessagerie/NewMessage' component={NewMessage}/>
+                  {/* *** */}
+                  {/* MeVentes : Admin */}
+                  <Route exact path='/GestionVentes' component={MesVentes}/>
 
 
-                {/* *** */}   
-                {/* Gestion des annonces : Admin */}
-                <Route exact path='/GestionAnnonces' component={GestionAnnonce}/>
+                  {/* *** */}
+                  {/* Messagerie du client */}
+                  <Route exact path='/GestionMessagerie' component={Messagerie}/>
+                  
+                  {/* Messagerie du client */}
+                  <Route exact path='/GestionMessagerie/Repondre/:type/:exp/:dst/:objet' component={RepondreMessage}/>
 
-                {/* VisualiserAnnonce : Admin */}
-                <Route exact path='/GestionAnnonces/Visualiser/:idAnnonce' component={VisualiserAnnonce}/>
-
-                {/* EffacerAnnonce : Admin */}
-                <Route exact path='/GestionAnnonces/Effacer/:idAnnonce' component={EffacerAnnonce}/>
-
-                {/* ModifierAnnonce : Admin */}
-                <Route exact path='/GestionAnnonces/Modifier/:idAnnonce' component={ModifierAnnonce}/>
-
-                {/* AjouterAnnonce : Admin */}
-                <Route exact path='/GestionAnnonces/Ajouter' component={AjouterAnnonce}/>
-
-                {/* Page d'achat d'une annonce */}
-                <Route exact path='/GestionAnnonces/AcheterAnnonce/:auteur/:titre/:prix' component={AcheterAnnonce}/>              
+                  {/* Page pour un nouveau message depuis la page d'accueil */}
+                  <Route exact path='/GestionMessagerie/NewMessage' component={NewMessage}/>
 
 
-                <Route exact component={defaultPage}/>
+                  {/* *** */}   
+                  {/* Gestion des annonces : Admin */}
+                  <Route exact path='/GestionAnnonces' component={GestionAnnonce}/>
 
-              </Switch>
+                  {/* VisualiserAnnonce : Admin */}
+                  <Route exact path='/GestionAnnonces/Visualiser/:idAnnonce' component={VisualiserAnnonce}/>
 
+                  {/* EffacerAnnonce : Admin */}
+                  <Route exact path='/GestionAnnonces/Effacer/:idAnnonce' component={EffacerAnnonce}/>
+
+                  {/* ModifierAnnonce : Admin */}
+                  <Route exact path='/GestionAnnonces/Modifier/:idAnnonce' component={ModifierAnnonce}/>
+
+                  {/* AjouterAnnonce : Admin */}
+                  <Route exact path='/GestionAnnonces/Ajouter' component={AjouterAnnonce}/>
+
+                  {/* Page d'achat d'une annonce */}
+                  <Route exact path='/GestionAnnonces/AcheterAnnonce/:auteur/:titre/:prix' component={AcheterAnnonce}/>              
+
+
+                  <Route exact component={defaultPage}/>
+
+                </Switch>
+              </div> 
 
               <Footer userType={UserProfile.getType()} checkConnect={this.state.checkConnect} />
 

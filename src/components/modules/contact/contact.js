@@ -7,7 +7,7 @@ export default function contact() {
         <div className="contact">
             
             <h2>
-                Qui sommes nous ?
+                Qui sommes-nous ?
             </h2>
 
             <h1> 
