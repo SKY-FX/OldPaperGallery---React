@@ -114,7 +114,9 @@
     color: rgba(255, 248, 193, .8);
     font-size: 1.5em;
     font-weight: lighter;
+    z-index:0;
 }
+
 
 .pBBody
 {
@@ -123,7 +125,7 @@
     font-weight: lighter;
     text-align: justify;
     opacity : 0.9;
-    /* letter-spacing: 1px; */
+    z-index: 0;
 }
 
 
@@ -141,19 +143,19 @@
     flex: 1;
     padding:20px;
     background-color: rgba(0, 0, 0, 0.5);
-    text-align: center;
+    text-align: center;    
 }
 .sectionScan fieldset
 {
     border: 1px solid rgba(255, 248, 193, .5);
     padding : 20px;
     background-color: black;
+    /* z-index: 0; */
 }
 /****************************/
 ._section_scan fieldset p
 {
     color:rgba(255, 255, 255, .8);
-    
 }
 
 /****************************/
@@ -163,14 +165,24 @@
     max-width: 150px;
     max-height: auto;
     transition: transform 2s ease;
-    transform-origin: left top;                
+    transform-origin: left top;   
+    /* z-index: 999;   */
 }
+
 /****************************/
 .sectionScan a img:hover
 {
     transform: scale(3);
     transform-origin: left top;
+}
 
+.sectionScan a:nth-child(1) img
+{
+    z-index: 999;
+}
+.sectionScan a:nth-child(2) img
+{
+    z-index: 998;
 }
 
 
@@ -187,7 +199,13 @@
     color:rgba(255, 255, 255, .8);
     background-color: transparent;
     padding:30px 150px 50px 150px;
+    z-index: 0;
 }
+.sectionDesc p
+{
+    z-index: 0;
+}
+
 .sectionDesc .annee
 {
     font-size: 16px;
@@ -234,6 +252,7 @@
 {
     margin-right:30px;
     margin-left:10px;
+    z-index: 999;
 }
 
 
@@ -420,13 +439,15 @@ hr
     .panneaux
     {
         flex-direction: column;
-        margin:10px;
+        margin:0px;
         padding:0;
     }
 
     .panneau_paiement
     {
+        
         padding : 20px;
+        padding-top : 40px;
         margin : 0;
         margin-bottom: 20px;
     }
@@ -434,33 +455,50 @@ hr
     .paiement
     {
         margin:0;
-        padding:20px;
-        margin-top:5px;
+        padding:30px;
+        margin-top:0px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 65%;
     }
 
     .panneau_facturation
     {
-        /* padding : 30px 20px 20px 20px; */
         padding : 10px;
+        padding-top : 40px;
         margin : 0;
+        margin-bottom: 20px;
     }
 
-    .panneau_facturation .fieldSetConect
+    ._fieldSetConect
     {
         margin : 0;
-        margin-bottom: 20px;;
-        padding : 10px;
+        margin-bottom: 20px;
+        padding : 0px;
         padding-bottom: 20px;
+        width:70%;
     }
 
-    .panneau_facturation .fieldSetConect *
+    ._fieldSetConect *
     {
         margin : 0 auto 0 auto;
         padding : 20px;
-        width: 80vw;
+        width: 80%;
     }
 	
 
 }
 
+@media screen and (max-width: 400px)
+{
+    ._fieldSetConect
+    {
+        width:100%;
+    }
+
+    .paiement
+    {
+        width: 80%;
+    }
+}
 

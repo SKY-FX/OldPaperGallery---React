@@ -25,8 +25,8 @@ export default class messagerie extends Component {
     {
         const userSession = this.state.nameClient;
 
-        const url = "/api/messagerie.php";
-        // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/messagerie.php";
+        // const url = "/api/messagerie.php";
+        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/messagerie.php";
 		
         var formData = new FormData();
         formData.append('nom_prenom', userSession);
@@ -162,12 +162,12 @@ export default class messagerie extends Component {
                             
                             <td > 
                                 { (this.state.nameClient===mess['EXP']) ? 
-                                    <p className="p1" onClick={ () => this.changeSatut('efface', id) } name={nameEfface} >Effacer</p>
+                                    <p className="pAction" onClick={ () => this.changeSatut('efface', id) } name={nameEfface} >Effacer</p>
                                     :
                                     <Fragment>
-                                        <p className="p1" onClick={ () => this.changeSatut('efface', id) } name={nameEfface} >Effacer</p>
+                                        <p className="pAction" onClick={ () => this.changeSatut('efface', id) } name={nameEfface} >Effacer</p>
                                         <br/><br/>
-                                        <p className="p2" onClick={ () => this.changeSatut('repondre', id) } name={nameRepondre} >Répondre</p>
+                                        <p className="pAction" onClick={ () => this.changeSatut('repondre', id) } name={nameRepondre} >Répondre</p>
                                     </Fragment>
                                     // null
                                 }

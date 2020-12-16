@@ -61,7 +61,7 @@ export default class auteur extends Component {
                 )
             }
 
-            console.log("auteur",auteur[0]);
+            // console.log("auteur",auteur[0]);
             });
 
         

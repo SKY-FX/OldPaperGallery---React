@@ -10,7 +10,7 @@
 	border: 1px solid rgba(255, 248, 193, 0.5);
 	border-radius: 15px;
 	
-	margin-bottom:50px;
+	margin-bottom:0px;
 	margin-right: auto;
 	margin-left: auto;
 	
@@ -23,9 +23,17 @@
     /* z-index: 999; */
 }
 
+.fieldSetConnect button
+{
+    /* margin-top: 30px; */
+}
+
 .fieldSetConect legend
 {
     font-size: 20px;
+    float: left;
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 .checkbox
@@ -95,9 +103,6 @@
     width: 80%;
 }
 
-
-
-
 legend
 {
     font-size: 25px;
@@ -107,20 +112,38 @@ legend
 
 @media screen and (max-width: 700px)
 {
-    .fieldSetConect 
+    .fieldSetConect
     {
-        width : 200px;
-        padding: 20px;
+        width : 90vw;
+        /* padding: 20px; */
         border: 1px solid rgba(255, 248, 193, 0.5);
         border-radius: 15px;
         
-        margin-bottom:50px;
-        margin-right: auto;
-        margin-left: auto;
+        /* padding-top:50px; */
+        padding:0;
+        margin:0px;
+        /* margin-right: auto; */
+        /* margin-left: auto; */
+        
+    }
+    .fieldSetConect legend
+    {
+        margin-top: 30px;
     }
 
-    .item_connexion
+    .fieldSetConect input
     {
+		margin:auto;
         margin-bottom:10px;
+        width: 80%;
+    }
+
+    .fieldSetConect button
+    {
+		margin:auto;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        width: auto;
+        
     }
 }

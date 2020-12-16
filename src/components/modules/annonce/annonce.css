@@ -38,19 +38,21 @@
 	width: 50vw;
 	text-align: center;
 	font-family: 'MAIN';
-
+	z-index:0;
 }
 
 .pBody
 {
 	color: rgba(255, 255, 255, .8);
 	font-size: .9em;
+	z-index:0;
 }
 
 .pHead
 {
 	color: rgba(255, 248, 193, .8);
 	font-size: 1.2em;
+	z-index:0;
 }
 
 .pVendu
@@ -71,6 +73,7 @@
 {
 	transition: transform 3s ease;
 	transform-origin: left;
+	z-index: 999;
 }
 
 .scanLink img:hover

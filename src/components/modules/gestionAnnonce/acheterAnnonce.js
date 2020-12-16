@@ -160,7 +160,7 @@ export default class AcheterAnnonce extends Component {
                                 <p>Entrez les informations de livraison de de connection !</p>
                                 <br/><br/>
 
-                                <fieldset className="fieldSetConect">
+                                <fieldset className="_fieldSetConect">
                                     <p className="textConect">Adresse de livraion</p><br/>
                                     <input className="item_connexion" required type="text" name="nom_prenom" placeholder="Nom-Prénom" onChange={this.onChange} /><br/>
                                     <textarea className="item_connexion" required type="text" name="adresse" placeholder="Adresse" onChange={this.onChange}  /><br/>
@@ -169,7 +169,7 @@ export default class AcheterAnnonce extends Component {
                                     <input className="item_connexion" required type="text" name="tel" placeholder="Téléphone" onChange={this.onChange} /><br/>
                                 </fieldset>
 
-                                <fieldset className="fieldSetConect">
+                                <fieldset className="_fieldSetConect">
                                     <p className="textConect">Infos de connection</p><br/>
                                     <input className="item_connexion" required type="text" name="email" placeholder="Email" onChange={this.onChange} /><br/>
                                     <input className="item_connexion" required type="password" name="mot_de_passe" placeholder="Mot de passe" onChange={this.onChange}  /><br/>

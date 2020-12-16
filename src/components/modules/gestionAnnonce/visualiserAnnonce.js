@@ -91,9 +91,12 @@ export default class visualiserAnnonce extends Component {
 
         const afficheImages = images.map( (image, id) => {
             const picPath = basePathPic.concat(image);
+            const divStyle = {
+                zIndex : 999-id
+            }
             return (
-                (image) && (<a href={picPath} key={id} >
-                    <img src={picPath} width="150" alt={image} />
+                (image) && (<a href={picPath} key={id} style={divStyle}>
+                    <img src={picPath} width="150" alt={image}/>
                 </a>)
             )
         });

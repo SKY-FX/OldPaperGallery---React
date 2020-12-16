@@ -133,3 +133,26 @@
 		width: 30vw;
 	}
 }
+
+@media screen and (max-width: 700px)
+{
+	.repondreMessage fieldset
+	{
+		padding:0;
+		padding-top: 20px;
+		margin:0;
+		width:100vw;
+	}
+	.repondreMessage fieldset textarea
+	{
+		width: 80%;
+		padding:10px;
+		margin:5px;
+	}
+	.repondreMessage fieldset input
+	{
+		width: auto;
+		padding:10px;
+		margin-bottom:20px;
+	}
+}

@@ -25,18 +25,26 @@
 .tabBody
 {
     background-color: rgba(0, 0, 0, 0.8);
-    color:white;
-    /* padding:20px; */
-    font-family: Main;
     
-    /* font-size: large; */
+    /* padding:20px; */
     
 }
 
-.p1, .p2{
-    cursor: pointer;
+.pAction
+{
+    opacity: 0.6;
+    /* color: red; */
 }
-.p1:hover, .p2:hover
+
+.tabBody p
+{
+    color:white;
+    cursor: pointer;
+    font-family: Main;
+    font-weight: lighter;
+    font-size: 15px;
+}
+.tabBody p:hover
 {
     color:red;
 }
