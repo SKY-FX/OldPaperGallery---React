@@ -110,6 +110,7 @@ export default class gestionAnnonce extends Component {
         return (
             
             <Fragment>
+                 <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"red", cursor:"pointer", textDecoration:"none"}} >Retour</div>
                 { this.state.userName === '' ?
                     <div className="textConnexion">
                         Vous devez être connecté pour accéder à l'espace privé !
