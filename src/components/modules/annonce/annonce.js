@@ -58,9 +58,6 @@ class annonce extends Component {
                     <div className="pBody" dangerouslySetInnerHTML={{ __html: titre }} />                  
                     <hr/>
                     <br/>
-                    <div className="pBody">référence : {ref}</div>
-                    <hr/>
-                    <br/>
                     <div className="pHead">{prix} euros</div>
 
                 </div>

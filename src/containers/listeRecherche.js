@@ -20,22 +20,17 @@ export default class listeRecherche extends Component {
 
     componentDidMount()
     {
-        // console.log("DIDMOUNT : ", this.state.searchText);
         const textSearch = this.props.match.params.searchText;
         this.updateResult(textSearch);
     }
 
     updateResult (textSearch)
     {
-        // En tete AXIOS + formatte la recherche pour axios
-        // if (!textSearch)
-        // {
-        //     textSearch = this.props.match.params.searchText;
-        // }
+        // console.log("updateResult : ", textSearch);
 
 
-        const url = "/api/search.php";
-        // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/search.php";
+        // const url = "/api/search.php";
+        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/search.php";
         
 
         var formData = new FormData();
@@ -55,7 +50,7 @@ export default class listeRecherche extends Component {
             // console.log("SEARCH FUNCTION RESULTAT", result);
 
             this.setState({
-                searchResult : response.data,
+                searchResult : result,
                 searchText : textSearch,
                 validFlag : result.titre[0]
             });
@@ -90,7 +85,7 @@ export default class listeRecherche extends Component {
                         {/* Barre de recherche */}
                         <SearchBar return={ (result) => this.barResult(result) } />
 
-                        { this.state.searchText !== ' ' ?
+                        { this.state.searchText !== 'Boutique' ?
                             
                             <Fragment>
                                 <h1>Résultat pour la recherche</h1>

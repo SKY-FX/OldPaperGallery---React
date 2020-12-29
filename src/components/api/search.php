@@ -4,7 +4,7 @@
     header("Access-Control-Allow-Headers: Content-Disposition, Content-Type, Content-Length, Accept-Encoding");
     header("Content-type:application/json");
 
-    $searchText = $_POST['searchText'];
+    $searchText = addslashes($_POST['searchText']);
     $return['titre'][0] = '';
 
     if ( ($searchText == 'Boutique') )

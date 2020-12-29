@@ -20,7 +20,7 @@ class searchBar extends Component {
         event.preventDefault(); 
         // console.log("searchBar onClick",this.state.searchText);
         const text = this.state.searchText;
-        if (text === '') {this.props.return(" ");}
+        if (text === '') {this.props.return("Boutique");}
         else {this.props.return(this.state.searchText);}
     
     }
