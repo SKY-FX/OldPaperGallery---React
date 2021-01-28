@@ -63,7 +63,7 @@ export default class repondreMessage extends Component {
         });
     }
 
-    render() {
+    render() { 
 
         var titre="Nouveau message au vendeur"
 

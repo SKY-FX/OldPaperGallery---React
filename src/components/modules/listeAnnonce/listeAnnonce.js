@@ -38,14 +38,14 @@ export default function listeAnnonce (props) {
         // console.log("LISTE ANNONCE TAB", props);
     
         // Construit les annonces
-        var tabTitre = tabParam.map( (param,id) => {
+        var annonces = tabParam.map( (param,id) => {
             return <Annonce key={id} params={param} isSold={props.isSold} />
         });
     }
 
     return (
         <div className="listeAnnonce">
-            {tabTitre}
+            {annonces}
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import { PayPalButton } from 'react-paypal-button-v2'
 
 import ListeAnnonce from '../listeAnnonce/listeAnnonce'
 import SearchFunc from '../searchFunction/searchfunc'
@@ -135,8 +136,15 @@ export default class AcheterAnnonce extends Component {
                                 <br/><br/>
                                 
                                 <div className="paiement">
-                                    <p>Paiement par 
-                                        <Link className="link" to="/" style={style}><p> Paypal</p></Link>
+                                    <p> 
+                                        {/* <Link className="link" to="/" style={style}><p> Paypal</p></Link> */}
+                                        <PayPalButton
+                                            amount={this.props.match.params.prix}
+                                            onSuccess={(details, data) => {alert("Transaction completed by " + details.payer.name.given_name);}}
+                                            style={{ color: "gold", shape: "pill", label: "pay", height: 40 }}
+                                            options={{clientId: "AevqzdRQctuwP9r9Epi-6rLByaArDw_3WK8Y66aEivCYpLKi3t9Wt8BhJpsxvt6193iq27Jkv-ez3mYB", currency: "EUR"}}
+                                        />
+                                    
                                     </p>
                                 </div>
 

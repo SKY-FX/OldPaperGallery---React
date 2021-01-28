@@ -29,8 +29,8 @@ export default class listeRecherche extends Component {
         // console.log("updateResult : ", textSearch);
 
 
-        // const url = "/api/search.php";
-        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/search.php";
+        const url = "/api/search.php";
+        // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/search.php";
         
 
         var formData = new FormData();
