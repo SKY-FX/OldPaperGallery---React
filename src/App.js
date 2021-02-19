@@ -107,7 +107,7 @@ class App extends Component {
                   <Route 
                     exact path='/logIn' 
                     render={(props) => (
-                      <Connexion {...props} return={ (res) => this.checkConnect(res) } />
+                      <Connexion {...props} return={ (res) => this.checkConnect(res) } /> 
                     )} 
                   />
 
