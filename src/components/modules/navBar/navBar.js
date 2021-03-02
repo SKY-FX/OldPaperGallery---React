@@ -16,6 +16,10 @@ const items = [
         text: 'Gravures'
     },
     {
+        path: '/Search/Dessin',
+        text: 'Dessins'
+    },
+    {
         path: '/SearchAuteurs',
         text: 'Auteurs'
     }
@@ -30,11 +34,11 @@ function navBar(props) {
     return (
         <Fragment>
 
-            <div className="navBar">   
+            {/* <div className="navBar">   
                 {items.map(item => (
                     <Link className="item" to={item.path} key={item.path} onClick={handleClick.bind(null, item.path)} title={item.text}><h2>{item.text}</h2></Link>
                     ))}
-            </div>
+            </div> */}
             
             <div className="mainText">
                 <h1 >
@@ -43,9 +47,9 @@ function navBar(props) {
 
                 <br/>
                 
-                <h2>
+                {/* <h2>
                     Autographes - Manuscrits - Archives - Gravures
-                </h2>
+                </h2> */}
 
                 <h3>
                     <p className="letrine">N</p>
@@ -53,10 +57,12 @@ function navBar(props) {
                     Nous faisons des estimations. Paiement comptant.
                 </h3>
 
-
+                <div className="navBar">   
+                    {items.map(item => (
+                        <Link className="item" to={item.path} key={item.path} onClick={handleClick.bind(null, item.path)} title={item.text}><h2>{item.text}</h2></Link>
+                        ))}
+                </div>
             </div>
-            
-            
         </Fragment>
     )
 }

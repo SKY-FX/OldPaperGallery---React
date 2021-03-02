@@ -2,7 +2,7 @@
     // The HTML beginning tags must be there or the output won't render 
     // as a web page
 
-    $newRepImages[0] = $img_tmp1;
+    $newRepImages[0] = $img_tmp1; 
     $newRepImages[1] = $img_tmp2;
     $newRepImages[2] = $img_tmp3;
     $newRepImages[3] = $img_tmp4;
@@ -24,16 +24,13 @@
     $old_nomImages[5] = $img_portrait;
 
     $refAnnonce = $reference;
+    $newRefAnnonce = $newReference;
 
     $IsChangePortrait = $portraitIsChange;
     $IsChangeImages = $imagesIsChange;
 
-    echo "IsChangePortrait : $IsChangePortrait\n";
-    echo "imagesIsChange : $imagesIsChange\n";
-
-
-
     $basePathServer = 'uploadPics';
+    $newDirToModify    = $basePathServer . "/" . $newRefAnnonce;
     $dirToModify    = $basePathServer . "/" . $refAnnonce;
 
     // Existe t'il au moins une image à uploader et une référence d'annonce
@@ -57,34 +54,58 @@
             // Mode passif activé : les données de connexion sont initiées par le client, plutôt que par le serveur
             ftp_pasv($conn_id, true); 
 
-            // Lit le répertoire des images des annonces sur le serveur
+            // Lit le répertoire des annonces sur le serveur
             $dirs = ftp_nlist($conn_id, $basePathServer);
             
-            $isExist = false;
+            $isNewExist = false;
             foreach($dirs as $dir_) {
-
                 $_dir = basename($dir_);
-                // echo "SORTIE REPERTOIRE : $_dir\n";
 
-                // Vérifie que cette référence n'existe pas
-                if ($refAnnonce == $_dir)
+                // Vérifie que la nouvelle référence n'existe pas
+                if ($newRefAnnonce == $_dir)
                 {
-                    echo "Une annonce avec la référence $refAnnonce existe et c'est bon signe !\n";
-                    $isExist = true;
+                    echo "Une annonce avec la référence $newRefAnnonce existe et c'est bon signe !\n";
+                    $isNewExist = true;
                     break;
                 }
             }
 
-            // Si le répertoire n'esxite pas alors on le créé
+            // Si le répertoire n'exite pas :
             $createResult = true;
-            if (!$isExist)
+            if (!$isNewExist)
             {
-                echo "Le répertoire $dirToModify n'existe pas sur le serveur !\n";
+                echo "Le répertoire $newDirToModify n'existe pas sur le serveur !\n";
 
-                $createResult = ftp_mkdir($conn_id, $dirToModify);
-                if ($createResult)
+                // On vérifie si le répertoire avec l'ancienne référence existe
+                $isExist = false;
+                foreach($dirs as $dir_) {
+                    $_dir = basename($dir_);
+
+                    // Vérifie que l'ancienne référence existe
+                    if ($refAnnonce == $_dir)
+                    {
+                        echo "Une annonce avec la référence $refAnnonce existe !\n";
+                        $isExist = true;
+                        break;
+                    }
+                }
+
+                // Si oui : On renomme l'ancien répertoire avec la nouvelle référence
+                if ($isExist)
                 {
-                    echo "Le répertoire $dirToModify a été créé sur le serveur !\n";
+                    $renameResult = ftp_rename($conn_id, $dirToModify ,$newDirToModify);
+                    if ($renameResult) 
+                    {
+                        echo "Le répertoire $dirToModify a été renommé en $newDirToModify sur le serveur !\n";
+                    }
+                }
+                else // Sinon : On crée un nouveau répertoire avec la nouvelle référence et on y déplace toutes les images
+                {
+                    $createResult = ftp_mkdir($conn_id, $newDirToModify);
+                    if ($createResult)
+                    {
+                        echo "Le répertoire $newDirToModify a été créé sur le serveur !\n";
+                    }
                 }
             }
 
@@ -92,7 +113,7 @@
             if ($createResult)
             {
                 // Lit les images du répertoire
-                $picNames = ftp_nlist($conn_id, $dirToModify);
+                $picNames = ftp_nlist($conn_id, $newDirToModify);
 
                 // Suppression des images sauf le portrait
                 echo "IsChangeImages : $IsChangeImages\n";
@@ -109,8 +130,8 @@
                             if ($_picName!=$img_portrait)
                             {
                                 $resultDelete = ftp_delete($conn_id, $picName);
-                                if ($resultDelete) {echo "Le fichier $_picName a été supprimé de $dirToModify : $img_portrait\n";}
-                                else {echo "Un prôblème est survenue lors de la suppression de $_picName dans $dirToModify\n";}
+                                if ($resultDelete) {echo "Le fichier $_picName a été supprimé de $newDirToModify : $img_portrait\n";}
+                                else {echo "Un prôblème est survenue lors de la suppression de $_picName dans $newDirToModify\n";}
                             }
                         }
                     }
@@ -120,10 +141,10 @@
                 echo "IsChangePortrait : $IsChangePortrait\n";
                 if ($IsChangePortrait == 'true')
                 {
-                    $pathPortrait = $dirToModify . "/" . $img_portrait;
+                    $pathPortrait = $newDirToModify . "/" . $img_portrait;
                     $resultDelete = ftp_delete($conn_id, $pathPortrait);
-                    if ($resultDelete) {echo "L'image du portrait $img_portrait a été supprimé de $dirToModify\n";}
-                    else {echo "Un prôblème est survenue lors de la suppression de $img_portrait dans $dirToModify\n";}  
+                    if ($resultDelete) {echo "L'image du portrait $img_portrait a été supprimé de $newDirToModify\n";}
+                    else {echo "Un prôblème est survenue lors de la suppression de $img_portrait dans $newDirToModify\n";}  
                 }
 
             
@@ -133,7 +154,7 @@
                 {
                     if ($newImages[$ii] != '')
                     {
-                        $remote_file_path = $dirToModify . "/" . $newImages[$ii];
+                        $remote_file_path = $newDirToModify . "/" . $newImages[$ii];
                         
                         // crée le répertoire de destination sur le serveur
                         $upload = ftp_put( $conn_id, $remote_file_path, $newRepImages[$ii], FTP_BINARY );
@@ -149,7 +170,7 @@
             }
             else
             {
-                echo "Un prôblème est survenue lors de la création du répertoire $dirToModify sur le serveur !\n";
+                echo "Un prôblème est survenue lors de la création du répertoire $newDirToModify sur le serveur !\n";
             }
         }
             

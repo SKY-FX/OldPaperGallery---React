@@ -132,7 +132,7 @@ export default class AcheterAnnonce extends Component {
                         <div className="panneaux">
                             <div className="panneau_paiement"> 
 
-                                <p>Vous pouvez payer par chèque, virement banquaire<br/>ou directement avec votre compte Paypal !</p>
+                                <p>Vous pouvez payer<br/> directement avec votre compte Paypal !</p>
                                 <br/><br/>
                                 
                                 <div className="paiement">
@@ -148,6 +148,15 @@ export default class AcheterAnnonce extends Component {
                                     </p>
                                 </div>
 
+                                
+
+                            </div>
+
+                            <div className="panneau_facturation">
+
+                                <p>Vous pouvez aussi payer<br/> par chèque ou virement banquaire</p>
+                                <br/><br/>
+
                                 <div className="paiement">
                                     <p>Paiement par virement banquaire :<br/>
                                         <Link className="link" to='/docsAdmin/RIB.jpg' target="_blank" download style={style}><p>Télécharger le RIB</p></Link>
@@ -162,9 +171,7 @@ export default class AcheterAnnonce extends Component {
                                     <p style={style}>OldPaperGallery</p>
                                 </div>
 
-                            </div>
-
-                            <div className="panneau_facturation">
+                                <br/><br/>
                                 <p>Entrez les informations de livraison de de connection !</p>
                                 <br/><br/>
 

@@ -10,9 +10,11 @@
     margin-left: auto;
     padding : 50px;
     padding-bottom:0px;
-    width: auto;
+    width: 100%;
 
-	background-color: rgba(0, 0, 0, .6);
+	background-color: rgba(0, 0, 0, .8);
+    /* background-color: transparent; */
+    color:rgba(255,255,255,.8);
     border:1px solid #fff6c580;
     font-family: 'MAIN';
     
@@ -25,13 +27,13 @@
 
 	/* width: min-content; */
     padding:20px ;
-    max-width: 80%;
+    width: 700px;
     
     /* color : rgb(255, 248, 193); */
     /* color : rgb(255, 255, 255); */
 	text-align:left;
 	
-	border:1px solid rgba(255, 248, 193, 0.1);
+	border:1px solid rgba(255, 248, 193, 0.5);
 	/* border-radius: 15px; */
 	
 	margin-bottom:30px;
@@ -39,21 +41,23 @@
     margin-left: auto;
     
 	
-    background-color: rgba(100, 100, 100, .5);
+    background-color: rgba(0, 0, 0, .5);
 }
 
 .detailsAnnonceForm textarea, select, option
 {
-    background-color: rgba(0,0,0,1);
+    background-color: rgba(255,255,255,.9);
     text-align: center;
     font-size: 18px;
     padding:15px; 
     font-family: 'Main';
-    color:rgba(255,255,255,.8);
+    color:rgba(0,0,0,1);
     
-    width: 30em;
+    width: auto;
     margin-right: auto;
     margin-left: auto;
+
+    
 }
 
 .detailsAnnonceForm label
@@ -120,7 +124,7 @@
 
 .pBBody
 {
-    font-size: 17px;
+    font-size: 20px;
     font-family: "Antic Slab";
     font-weight: lighter;
     text-align: justify;
@@ -210,6 +214,7 @@
 {
     font-size: 16px;
     font-family: "Antic Slab";
+    opacity:0.8;
 }
 .sectionDesc a img
 {
@@ -230,17 +235,15 @@
 /****************************/
 .sectionDesc fieldset
 {
-    border: 1px solid rgba(255, 248, 193, .5);
-    padding : 20px;
-    background-color: rgba(0, 0, 0, 1);
+    border: 1px solid rgba(0, 0, 0, .5);
+    /* border: 1px solid rgba(0, 0, 0, 1); */
+    padding : 30px;
+    background-color: rgba(200, 200, 200, .7);
+    color:black;
+    /* letter-spacing: 1px; */
+    
 }
 /****************************/
-.sectionDesc fieldset p
-{
-    font-size:15px;
-    color:rgba(255, 255, 255, .8);
-    margin:10px;
-}
 
 .sectionDesc .flexDiv
 {
@@ -253,6 +256,7 @@
     margin-right:30px;
     margin-left:10px;
     z-index: 999;
+    border:1px solid rgba(255, 248, 193, .5);
 }
 
 
@@ -307,20 +311,19 @@ hr
 {
     display: flex;
     flex-direction: column;
-    /* width:100%;
-    height:100%; */
+    /* width:90% */
 }
 
 .panneaux
 {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content:space-between;
 
-    /* border: 1px solid rgba(255, 248, 193, .6); */
-    /* background-color: rgba(0,0,0,.5); */
+    /* border: 1px solid red; */
+    background-color: transparent;
 
-    margin: auto;
+    /* margin: auto; */
     margin-bottom: 50px;
     margin-top: 50px;
     font-family: 'MAIN';
@@ -333,9 +336,11 @@ hr
     align-items: center;
 
     border: 1px solid rgba(255, 248, 193, .6);
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0,0,0,1);
 
     padding : 50px;
+    color:rgba(255,255,255, .8);
+    
     /* margin: auto; */
 }
 .item_connexion
@@ -350,6 +355,7 @@ hr
     margin-bottom: 20px;
     padding:30px;
     background-color: rgba(255,255,255,.5);
+    width:80%;
 }
 
 .field
@@ -367,14 +373,13 @@ hr
     flex-direction: column;
     
     border: 1px solid rgba(255, 248, 193, .6);
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0,0,0,1);
     
     padding : 50px;
+    /* height:300px; */
+    color:rgba(255,255,255, .8);
 }
-.panneau_paiement p, .panneau_facturation p
-{
-    text-shadow: 0px 0px 10px black, 0px 0px 10px black, 0px 0px 10px black, 0px 0px 10px black, 0px 0px 10px black;
-}
+
 
 .paiement
 {
@@ -386,17 +391,38 @@ hr
     border : 1px solid rgba(255, 248, 193, .7);
     padding : 30px;
     margin-bottom : 10px;
+    width:80%;
+    color:black;
+    font-size: 20px;
 }
 
 .link p
 {
     color :#fff6c5;
     font-size: 15px;
+    transition: all 1s ease-in-out
 }
 
 .link p:hover
 {
     color:red;
+}
+
+
+fieldset > .checkBoxClass
+{
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 1200px)
+{
+    .sectionDesc
+    {
+        /* margin:0; */
+        padding:10px;
+        /* width:70vw; */
+    }
 }
 
 @media screen and (max-width: 800px)
@@ -457,7 +483,13 @@ hr
     .detailsAnnonceForm textarea, select, option
     {
         margin:0;
-        width: 75vw;
+        width: 80%;
+    }
+
+    .detailsAnnonceForm fieldset 
+    {
+        width:90%;
+        align-items: center;
     }
 
     .panneaux
@@ -510,6 +542,12 @@ hr
         margin : 0 auto 0 auto;
         padding : 20px;
         width: 80%;
+    }
+
+    .sectionDesc fieldset
+    {
+        margin-bottom: 20px;
+        width: auto;
     }
 	
 

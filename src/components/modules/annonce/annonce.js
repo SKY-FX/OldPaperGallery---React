@@ -8,7 +8,7 @@ class annonce extends Component {
     // constructor (props) {
     //     super(props);
     //     // console.log('ANNONCE : ', props.params);
-    // }
+    // } 
 
     render() {
         const profession = this.props.params[7];
@@ -56,6 +56,9 @@ class annonce extends Component {
                     <br/>
                     {/* <hr/> */}
                     <div className="pBody" dangerouslySetInnerHTML={{ __html: titre }} />                  
+                    <hr/>
+                    <br/>
+                    <div className="pBody">référence : {ref}</div>
                     <hr/>
                     <br/>
                     <div className="pHead">{prix} euros</div>

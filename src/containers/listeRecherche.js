@@ -63,16 +63,11 @@ export default class listeRecherche extends Component {
     }
 
     barResult = (result) => {
-        // console.log("BAR RESULT :", result);
-        // this.props.history.push('/Search/' + result);
         this.updateResult(result); 
         window.history.pushState('', '', '/Search/' + result);
     }
 
     render() {
-        // console.log("RENDER LISTE1 :", this.state.searchText);
-        // console.log("RENDER LISTE2 :", this.state.searchResult);
-        // console.log("RENDER LISTE3 :", this.state.validFlag);
         return (
             
             <Fragment>

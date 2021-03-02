@@ -11,12 +11,16 @@
 
 	if (!isset($_POST['reference'])){$reference = "";}
 	else {$reference = trim(strip_tags(addslashes($_POST['reference'])));}
+
+	if (!isset($_POST['newReference'])){$newReference = "";}
+	else {$newReference = trim(strip_tags(addslashes($_POST['newReference'])));}
 	
 	if (!isset($_POST['titre'])){$titre = "";}
 	else {$titre = nl2br(trim(strip_tags(addslashes($_POST['titre']))));}
 
 	$discipline = trim(strip_tags(addslashes($_POST['discipline'])));
 	$type_doc = trim(strip_tags(addslashes($_POST['type_doc'])));
+	$certificat = trim(strip_tags(addslashes($_POST['certificat'])));
 
 	if (!isset($_POST['prix'])){$prix = "";}
 	else {$prix = trim(strip_tags(addslashes($_POST['prix'])));}
@@ -89,7 +93,6 @@
 
 	if (!isset($_FILES['img_file1']['tmp_name'])){$img_tmp1 = "";}
 	else {$img_tmp1 = trim(strip_tags(addslashes($_FILES['img_file1']['tmp_name'])));}
-	echo "img_tmp1: $img_tmp1\n";
 
 	if (!isset($_FILES['img_file2']['tmp_name'])){$img_tmp2 = "";}
 	else {$img_tmp2 = trim(strip_tags(addslashes($_FILES['img_file2']['tmp_name'])));}
@@ -155,29 +158,20 @@
 		$reqImg ="";
 	}
 
-	// # Gestion de la requete pour DISCIPLINE et TYPE_DOC
-	if (($discipline != "") && ($type_doc == ""))
+	// # Gestion de la requete pour DISCIPLINE, TYPE_DOC et CERTIFICAT
+	$reqType = "";
+	if ($discipline != "")
 	{
 		$reqType = "discipline= '".$discipline."',";
 	}
-	else if (($discipline == "") && ($type_doc != ""))
+	if ($type_doc != "")
 	{
-		$reqType = "type_doc= '".$type_doc."',";
+		$reqType = $reqType . "type_doc= '".$type_doc."',";
 	}
-	else if (($discipline != "") && ($type_doc != ""))
+	if ($certificat != "")
 	{
-		$reqType = "discipline = '".$discipline."', type_doc = '".$type_doc."',";
+		$reqType = $reqType . "certificat= '".$certificat."',";
 	}
-	else
-	{
-		$reqType = "";
-	}
-
-	echo "img_nom1 : $img_nom1\n";
-	echo "newImg_nom1 : $newImg_nom1\n";
-	echo "img_portrait : $img_portrait\n";
-	echo "newImg_portrait : $newImg_portrait\n";
-	echo "img_tmp1 : $img_tmp1\n";
 	
 
 	// établir la connexion à notre base MySQL.
@@ -202,7 +196,7 @@
 					D_profession = '".$D_profession."',
 					D_annees = '".$D_annees."',
 					D_lieu = '".$D_lieu."',
-					ref = '".$reference."'			
+					ref = '".$newReference."'			
 				WHERE
 					img_id = '".$id."'
 			";

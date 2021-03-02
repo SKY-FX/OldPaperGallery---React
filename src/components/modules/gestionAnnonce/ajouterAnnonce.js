@@ -28,12 +28,7 @@ export default class ajouterAnnonce extends Component {
             notice : '',
             infos : '',
             prix : '',
-            // img_nom1 : '',
-            // img_nom2 : '',
-            // img_nom3 : '',
-            // img_nom4 : '',
-            // img_nom5 : '',
-            // img_portrait : ''
+            certificat : ''
         }
     }
 
@@ -81,6 +76,7 @@ export default class ajouterAnnonce extends Component {
         formData.append('img_file4', this.state.img_file4);
         formData.append('img_file5', this.state.img_file5);
         formData.append('portrait_file', this.state.portrait_file);
+        formData.append('certificat', this.state.certificat);
 
         // formData.append('img_file1', this.state.img_file1);
     
@@ -201,11 +197,19 @@ export default class ajouterAnnonce extends Component {
 
                         <form onSubmit={this.onClick} >
                             <fieldset><legend>REFERENCE</legend>
-                                <textarea name="reference" value={this.state.reference} rows="1" placeholder="Référence" onChange={this.onChange} ></textarea>
+                                <textarea name="reference" value={this.state.reference} rows="1" cols="50" placeholder="Référence" onChange={this.onChange} ></textarea>
+                            </fieldset>	
+
+                            <fieldset><legend>CERTIFICAT D'AUTHENTICITE</legend>
+                                <select name="certificat" onChange={this.onChange}>
+                                    <option value="">{this.state.certificat}</option>
+                                    <option value="Oui">Oui</option>
+                                    <option value="Non">Non</option>
+                                </select>
                             </fieldset>	
                         
                             <fieldset><legend>TITRE</legend>
-                                <textarea name="titre" value={this.state.titre} rows="3" placeholder="Titre" onChange={this.onChange}></textarea>
+                                <textarea name="titre" value={this.state.titre} rows="3" cols="50" placeholder="Titre" onChange={this.onChange}></textarea>
                             </fieldset>	
                             
                             <fieldset><legend>TYPE DE DOCUMENT</legend>
@@ -215,6 +219,7 @@ export default class ajouterAnnonce extends Component {
                                     <option value="Plaquette">Plaquette</option>
                                     <option value="Manuscrit">Manuscrit</option>
                                     <option value="Gravure">Gravure</option>
+                                    <option value="Dessin">Dessin</option>
                                 </select>
                             </fieldset>
 
@@ -230,34 +235,34 @@ export default class ajouterAnnonce extends Component {
                             </fieldset>
 
                             <fieldset><legend>IDENTITE DE L'AUTEUR</legend>
-                                <textarea name="A_nom_prenom" onChange={this.onChange} value={this.state.A_nom_prenom} rows="1" placeholder="Nom Prénom"></textarea><br/>
-                                <textarea name="A_profession" onChange={this.onChange} value={this.state.A_profession} rows="1" placeholder="Profession"></textarea><br/>
-                                <textarea name="A_annees" onChange={this.onChange} value={this.state.A_annees} rows="1" placeholder="Date de naissance et de décès"></textarea><br/>
-                                <textarea name="A_lieu" onChange={this.onChange} value={this.state.A_lieu} rows="1" placeholder="Lieu de naissance et de décès"></textarea><br/>
-                                <textarea name="A_biographie" onChange={this.onChange} value={this.state.A_biographie} rows="3" placeholder="Biographie"></textarea><br/>
+                                <textarea name="A_nom_prenom" onChange={this.onChange} value={this.state.A_nom_prenom} rows="1" cols="50" placeholder="Nom Prénom"></textarea><br/>
+                                <textarea name="A_profession" onChange={this.onChange} value={this.state.A_profession} rows="1" cols="50" placeholder="Profession"></textarea><br/>
+                                <textarea name="A_annees" onChange={this.onChange} value={this.state.A_annees} rows="1" cols="50" placeholder="Date de naissance et de décès"></textarea><br/>
+                                <textarea name="A_lieu" onChange={this.onChange} value={this.state.A_lieu} rows="1" cols="50" placeholder="Lieu de naissance et de décès"></textarea><br/>
+                                <textarea name="A_biographie" onChange={this.onChange} value={this.state.A_biographie} rows="3" cols="50" placeholder="Biographie"></textarea><br/>
                             </fieldset>
 
                             <fieldset><legend>IDENTITE DU DESTINATAIRE</legend>
-                                <textarea name="D_nom_prenom" onChange={this.onChange} value={this.state.D_nom_prenom} rows="1" placeholder="Nom Prénom" ></textarea><br/>
-                                <textarea name="D_profession" onChange={this.onChange} value={this.state.D_profession} rows="1" placeholder="Profession" ></textarea><br/>
-                                <textarea name="D_annees" onChange={this.onChange} value={this.state.D_annees} rows="1" placeholder="Date de naissance et de décès" ></textarea><br/>
-                                <textarea name="D_lieu" onChange={this.onChange} value={this.state.D_lieu} rows="1" placeholder="Lieu de naissance et de décès" ></textarea><br/>
+                                <textarea name="D_nom_prenom" onChange={this.onChange} value={this.state.D_nom_prenom} rows="1" cols="50" placeholder="Nom Prénom" ></textarea><br/>
+                                <textarea name="D_profession" onChange={this.onChange} value={this.state.D_profession} rows="1" cols="50" placeholder="Profession" ></textarea><br/>
+                                <textarea name="D_annees" onChange={this.onChange} value={this.state.D_annees} rows="1" cols="50" placeholder="Date de naissance et de décès" ></textarea><br/>
+                                <textarea name="D_lieu" onChange={this.onChange} value={this.state.D_lieu} rows="1" cols="50" placeholder="Lieu de naissance et de décès" ></textarea><br/>
                             </fieldset>
 
                             <fieldset><legend>ETAT</legend>
-                                <textarea name="etat" onChange={this.onChange} value={this.state.etat} rows="1" placeholder="Etat" ></textarea>
+                                <textarea name="etat" onChange={this.onChange} value={this.state.etat} rows="1" cols="50" placeholder="Etat" ></textarea>
                             </fieldset>
                                     
                             <fieldset><legend>DIMENSION</legend>
-                                <textarea name="dimension" onChange={this.onChange} value={this.state.dimension} rows="1" placeholder="Dimension" ></textarea>
+                                <textarea name="dimension" onChange={this.onChange} value={this.state.dimension} rows="1" cols="50" placeholder="Dimension" ></textarea>
                             </fieldset>
                                 
                             <fieldset><legend>NOTICE</legend>					
-                                <textarea name="notice" onChange={this.onChange} value={this.state.notice} rows="3" placeholder="Notice" ></textarea>
+                                <textarea name="notice" onChange={this.onChange} value={this.state.notice} rows="3" cols="50" placeholder="Notice" ></textarea>
                             </fieldset>
                                 
                             <fieldset><legend>INFORMATIONS SUR LE VENDEUR</legend>	
-                                <textarea name="infos" onChange={this.onChange} value={this.state.infos} placeholder="Infos" ></textarea>
+                                <textarea name="infos" onChange={this.onChange} value={this.state.infos} cols="50" placeholder="Infos" ></textarea>
                             </fieldset>
                                     
                             <fieldset><legend>CHOISIR LES IMAGES</legend>

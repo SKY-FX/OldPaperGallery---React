@@ -14,6 +14,7 @@
 
 	$discipline = trim(strip_tags(addslashes($_POST['discipline'])));
 	$type_doc = trim(strip_tags(addslashes($_POST['type_doc'])));
+	$certificat = trim(strip_tags(addslashes($_POST['certificat'])));
 
 	if (!isset($_POST['prix'])){$prix = "";}
 	else {$prix = trim(strip_tags(addslashes($_POST['prix'])));}
@@ -111,7 +112,7 @@
 	
 	//enregistrer dans la base MySQL le contenu des informations
 	$req = "INSERT INTO images (" . 
-						"img_nom1, img_nom2, img_nom3, img_nom4, img_nom5, titre, discipline, prix, etat, notice, infos, dimension, A_biographie, A_nom_prenom, A_profession, A_annees, A_lieu, D_nom_prenom, D_profession, D_annees, D_lieu, type_doc, img_portrait, ref, date_etat" .
+						"img_nom1, img_nom2, img_nom3, img_nom4, img_nom5, titre, discipline, prix, etat, notice, infos, dimension, A_biographie, A_nom_prenom, A_profession, A_annees, A_lieu, D_nom_prenom, D_profession, D_annees, D_lieu, type_doc, img_portrait, ref, date_etat, certificat" .
 						") VALUES (" .
 						"'" . $img_nom1 . "', " .
 						"'" . $img_nom2 . "', " .
@@ -137,7 +138,8 @@
 						"'" . $type_doc . "', " .
 						"'" . $img_portrait . "', " .
 						"'" . $reference . "', " .
-						"'" . $date . "') ";
+						"'" . $date . "', " .
+						"'" . $certificat . "') ";
 	$return = $cnx->exec($req);
 
 

@@ -9,10 +9,9 @@
     
     $return['titre'][0] = '';
 
-    if ( ($searchText == 'Boutique') && ($searchTextDetails == 'Tout') )
+    if ($searchText == 'Boutique')
     {
         $searchText = '';
-        $searchTextDetails = '';
     }
 
     // établir la connexion à notre base MySQL.

@@ -18,7 +18,9 @@ export default class modifierAnnonce extends Component {
             infos : '',
             notice : '',
             titre : '',
-            reference : ''
+            reference : '',
+            certificat : '',
+            newReference : ''
         }
         this.fileInput = React.createRef();
     }
@@ -49,12 +51,13 @@ export default class modifierAnnonce extends Component {
         // Renvoie le résultat de la recherche ( objet de tableau ) au parent
         .then(response => {
             // console.log("READ ANNONCE", this.state.idAnnonce);
-            // console.log("READ ANNONCE RESULTAT", response.data);
+            console.log("READ ANNONCE RESULTAT", response.data);
 
             const result = response.data;
 
             this.setState({
                 reference : result[23],
+                newReference : result[23],
                 titre : result[5],
                 type_doc : result[21],
                 discipline : result[6],
@@ -83,7 +86,8 @@ export default class modifierAnnonce extends Component {
                 img_file3 : '',
                 img_file4 : '',
                 img_file5 : '',
-                portrait_file : ''
+                portrait_file : '',
+                certificat : result[24]
             });
         })
     
@@ -103,6 +107,7 @@ export default class modifierAnnonce extends Component {
         var formData = new FormData();
         formData.append('id', this.state.idAnnonce);
         formData.append('reference', this.state.reference);
+        formData.append('newReference', this.state.newReference);
         formData.append('titre', this.state.titre);
         formData.append('type_doc', this.state.type_doc);
         formData.append('discipline', this.state.discipline);
@@ -138,7 +143,7 @@ export default class modifierAnnonce extends Component {
         formData.append('portraitIsChange', this.state.portraitIsChange);
         formData.append('imagesIsChange', this.state.imagesIsChange);
 
-        // console.log ("img_file1 : ", this.state.img_file1)
+        formData.append('certificat', this.state.certificat);
     
         
 
@@ -252,20 +257,28 @@ export default class modifierAnnonce extends Component {
                 { this.state.userName !== '' ?
                     <div className="detailsAnnonceForm">
                     
-                        <p>Annonce n° {this.state.idAnnonce}</p>
+                        <p>Modifier l'annonce n° {this.state.idAnnonce}</p>
                         <br/>
                         <br/>
 
                         <fieldset><legend>REFERENCE</legend>
-                            <textarea name="reference" value={this.state.reference} rows="1" placeholder="Référence" onChange={this.onChange} ></textarea>
+                            <textarea name="newReference" value={this.state.newReference} rows="1" cols="50" placeholder="Référence" onChange={this.onChange} ></textarea>
                         </fieldset>	
                     
+                        <fieldset><legend>CERTIFICAT D'AUTHENTICITE</legend>
+                            <select name="certificat" value={this.state.certificat} rows="1"  onChange={this.onChange} >
+                                <option value="">{this.state.certificat}</option>
+                                <option value="Oui">Oui</option>
+                                <option value="Non">Non</option>
+                            </select>
+                        </fieldset>	
+
                         <fieldset><legend>TITRE</legend>
-                            <textarea name="titre" value={titre} rows="3" placeholder="Titre" onChange={this.onChange}></textarea>
+                            <textarea name="titre" value={titre} rows="3" cols="50" placeholder="Titre" onChange={this.onChange}></textarea>
                         </fieldset>	
                         
                         <fieldset><legend>TYPE DE DOCUMENT</legend>
-                            <select name="type_doc" onChange={this.onChange}>
+                            <select name="type_doc" onChange={this.onChange} >
                                 <option value="">{this.state.type_doc}</option>
                                 <option value="Lettre autographe">Lettre autographe</option>
                                 {/* <option value="Plaquette">Plaquette</option> */}
@@ -286,34 +299,34 @@ export default class modifierAnnonce extends Component {
                         </fieldset>
 
                         <fieldset><legend>IDENTITE DE L'AUTEUR</legend>
-                            <textarea name="A_nom_prenom" onChange={this.onChange} value={this.state.A_nom_prenom} rows="1" placeholder="Nom Prénom"></textarea><br/>
-                            <textarea name="A_profession" onChange={this.onChange} value={this.state.A_profession} rows="1" placeholder="Profession"></textarea><br/>
-                            <textarea name="A_annees" onChange={this.onChange} value={this.state.A_annees} rows="1" placeholder="Date de naissance et de décès"></textarea><br/>
-                            <textarea name="A_lieu" onChange={this.onChange} value={this.state.A_lieu} rows="1" placeholder="Lieu de naissance et de décès"></textarea><br/>
-                            <textarea name="A_biographie" onChange={this.onChange} value={A_biographie} rows="3" placeholder="Biographie"></textarea><br/>
+                            <textarea name="A_nom_prenom" onChange={this.onChange} value={this.state.A_nom_prenom} rows="1" cols="50" placeholder="Nom Prénom"></textarea><br/>
+                            <textarea name="A_profession" onChange={this.onChange} value={this.state.A_profession} rows="1" cols="50" placeholder="Profession"></textarea><br/>
+                            <textarea name="A_annees" onChange={this.onChange} value={this.state.A_annees} rows="1" cols="50" placeholder="Date de naissance et de décès"></textarea><br/>
+                            <textarea name="A_lieu" onChange={this.onChange} value={this.state.A_lieu} rows="1" cols="50" placeholder="Lieu de naissance et de décès"></textarea><br/>
+                            <textarea name="A_biographie" onChange={this.onChange} value={A_biographie} rows="3" cols="50" placeholder="Biographie"></textarea><br/>
                         </fieldset>
 
                         <fieldset><legend>IDENTITE DU DESTINATAIRE</legend>
-                            <textarea name="D_nom_prenom" onChange={this.onChange} value={this.state.D_nom_prenom} rows="1" placeholder="Nom Prénom" ></textarea><br/>
-                            <textarea name="D_profession" onChange={this.onChange} value={this.state.D_profession} rows="1" placeholder="Profession" ></textarea><br/>
-                            <textarea name="D_annees" onChange={this.onChange} value={this.state.D_annees} rows="1" placeholder="Date de naissance et de décès" ></textarea><br/>
-                            <textarea name="D_lieu" onChange={this.onChange} value={this.state.D_lieu} rows="1" placeholder="Lieu de naissance et de décès" ></textarea><br/>
+                            <textarea name="D_nom_prenom" onChange={this.onChange} value={this.state.D_nom_prenom} rows="1" cols="50" placeholder="Nom Prénom" ></textarea><br/>
+                            <textarea name="D_profession" onChange={this.onChange} value={this.state.D_profession} rows="1" cols="50" placeholder="Profession" ></textarea><br/>
+                            <textarea name="D_annees" onChange={this.onChange} value={this.state.D_annees} rows="1" cols="50" placeholder="Date de naissance et de décès" ></textarea><br/>
+                            <textarea name="D_lieu" onChange={this.onChange} value={this.state.D_lieu} rows="1" cols="50" placeholder="Lieu de naissance et de décès" ></textarea><br/>
                         </fieldset>
 
                         <fieldset><legend>ETAT</legend>
-                            <textarea name="etat" onChange={this.onChange} value={this.state.etat} rows="1" placeholder="Etat" ></textarea>
+                            <textarea name="etat" onChange={this.onChange} value={this.state.etat} rows="1" cols="50" placeholder="Etat" ></textarea>
                         </fieldset>
                                 
                         <fieldset><legend>DIMENSION</legend>
-                            <textarea name="dimension" onChange={this.onChange} value={this.state.dimension} rows="1" placeholder="Dimension" ></textarea>
+                            <textarea name="dimension" onChange={this.onChange} value={this.state.dimension} rows="1" cols="50" placeholder="Dimension" ></textarea>
                         </fieldset>
                             
                         <fieldset><legend>NOTICE</legend>					
-                            <textarea name="notice" onChange={this.onChange} value={notice} rows="3" placeholder="Notice" ></textarea>
+                            <textarea name="notice" onChange={this.onChange} value={notice} rows="3" cols="50" placeholder="Notice" ></textarea>
                         </fieldset>
                             
                         <fieldset><legend>INFORMATIONS SUR LE VENDEUR</legend>	
-                            <textarea name="infos" onChange={this.onChange} value={infos} rows="3" placeholder="Infos" ></textarea>
+                            <textarea name="infos" onChange={this.onChange} value={infos} rows="3" cols="50" placeholder="Infos" ></textarea>
                         </fieldset>
                                 
                         <fieldset><legend>CHOISIR LES IMAGES</legend>

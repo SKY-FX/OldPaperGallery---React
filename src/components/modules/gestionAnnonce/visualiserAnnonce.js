@@ -65,7 +65,8 @@ export default class visualiserAnnonce extends Component {
                 img_nom3 : result[2],
                 img_nom4 : result[3],
                 img_nom5 : result[4],
-                img_portrait : result[22]
+                img_portrait : result[22],
+                certificat : result[24]
             });
         })
     
@@ -131,17 +132,25 @@ export default class visualiserAnnonce extends Component {
                     }
 
                     { (this.state.etat || this.state.dimension) ?
-                            <fieldset>
-                                <div className="pBody">		
-                                    { (this.state.etat) ?
-                                        <Fragment>{this.state.etat}</Fragment>:null
-                                    }
-                                    <br/><br/>
-                                    { (this.state.dimension) ?
-                                        <Fragment>{this.state.dimension}</Fragment>:null
-                                    }
-                                </div>
-                            </fieldset>:null
+                        <fieldset>
+                            <div className="pBody">		
+                                { (this.state.etat) ?
+                                    <Fragment>{this.state.etat}</Fragment>:null
+                                }
+                                <br/><br/>
+                                { (this.state.dimension) ?
+                                    <Fragment>{this.state.dimension}</Fragment>:null
+                                }
+                            </div>
+                        </fieldset>:null
+                    }
+
+                    { (this.state.certificat === 'Oui') ?
+                        <Fragment>
+                            <br/><br/>
+                            <div className="pHead">Livré avec le certificat d'authencité</div>
+                            <br/><br/>                          
+                        </Fragment>:null
                     }
                 </div>
 

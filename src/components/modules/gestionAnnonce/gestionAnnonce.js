@@ -24,7 +24,7 @@ export default class gestionAnnonce extends Component {
     componentDidMount()
     {
         // console.log("Gestion annonce");
-        this.searchText(' ');
+        this.searchText('');
     }
 
     searchText = (text) => {
