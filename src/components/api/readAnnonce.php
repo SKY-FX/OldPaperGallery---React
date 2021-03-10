@@ -21,7 +21,7 @@
     $return = 0;
     if ($NB_ELEMENT)
     {
-        $req = "SELECT img_nom1, img_nom2, img_nom3, img_nom4, img_nom5, titre, discipline, prix, etat, notice, infos, dimension, A_biographie, A_nom_prenom, A_profession, A_annees, A_lieu, D_nom_prenom, D_profession, D_annees, D_lieu, type_doc, img_portrait, ref, certificat FROM images WHERE img_id LIKE '%".$id."%'";
+        $req = "SELECT img_nom1, img_nom2, img_nom3, img_nom4, img_nom5, titre, discipline, prix, etat, notice, infos, dimension, A_biographie, A_nom_prenom, A_profession, A_annees, A_lieu, D_nom_prenom, D_profession, D_annees, D_lieu, type_doc, img_portrait, ref, certificat, etat_annonce FROM images WHERE img_id LIKE '%".$id."%'";
         
         $sth = $cnx->prepare($req);
         $sth->execute();

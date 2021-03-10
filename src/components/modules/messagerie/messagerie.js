@@ -25,8 +25,8 @@ export default class messagerie extends Component {
     {
         const userSession = this.state.nameClient;
 
-        // const url = "/api/messagerie.php";
-        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/messagerie.php";
+        const url = "/api/messagerie.php";
+        // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/messagerie.php";
 		
         var formData = new FormData();
         formData.append('nom_prenom', userSession);
@@ -180,7 +180,7 @@ export default class messagerie extends Component {
 
         return (
             <Fragment>  
-                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"red", cursor:"pointer", textDecoration:"none"}} >Retour</div>
+                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{cursor:"pointer", textDecoration:"none"}} >Retour</div>
             
                 { this.state.nameClient !== '' ?
                     <Fragment>

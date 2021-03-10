@@ -44,7 +44,7 @@ export default function footer(props) {
                     2 rue de la concorde - 33000 Bordeaux<br/>
                 </p>
                 <div className="p1">
-                    <Link to="/GestionMessagerie/NewMessage" style={{color:"red", cursor:"pointer", textDecoration:"none", fontFamily:"Antic Slab"}} >fr.chabaud@gmail.com<br/></Link>
+                    <Link to="/GestionMessagerie/NewMessage" style={{fontFamily:"Antic Slab", transition:"all 0.5s ease-in-out"}} >fr.chabaud@gmail.com<br/></Link>
                 </div>
                 <p>
                     06 86 76 86 04<br/>

@@ -252,7 +252,7 @@ export default class modifierAnnonce extends Component {
         // console.log("TITRE : ", titre)
         return (
             <Fragment>
-                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"red", cursor:"pointer", textDecoration:"none"}} >Retour</div>
+                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{cursor:"pointer", textDecoration:"none"}} >Retour</div>
     
                 { this.state.userName !== '' ?
                     <div className="detailsAnnonceForm">

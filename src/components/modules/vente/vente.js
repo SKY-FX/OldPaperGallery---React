@@ -25,8 +25,8 @@ export default class vente extends Component {
         // console.log("Gestion VENTE", typeVente);
         
         // En tete AXIOS + formatte la recherche pour axios
-        // const url = "/api/mesVentes.php";
-        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/mesVentes.php";
+        const url = "/api/mesVentes.php";
+        // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/mesVentes.php";
         
         var formData = new FormData();
         formData.append('type', typeVente);
@@ -60,8 +60,8 @@ export default class vente extends Component {
 
     onClick = (infoAnnonce, functType) => {
         
-        // const url = "/api/validePaiement.php";
-        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/validePaiement.php";
+        const url = "/api/validePaiement.php";
+        // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/validePaiement.php";
         
 
         var alertToDisplay = "";
@@ -138,8 +138,8 @@ export default class vente extends Component {
         var result="";
         
         // En tete AXIOS + formatte la recherche pour axios
-        // const url = "/api/mesVentes.php";
-        const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/mesVentes.php";
+        const url = "/api/mesVentes.php";
+        // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/mesVentes.php";
         
         var formData = new FormData();
         formData.append('type', typeVente);
@@ -246,7 +246,7 @@ export default class vente extends Component {
         return (
 
             <Fragment>
-                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"red", cursor:"pointer", textDecoration:"none"}} >Retour</div>
+                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{cursor:"pointer", textDecoration:"none"}} >Retour</div>
     
                 { this.state.vendeur_email !== '' ?
                     <div className="vente">

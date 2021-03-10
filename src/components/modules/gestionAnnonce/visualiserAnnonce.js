@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import {Link} from 'react-router-dom'
 import axios from 'axios'
 
 export default class visualiserAnnonce extends Component {
@@ -36,7 +37,7 @@ export default class visualiserAnnonce extends Component {
         // Renvoie le résultat de la recherche ( objet de tableau ) au parent
         .then(response => {
             // console.log("VISUALISER ANNONCE", this.state.idAnnonce);
-            // console.log("VISUALISER ANNONCE RESULTAT", response.data);
+            console.log("VISUALISER ANNONCE RESULTAT", response.data);
 
             const result = response.data;
 
@@ -66,7 +67,8 @@ export default class visualiserAnnonce extends Component {
                 img_nom4 : result[3],
                 img_nom5 : result[4],
                 img_portrait : result[22],
-                certificat : result[24]
+                certificat : result[24],
+                etat_annonce : result[25]
             });
         })
     
@@ -76,7 +78,14 @@ export default class visualiserAnnonce extends Component {
         }); 
     }
 
+
+
     render() {
+        const pathAchat = "/GestionAnnonces/AcheterAnnonce/" + this.state.A_nom_prenom + "/" + this.state.titre + "/" + this.state.prix + "/";
+        const etatAnnonce = this.state.etat_annonce;
+        let annonceVendu;
+        if (etatAnnonce) annonceVendu = etatAnnonce.indexOf("vendu");
+        console.log("COUCOU : ", etatAnnonce);
         // const basePathPic = "/ressources/";
         const basePathPic = "/uploadPics/" + this.state.reference + "/";
         
@@ -114,22 +123,15 @@ export default class visualiserAnnonce extends Component {
         // Conversion html <br /> en saut de ligne pour le titre de l'annonce
         const titre = this.state.titre.replace(/<br \/>/g, "<br/>");
 
+        
         return (
             
             <div className="visu_annonce">
-                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"red", cursor:"pointer", textDecoration:"none"}} >Retour</div>
+                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{cursor:"pointer", textDecoration:"none"}} >Retour</div>
            
                 {/* <!-- SCAN --> */}
                 <div className="sectionScan">
-                    {afficheImages}
-
-                    { (this.state.prix) ?
-                        <Fragment>
-                            <br/><br/>
-                            <div className="pHead">{this.state.prix} €</div>
-                            <br/><br/>                          
-                        </Fragment>:null
-                    }
+                    {afficheImages}               
 
                     { (this.state.etat || this.state.dimension) ?
                         <fieldset>
@@ -137,9 +139,8 @@ export default class visualiserAnnonce extends Component {
                                 { (this.state.etat) ?
                                     <Fragment>{this.state.etat}</Fragment>:null
                                 }
-                                <br/><br/>
                                 { (this.state.dimension) ?
-                                    <Fragment>{this.state.dimension}</Fragment>:null
+                                    <Fragment><br/><br/>{this.state.dimension}</Fragment>:null
                                 }
                             </div>
                         </fieldset>:null
@@ -147,11 +148,28 @@ export default class visualiserAnnonce extends Component {
 
                     { (this.state.certificat === 'Oui') ?
                         <Fragment>
-                            <br/><br/>
-                            <div className="pHead">Livré avec le certificat d'authencité</div>
-                            <br/><br/>                          
+                            <br/><br/>   
+                            <div className="pHead">Vendu avec Certificat d'authencité</div>
+                                                   
                         </Fragment>:null
                     }
+
+                    { (this.state.prix) ?
+                        <Fragment>
+                            <br/><br/>
+                            <div className="pHead">{this.state.prix} €</div>                     
+                        </Fragment>:null
+                    }
+
+                    { annonceVendu!==0 &&
+                        <Fragment>
+                            <br/><br/>
+                            <Link className="acheterAnnonceVisu" to={pathAchat} >
+                                Acheter
+                            </Link>
+                        </Fragment>
+                    }
+                    
                 </div>
 
                 {/* <!-- DESCRIPTIF --> */}

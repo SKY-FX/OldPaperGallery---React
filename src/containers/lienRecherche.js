@@ -65,7 +65,7 @@ export default class lienRecherche extends Component {
         return (
             <div className="lienRecherche"> 
 
-                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"red", cursor:"pointer", textDecoration:"none"}} >Retour</div>
+                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{cursor:"pointer", textDecoration:"none"}} >Retour</div>
                 <SearchBar return={ (result) => this.searchResult(result) } />
                 
                 <Fragment>
@@ -88,7 +88,7 @@ export default class lienRecherche extends Component {
                         <Fragment>    
                             <div className="textConnexion">
                                 Aucune annonce pour cette recherche !
-                                <br/>"{this.props.match.params.searchText} --> {this.props.match.params.searchTextDetails}"
+                                <br/>"{this.props.match.params.searchText} | {this.props.match.params.searchTextDetails}"
                                 <br/><br/>
                                 Veuillez cliquer sur <b>Recherche</b> pour visualiser toutes les annonces de la boutique.
                             </div>

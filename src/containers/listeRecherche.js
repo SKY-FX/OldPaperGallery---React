@@ -102,7 +102,7 @@ export default class listeRecherche extends Component {
                     :
                     <div className="listeRecherche">
 
-                        <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"red", cursor:"pointer", textDecoration:"none"}} >Retour</div>
+                        <div className="header_text" onClick={ () => this.props.history.goBack() } style={{cursor:"pointer", textDecoration:"none"}} >Retour</div>
     
                         <SearchBar return={ (result) => this.barResult(result) } />
                         <div className="textConnexion">

@@ -12,8 +12,9 @@
     padding-bottom:0px;
     width: 100%;
 
-	background-color: rgba(0, 0, 0, .8);
+	background-color: rgba(0, 0, 0, .2);
     /* background-color: transparent; */
+
     color:rgba(255,255,255,.8);
     border:1px solid #fff6c580;
     font-family: 'MAIN';
@@ -40,13 +41,13 @@
 	margin-right: auto;
     margin-left: auto;
     
-	
-    background-color: rgba(0, 0, 0, .5);
+	background-color: grey;
+    /* background-color: rgba(0, 0, 0, .5); */
 }
 
 .detailsAnnonceForm textarea, select, option
 {
-    background-color: rgba(255,255,255,.9);
+    background-color: rgba(255,255,255,.7);
     text-align: center;
     font-size: 18px;
     padding:15px; 
@@ -82,7 +83,7 @@
 .visu_annonce
 {
     display:flex;
-    background-color:  rgba(0, 0, 0, 0.8);
+    background-color:  rgba(0, 0, 0, 0.75);
     font-family: 'MAIN';
 }
 
@@ -107,6 +108,7 @@
     margin-left: auto;
     margin-right: auto;
     /* width: min-content; */
+    transition:all 0.5s ease-in-out;
 }
 
 ._item:hover{
@@ -146,11 +148,12 @@
     flex-direction: column;
     flex: 1;
     padding:20px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0,0,0,.3);
     text-align: center;    
 }
 .sectionScan fieldset
 {
+    margin-top:50px;
     border: 1px solid rgba(255, 248, 193, .5);
     padding : 20px;
     background-color: black;
@@ -351,6 +354,9 @@ hr
 
 ._fieldSetConect
 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border:1px solid rgba(255, 248, 193, .6);
     margin-bottom: 20px;
     padding:30px;

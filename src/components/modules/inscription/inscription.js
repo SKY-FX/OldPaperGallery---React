@@ -22,8 +22,8 @@ export default class inscription extends Component {
         if (news==="false")  news = "non";
         else news = "oui";
 
-        // const url = "/api/addUserInBd.php";
-         const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/addUserInBd.php";
+        const url = "/api/addUserInBd.php";
+         // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/addUserInBd.php";
         
 		
         var formData = new FormData();

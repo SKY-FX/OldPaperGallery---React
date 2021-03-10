@@ -41,6 +41,8 @@
     /* margin-left: 20px; */
     text-decoration: none;
     font-family: 'MAIN';
+
+    transition : all 0.5s ease-in-out;
 }
 
 .searchButton:hover

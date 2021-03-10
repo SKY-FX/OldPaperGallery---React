@@ -120,7 +120,7 @@ export default class AcheterAnnonce extends Component {
 
         return (
             <div className="BlockAchat">
-                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{color:"red", cursor:"pointer", textDecoration:"none"}} >Retour</div>
+                <div className="header_text" onClick={ () => this.props.history.goBack() } style={{cursor:"pointer", textDecoration:"none"}} >Retour</div>
 
                 { (this.state.isSold === false) ?
                     <Fragment>
@@ -130,6 +130,7 @@ export default class AcheterAnnonce extends Component {
                         </div> 
 
                         <div className="panneaux">
+                
                             <div className="panneau_paiement"> 
 
                                 <p>Vous pouvez payer<br/> directement avec votre compte Paypal !</p>
@@ -154,7 +155,8 @@ export default class AcheterAnnonce extends Component {
 
                             <div className="panneau_facturation">
 
-                                <p>Vous pouvez aussi payer<br/> par chèque ou virement banquaire</p>
+                                <p>Vous pouvez aussi payer<br/> par virement banquaire ou par chèque<br/><br/>
+                                    - Veuillez entrer les informations de livraison -<br/>puis cliquer sur  "Valider ma commande"</p>
                                 <br/><br/>
 
                                 <div className="paiement">
@@ -165,18 +167,18 @@ export default class AcheterAnnonce extends Component {
 
                                 <div className="paiement">
                                     <p>Paiement par chèque à l'adresse suivante :</p>
-                                    <p style={style}>OldPaperGallery<br/>2 rue de la concorde<br/>33000 Bordeaux</p>
+                                    <p style={style}>Chabaud François<br/>2 rue de la concorde<br/>33000 Bordeaux</p>
                                     <br/>
                                     <p>Ordre :</p>
-                                    <p style={style}>OldPaperGallery</p>
+                                    <p style={style}>Chabaud François</p>
                                 </div>
 
                                 <br/><br/>
-                                <p>Entrez les informations de livraison de de connection !</p>
+                                <p>Entrez les informations de livraison !</p>
                                 <br/><br/>
 
                                 <fieldset className="_fieldSetConect">
-                                    <div className="field"><p>Adresse de livraion</p></div>
+                                    <div className="field"><p>Adresse de livraison</p></div>
                                     <input className="item_connexion" required type="text" name="nom_prenom" placeholder="Nom-Prénom" onChange={this.onChange} /><br/>
                                     <textarea className="item_connexion" required type="text" name="adresse" placeholder="Adresse" onChange={this.onChange}  /><br/>
                                     <input className="item_connexion" required type="text" name="codePostal" placeholder="Code postal" onChange={this.onChange} /><br/>
@@ -185,7 +187,7 @@ export default class AcheterAnnonce extends Component {
                                 </fieldset>
 
                                 <fieldset className="_fieldSetConect">
-                                    <div className="field"><p>Infos de connection</p></div>
+                                    <div className="field"><p>Infos de connection<br/></p><h4 style={{fontWeight:'lighter'}}>Vous donne accès à votre espace privée et aux newsLetters (facultatif)</h4></div>
                                     <input className="item_connexion" required type="text" name="email" placeholder="Email" onChange={this.onChange} /><br/>
                                     <input className="item_connexion" required type="password" name="mot_de_passe" placeholder="Mot de passe" onChange={this.onChange}  /><br/>
                                     <br/>
@@ -197,7 +199,7 @@ export default class AcheterAnnonce extends Component {
 
                         { (!this.state.okBool) ?
                             <div className="textConnexion">
-                                Vous devez remplir les informations de livraison et de connection pour valider la commande !
+                                Vous devez remplir les informations de livraison puis valider la commande !
                             </div>
                             :
                             null

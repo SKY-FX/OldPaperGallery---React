@@ -64,7 +64,7 @@ class App extends Component {
       
       <div className="HomeClass">
 
-        <li><span>Image 01</span></li>
+        {/* <li><span>Image 01</span></li>
         <li><span>Image 02</span></li>
         <li><span>Image 03</span></li>
         <li><span>Image 04</span></li>
@@ -73,7 +73,7 @@ class App extends Component {
         <li><span>Image 07</span></li>
         <li><span>Image 08</span></li>
         <li><span>Image 09</span></li>
-        <li><span>Image 10</span></li>
+        <li><span>Image 10</span></li> */}
   
 
         <div className="app">
