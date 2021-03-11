@@ -18,6 +18,9 @@ export default class messagerie extends Component {
 
     componentDidMount()
     {
+        var elmnt = document.getElementById("scrollInto");
+        elmnt.scrollIntoView();
+
         this.updateResult();
     }
 
@@ -153,7 +156,7 @@ export default class messagerie extends Component {
                     })
 
                     return (
-                        <tr key={id} className="tabBody" style={stylesBody}>
+                        <tr key={id} className="tabBody" id="scrollInto" style={stylesBody}>
                             <td><p>{mess['EXP']}</p></td>
                             <td><p>{mess['DST']}</p></td>
                             <td><p>{mess['DATE']}</p></td>
@@ -179,7 +182,7 @@ export default class messagerie extends Component {
         }
 
         return (
-            <Fragment>  
+            <div id="scrollInto">  
                 <div className="header_text" onClick={ () => this.props.history.goBack() } style={{cursor:"pointer", textDecoration:"none"}} >Retour</div>
             
                 { this.state.nameClient !== '' ?
@@ -224,7 +227,7 @@ export default class messagerie extends Component {
                         Vous devez être connecté pour accéder à l'espace privé !
                     </div>
                 }
-            </Fragment>
+            </div>
         )
     }
 }

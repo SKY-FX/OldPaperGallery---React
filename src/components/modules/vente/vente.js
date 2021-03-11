@@ -20,6 +20,9 @@ export default class vente extends Component {
 
     componentDidMount()
     {
+        var elmnt = document.getElementById("scrollInto");
+        elmnt.scrollIntoView();
+
         var result="";
         const typeVente = this.state.typeVente;
         // console.log("Gestion VENTE", typeVente);
@@ -245,7 +248,7 @@ export default class vente extends Component {
 
         return (
 
-            <Fragment>
+            <div id="scrollInto">
                 <div className="header_text" onClick={ () => this.props.history.goBack() } style={{cursor:"pointer", textDecoration:"none"}} >Retour</div>
     
                 { this.state.vendeur_email !== '' ?
@@ -308,7 +311,7 @@ export default class vente extends Component {
                         Vous devez être connecté pour accéder à l'espace privé !
                     </div>
                 }
-            </Fragment>    
+            </div>    
   
         )
     }

@@ -11,6 +11,9 @@ export default class auteur extends Component {
     }
 
     componentDidMount() {
+
+        var elmnt = document.getElementById("scrollInto");
+        elmnt.scrollIntoView();
         
         // En tete AXIOS + formatte la recherche pour axios
         const url = "/api/searchAuteur.php";
@@ -66,7 +69,7 @@ export default class auteur extends Component {
 
         
         return (
-            <div className="auteur">
+            <div className="auteur" id="scrollInto">
                 {listeAuteur}
             </div>
         )

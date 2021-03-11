@@ -25,6 +25,12 @@ export default class AcheterAnnonce extends Component {
             nom_prenom : ''
         }
     }
+
+    componentDidMount()
+    {
+        var elmnt = document.getElementById("scrollInto");
+        elmnt.scrollIntoView();
+    }
     
     searchResult = (result) => {
         // console.log("MAIN : ", result['img_id'][0]);
@@ -110,6 +116,12 @@ export default class AcheterAnnonce extends Component {
         });
     }
 
+    ScrollFunction = () => 
+    {
+        var elmnt = document.getElementById("scrollInto");
+        elmnt.scrollIntoView({behavior: "smooth"});
+    }
+
 
     render() {
 
@@ -119,7 +131,7 @@ export default class AcheterAnnonce extends Component {
         const style={textDecoration:"none", color:"white", fontSize:"15px", color:"#fff6c5"}
 
         return (
-            <div className="BlockAchat">
+            <div className="BlockAchat" id="scrollInto">
                 <div className="header_text" onClick={ () => this.props.history.goBack() } style={{cursor:"pointer", textDecoration:"none"}} >Retour</div>
 
                 { (this.state.isSold === false) ?
@@ -194,16 +206,19 @@ export default class AcheterAnnonce extends Component {
                                     <button className="connectButton" title="Cliquez pour valider ma commande" onClick={this.onSubmit} >Valider ma commande</button>      
                                 </fieldset>
                             </div>
-
                         </div>
 
                         { (!this.state.okBool) ?
                             <div className="textConnexion">
-                                Vous devez remplir les informations de livraison puis valider la commande !
+                                Pour les paiements par chèque ou Virement banquaire, Vous devez remplir les informations de livraison puis valider la commande !
                             </div>
                             :
                             null
                         }
+
+                        <br /><br />
+                        <button className="buttonScrollClass" onClick={ () => this.ScrollFunction() }>RETOUR<br/>Haut de page</button>
+
                     </Fragment> 
                     :
                     <p className="textConnexion">

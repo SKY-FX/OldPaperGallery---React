@@ -18,6 +18,9 @@ export default class visualiserAnnonce extends Component {
 
     componentDidMount()
     {
+        var elmnt = document.getElementById("scrollInto");
+        elmnt.scrollIntoView();
+
         const url = "/api/readAnnonce.php";
         // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/readAnnonce.php";
         
@@ -78,6 +81,11 @@ export default class visualiserAnnonce extends Component {
         }); 
     }
 
+    ScrollFunction = () => 
+    {
+        var elmnt = document.getElementById("scrollInto");
+        elmnt.scrollIntoView({behavior: "smooth"});
+    }
 
 
     render() {
@@ -126,7 +134,7 @@ export default class visualiserAnnonce extends Component {
         
         return (
             
-            <div className="visu_annonce">
+            <div className="visu_annonce" id="scrollInto">
                 <div className="header_text" onClick={ () => this.props.history.goBack() } style={{cursor:"pointer", textDecoration:"none"}} >Retour</div>
            
                 {/* <!-- SCAN --> */}
@@ -230,6 +238,9 @@ export default class visualiserAnnonce extends Component {
                             </fieldset>     
                         </Fragment>:null
                     }
+
+                    <br /><br />
+                    <button className="buttonScrollClass" onClick={ () => this.ScrollFunction() }>RETOUR<br/>Haut de page</button>
                 </div>
             </div>
         )

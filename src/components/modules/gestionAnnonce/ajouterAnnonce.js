@@ -34,6 +34,9 @@ export default class ajouterAnnonce extends Component {
 
     componentDidMount()
     {
+        var elmnt = document.getElementById("scrollInto");
+        elmnt.scrollIntoView();
+
         const userName = UserProfile.getName();
         
         this.setState({
@@ -186,7 +189,7 @@ export default class ajouterAnnonce extends Component {
         
         return (
             
-            <Fragment>
+            <div id="scrollInto">
                 <div className="header_text" onClick={ () => this.props.history.goBack() } style={{cursor:"pointer", textDecoration:"none"}} >Retour</div>
     
                 { this.state.userName !== '' ?
@@ -320,7 +323,7 @@ export default class ajouterAnnonce extends Component {
                     </div>
                 }
 
-            </Fragment>     
+            </div>     
         )
     }
 }

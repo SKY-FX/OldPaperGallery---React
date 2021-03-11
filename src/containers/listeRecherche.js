@@ -20,6 +20,9 @@ export default class listeRecherche extends Component {
 
     componentDidMount()
     {
+        var elmnt = document.getElementById("scrollInto");
+        elmnt.scrollIntoView();
+
         const textSearch = this.props.match.params.searchText;
         this.updateResult(textSearch);
     }
@@ -67,12 +70,18 @@ export default class listeRecherche extends Component {
         window.history.pushState('', '', '/Search/' + result);
     }
 
+    ScrollFunction = () => 
+    {
+        var elmnt = document.getElementById("scrollInto");
+        elmnt.scrollIntoView({behavior: "smooth"});
+    }
+
     render() {
         return (
             
             <Fragment>
                 {  this.state.validFlag !== '' ?
-                    <div className="listeRecherche">
+                    <div className="listeRecherche" id="scrollInto">
 
                         {/* Menu de recherche rapide détaillé */}
                         <NavBarDetails searchText={this.state.searchText} />
@@ -96,6 +105,9 @@ export default class listeRecherche extends Component {
                         {/* <SearchFunc searchText={this.state.searchText} axiosUrl={url} return={ (result) => this.searchResult(result) } /> */}
                         <ListeAnnonce liste={this.state.searchResult} isSold="true" /> 
                         {/* <br/><br/> */}
+                        
+                        <br /><br />
+                        <button className="buttonScrollClass" onClick={ () => this.ScrollFunction() }>RETOUR<br/>Haut de page</button>
                         
                     
                     </div>

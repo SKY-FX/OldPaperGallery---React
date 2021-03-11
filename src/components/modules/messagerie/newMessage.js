@@ -17,6 +17,12 @@ export default class repondreMessage extends Component {
         }
     }
 
+    componentDidMount()
+    {
+        var elmnt = document.getElementById("scrollInto");
+        elmnt.scrollIntoView();
+    }
+
     sendMessage = () => {
        
         var url = "/api/newMessageAccueil.php"; 
@@ -68,7 +74,7 @@ export default class repondreMessage extends Component {
         var titre="Nouveau message au vendeur"
 
         return (
-            <Fragment>   
+            <div id="scrollInto">   
                 <div className="header_text" onClick={ () => this.props.history.goBack() } style={{cursor:"pointer", textDecoration:"none"}} >Retour</div>
          
                 <div className="repondreMessage">     
@@ -81,7 +87,7 @@ export default class repondreMessage extends Component {
                         <input className="bouton_abonnes" type="button" value="Envoyer" onClick={this.sendMessage} title="envoyer message"></input>
                     </fieldset>
                 </div>
-            </Fragment>
+            </div>
         )
     }
 }

@@ -20,6 +20,9 @@ export default class lienRecherche extends Component {
 
     componentDidMount() {
         
+        var elmnt = document.getElementById("scrollInto");
+        elmnt.scrollIntoView();
+
         // En tete AXIOS + formatte la recherche pour axios
         const url = "/api/searchDetails.php";
         // const url = "http://monsite/monAppReact/old-paper-gallery-react/src/components/api/searchDetails.php";
@@ -58,12 +61,17 @@ export default class lienRecherche extends Component {
         this.props.history.push('/Search/' + result)
     }
 
+    ScrollFunction = () => 
+    {
+        var elmnt = document.getElementById("scrollInto");
+        elmnt.scrollIntoView({behavior: "smooth"});
+    }
 
     render() {
         const validFlag = this.state.validFlag;
         // console.log("RENDER", validFlag)
         return (
-            <div className="lienRecherche"> 
+            <div className="lienRecherche" id="scrollInto"> 
 
                 <div className="header_text" onClick={ () => this.props.history.goBack() } style={{cursor:"pointer", textDecoration:"none"}} >Retour</div>
                 <SearchBar return={ (result) => this.searchResult(result) } />
@@ -83,6 +91,8 @@ export default class lienRecherche extends Component {
                                 </Fragment>
                             }
                             <ListeAnnonce liste={this.state.searchResult} isSold="true"/>
+                            <br /><br />
+                            <button className="buttonScrollClass" onClick={ () => this.ScrollFunction() }>RETOUR<br/>Haut de page</button>
                         </Fragment>
                         : 
                         <Fragment>    
