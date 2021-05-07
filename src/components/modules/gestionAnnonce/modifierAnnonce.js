@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import { Helmet } from "react-helmet"
 import axios from 'axios'
 
 import UserProfile from '../utiles/sessionFct'
@@ -255,6 +256,14 @@ export default class modifierAnnonce extends Component {
         // console.log("TITRE : ", titre)
         return (
             <div id="scrollInto">
+                <Helmet>
+                    <meta charSet="utf-8" />
+                    <meta name="author" content="Chabaud Sylvain - web developer"></meta>
+                    <title>Autographes - manuscrits - gravures : Old Paper Gallery</title>
+                    <meta name="description" content="Nous achetons et vendons des lettres autographes, manuscrits, gravures et documents anciens"/>
+                    <link rel="canonical" href="https://www.oldpapergallery.com/GestionAnnonces" />
+                </Helmet>
+
                 <div className="header_text" onClick={ () => this.props.history.goBack() } style={{cursor:"pointer", textDecoration:"none"}} >Retour</div>
     
                 { this.state.userName !== '' ?

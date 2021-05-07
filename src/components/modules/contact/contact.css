@@ -12,10 +12,9 @@
     /* margin-bottom:100px; */
 }
 
-.contact h1
+.contact h3
 {
     font-family: "Antic Slab";
-    /* font-family: serif; */
     text-shadow: 0px 0px 10px black, 0px 0px 10px black, 0px 0px 10px black, 0px 0px 10px black, 0px 0px 10px black;
     font-size: 19px;
     font-weight: lighter;
@@ -26,7 +25,7 @@
     text-align: justify;
 }
 
-.contact h2
+.contact h1
 {
     font-family: 'description';
     text-shadow: 0px 0px 10px black, 0px 0px 10px black, 0px 0px 10px black, 0px 0px 10px black, 0px 0px 10px black;

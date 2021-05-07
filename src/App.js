@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
-import {BrowserRouter as Router , Route, Switch} from 'react-router-dom'
+import React, { Component } from 'react';
+import {BrowserRouter as Router , Route, Switch} from 'react-router-dom';
 // import {Helmet} from "react-helmet"
-
+// import Carousel from 'react-image-carousel';
+// require("../node_modules/react-image-carousel/lib/css/main.min.css");
 
 import Header from "./components/header"
 
@@ -39,6 +40,35 @@ import './containers/backgroundSlider.css'
 
 import UserProfile from './components/modules/utiles/sessionFct'
 
+import back_1 from '../src/baniereImages/Aquarelle2.jpg';
+import back_2 from '../src/baniereImages/port-marseille.jpg';
+import back_3 from '../src/baniereImages/Marie-Antoinette.jpg';
+import back_4 from '../src/baniereImages/Revolution1.jpg';
+import back_5 from '../src/baniereImages/Victor-Hugo.jpg';
+import back_6 from '../src/baniereImages/Aquarelle1.jpg';
+import back_7 from '../src/baniereImages/Celine-Louis.jpg';
+import back_8 from '../src/baniereImages/Toulouse-Lautrec.jpg';
+import back_9 from '../src/baniereImages/Vernet-port-Bordeaux.jpg';
+import back_10 from '../src/baniereImages/Maréchal-Michel-Ney.jpg';
+
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+
+
+
+
+function reportWindowSize() {
+  const widthOutput = document.querySelector('.home-carousel');
+  // console.log(window.innerWidth);
+  const toDelete = window.innerWidth/2 - 750;
+  widthOutput.style.left = toDelete + 'px';
+}
+
+
+window.onresize = reportWindowSize;
+
 
 class App extends Component {
 
@@ -48,6 +78,14 @@ class App extends Component {
     this.state = {
       checkConnect : false
     }
+  }
+
+  
+
+  
+  componentDidMount()
+  {
+    reportWindowSize();
   }
 
   checkConnect = (connect) => {
@@ -60,10 +98,23 @@ class App extends Component {
 
   render() {
 
+    // let images = [
+    //   back_1, back_2, back_3, back_4, back_5, back_6, back_7, back_8, back_9, back_10
+    // ];
+
+    var settings = {
+      adaptiveHeight: true,
+      arrows: false,
+      arrowsBlock: false,
+      autoplay: true,
+      autoplaySpeed: 5000,
+      pauseOnHover: false
+    };
+
     return (
       
-      <div className="HomeClass">
-
+      <div className="HomeClass">      
+        
         {/* <li><span>Image 01</span></li>
         <li><span>Image 02</span></li>
         <li><span>Image 03</span></li>
@@ -77,7 +128,24 @@ class App extends Component {
   
 
         <div className="app">
-          
+          <div className="home-carousel">
+              <div className="my-carousel">
+                <Slider {...settings}>
+                  <img src={back_1} />
+                  <img src={back_2} />
+                  <img src={back_3} />
+                  <img src={back_4} />
+                  <img src={back_5} />
+                  <img src={back_6} />
+                  <img src={back_7} />
+                  <img src={back_8} />
+                  <img src={back_9} />
+                  <img src={back_10} />
+                </Slider>
+              </div>
+          </div>
+
+
             <Router>
               <Header />
               <div className="main">
@@ -145,7 +213,7 @@ class App extends Component {
                   <Route exact path='/GestionAnnonces' component={GestionAnnonce}/>
 
                   {/* VisualiserAnnonce : Admin */}
-                  <Route exact path='/GestionAnnonces/Visualiser/:idAnnonce' component={VisualiserAnnonce}/>
+                  <Route exact path='/GestionAnnonces/Visualiser/:idAnnonce/:annonceVendu' component={VisualiserAnnonce}/>
 
                   {/* EffacerAnnonce : Admin */}
                   <Route exact path='/GestionAnnonces/Effacer/:idAnnonce' component={EffacerAnnonce}/>

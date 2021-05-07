@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import { Helmet } from "react-helmet"
 import axios from 'axios'
 
 import ListeAnnonce from '../components/modules/listeAnnonce/listeAnnonce'
@@ -77,6 +78,14 @@ export default class lienRecherche extends Component {
                 <SearchBar return={ (result) => this.searchResult(result) } />
                 
                 <Fragment>
+                    <Helmet>
+                        <meta charSet="utf-8" />
+                        <meta name="author" content="Chabaud Sylvain - web developer"></meta>
+                        <title>Autographes - manuscrits - gravures : Old Paper Gallery</title>
+                        <meta name="description" content="Nous achetons et vendons des lettres autographes, manuscrits, gravures et documents anciens"/>
+                        <link rel="canonical" href="https://www.oldpapergallery.com/Search/Boutique" />
+                    </Helmet>
+
                     { validFlag !== "" ?
                         <Fragment>
                             { this.props.match.params.searchText !== '%20' ?

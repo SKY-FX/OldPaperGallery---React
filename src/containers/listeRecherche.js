@@ -1,12 +1,15 @@
 import React, { Component, Fragment } from 'react'
+import { Helmet } from "react-helmet"
+import {withRouter} from 'react-router-dom'
 import axios from 'axios'
 
+// import NavBar from '../components/modules/navBar/navBar'
 import NavBarDetails from '../components/modules/navBar/navBarDetails'
 import ListeAnnonce from '../components/modules/listeAnnonce/listeAnnonce'
-// import SearchFunc from '../components/modules/searchFunction/searchfunc'
 import SearchBar from '../components/modules/searchBar/searchBar'
+import ButtonBar from '../components/modules/navBar/buttonBar'
 
-export default class listeRecherche extends Component {
+class listeRecherche extends Component {
 
     constructor (props) {
         super(props);
@@ -80,12 +83,20 @@ export default class listeRecherche extends Component {
         return (
             
             <Fragment>
+                <Helmet>
+                    <meta charSet="utf-8" />
+                    <meta name="author" content="Chabaud Sylvain - web developer"></meta>
+                    <title>Autographes - manuscrits - gravures : Old Paper Gallery</title>
+                    <meta name="description" content="Nous achetons et vendons des lettres autographes, manuscrits, gravures et documents anciens"/>
+                    <link rel="canonical" href="https://www.oldpapergallery.com/Search/Boutique" />
+                </Helmet>
+
                 {  this.state.validFlag !== '' ?
                     <div className="listeRecherche" id="scrollInto">
 
                         {/* Menu de recherche rapide détaillé */}
-                        <NavBarDetails searchText={this.state.searchText} />
-
+                        {/* <NavBarDetails searchText={this.state.searchText} /> */}
+                        {/* <ButtonBar /> */}
                         {/* Barre de recherche */}
                         <SearchBar return={ (result) => this.barResult(result) } />
 
@@ -116,15 +127,18 @@ export default class listeRecherche extends Component {
 
                         <div className="header_text" onClick={ () => this.props.history.goBack() } style={{cursor:"pointer", textDecoration:"none"}} >Retour</div>
     
-                        <SearchBar return={ (result) => this.barResult(result) } />
+                        
                         <div className="textConnexion">
                             Aucune annonce pour cette recherche !<br/>"{this.state.searchText}"
                             <br/><br/>
                             Veuillez cliquer sur <b>Recherche</b> pour visualiser toutes les annonces de la boutique.
                         </div>
+                        <SearchBar return={ (result) => this.barResult(result) } />
                     </div>
                 }
             </Fragment>
         )
     }
 }
+
+export default withRouter(listeRecherche);

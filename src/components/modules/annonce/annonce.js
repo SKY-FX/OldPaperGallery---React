@@ -29,7 +29,7 @@ class annonce extends Component {
 		const basePathPic = "/uploadPics/" + ref + "/";
         const picPath = basePathPic.concat(nomImage);
         
-        const idAnnonce = "/GestionAnnonces/Visualiser/" + idImage;
+        const idAnnonce = "/GestionAnnonces/Visualiser/" + idImage + "/" + annonceVendu;
         const pathEfface = "/GestionAnnonces/AcheterAnnonce/" + auteur + "/" + titre + "/" + prix + "/";
         
         return (
@@ -60,8 +60,15 @@ class annonce extends Component {
                     <br/>
                     <div className="pBody">référence : {ref}</div>
                     <hr/>
-                    <br/>
-                    <div className="pHead">{prix} euros</div>
+                    
+                    {/* Affiche PRIX si l'annonce est en vente */}
+                    {annonceVendu!==0 && 
+                        <div className="pHead">
+                            <br/>
+                            {prix} euros
+                        </div>
+                    }
+                   
 
                 </div>
 

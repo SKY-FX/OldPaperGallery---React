@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import { Helmet } from "react-helmet"
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 
@@ -9,6 +10,7 @@ export default class visualiserAnnonce extends Component {
         super(props);
         this.state = {
             idAnnonce : this.props.match.params.idAnnonce,
+            annonceVendu : this.props.match.params.annonceVendu,
             notice : '',
             A_biographie : '',
             infos : '',
@@ -18,6 +20,7 @@ export default class visualiserAnnonce extends Component {
 
     componentDidMount()
     {
+
         var elmnt = document.getElementById("scrollInto");
         elmnt.scrollIntoView();
 
@@ -40,7 +43,7 @@ export default class visualiserAnnonce extends Component {
         // Renvoie le résultat de la recherche ( objet de tableau ) au parent
         .then(response => {
             // console.log("VISUALISER ANNONCE", this.state.idAnnonce);
-            console.log("VISUALISER ANNONCE RESULTAT", response.data);
+            // console.log("VISUALISER ANNONCE RESULTAT", response.data);
 
             const result = response.data;
 
@@ -89,11 +92,12 @@ export default class visualiserAnnonce extends Component {
 
 
     render() {
+        // console.log(this.state.type_doc);
         const pathAchat = "/GestionAnnonces/AcheterAnnonce/" + this.state.A_nom_prenom + "/" + this.state.titre + "/" + this.state.prix + "/";
         const etatAnnonce = this.state.etat_annonce;
         let annonceVendu;
         if (etatAnnonce) annonceVendu = etatAnnonce.indexOf("vendu");
-        console.log("COUCOU : ", etatAnnonce);
+        // console.log("COUCOU : ", etatAnnonce);
         // const basePathPic = "/ressources/";
         const basePathPic = "/uploadPics/" + this.state.reference + "/";
         
@@ -131,10 +135,20 @@ export default class visualiserAnnonce extends Component {
         // Conversion html <br /> en saut de ligne pour le titre de l'annonce
         const titre = this.state.titre.replace(/<br \/>/g, "<br/>");
 
-        
+        var textToAdd = "Au sujet de";
+        if(this.state.type_doc === 'Lettre autographe') textToAdd = "Document adressé à";
+        console.log(this.state.type_doc);
         return (
             
             <div className="visu_annonce" id="scrollInto">
+                <Helmet>
+                    <meta charSet="utf-8" />
+                    <meta name="author" content="Chabaud Sylvain - web developer"></meta>
+                    <title>Autographes - manuscrits - gravures : Old Paper Gallery</title>
+                    <meta name="description" content="Nous achetons et vendons des lettres autographes, manuscrits, gravures et documents anciens"/>
+                    <link rel="canonical" href="https://www.oldpapergallery.com/Search/Boutique" />
+                </Helmet>
+
                 <div className="header_text" onClick={ () => this.props.history.goBack() } style={{cursor:"pointer", textDecoration:"none"}} >Retour</div>
            
                 {/* <!-- SCAN --> */}
@@ -162,7 +176,7 @@ export default class visualiserAnnonce extends Component {
                         </Fragment>:null
                     }
 
-                    { (this.state.prix) ?
+                    { (this.state.prix && this.state.annonceVendu==='-1') ?
                         <Fragment>
                             <br/><br/>
                             <div className="pHead">{this.state.prix} €</div>                     
@@ -210,7 +224,7 @@ export default class visualiserAnnonce extends Component {
                    
                     { (this.state.D_nom_prenom) ?
                         <Fragment>
-                            <p>Document adressé à</p><hr/><br/>
+                            <p>{textToAdd}</p><hr/><br/>
                             <div className="pHHead">{this.state.D_nom_prenom}</div>
                             { (this.state.D_annees) ? 
                                 <Fragment>

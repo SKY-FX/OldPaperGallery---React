@@ -1,5 +1,18 @@
 *{margin:0;padding:0;z-index:50;}
 
+.HomeClass
+{
+    /* z-index: -1; */
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width:100vw;
+    min-height: 100vh;
+    /* overflow: hidden; */
+}
+
+
 .app
 {
     display: flex;
@@ -9,17 +22,19 @@
     text-align: center;
     color: white;
     opacity: 1;
+    background-color: transparent;
 
     /* border-radius: 100%; */
     /* box-shadow: 0 0 1000px #c3b08a, 0 0 1000px #c3b08a, 0 0 1000px #c3b08a, 0 0 1000px #c3b08a, 0 0 1000px #c3b08a; */
     /* background-color:black; */
     /* background-color: rgba(195,176,138,1); */
     /* background-color: rgba(250,220,220,.5); */
-    background-image: url("https://www.oldpapergallery.com/ressources/texture-background.jpg");
-    background-size:contain;
+    /* background-image: url("https://www.oldpapergallery.com/ressources/texture-background2.jpg"); */
+    /* background-size:contain; */
     /* background-image: url("./components/modules/navPic/baniere/portrai.jpg"); */
-    min-height: 100vh;
-    width: 100%;
+    
+    width: 100vw;
+    
 
     /* z-index: 990; */
 
@@ -52,10 +67,18 @@
     100% { background-image: url("./baniereImages/Aquarelle2.jpg"); }
 } */
 
+.app .home-carousel{
+    position: fixed;
+    /* right: 0;
+    left: 100px; */
+    width: 1500px;
+    opacity:0.5;
+}
+
+
 
 .header, .listeRecherche, .lienRecherche, .visualiserAnnonce .footer
 {
-    /* border: 1px solid red; */
     background-color: transparent;
     opacity:1;
     
@@ -116,6 +139,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-basis: 100%;
     /* flex:1; */
 }
 
@@ -172,23 +196,25 @@
     border-top : 1px solid rgba(255, 248, 193, 0.5);
 
     margin-top: 20px;
-
+    
     /* flex:1; */
 }
 
 .footer a 
 {
+    opacity:1;
     text-decoration: none;
     /* color:#fff6c5; */
-    color:red;
+    color: #fff6c5;
     font-size: 15px;
     font-family: Main;
+    transition:color 0.5s ease-in-out;
 }
 
 .footer a:hover
 {
-    color: seashell;
-    opacity:0.5;
+    color: red;
+    opacity:1;
     /* text-shadow: 1px 1px 1px white, 2px 2px 1px white; */
 }
 
@@ -202,7 +228,8 @@
 
 .footer_bg a, .footer_bd a {
     padding : 10px;
-    transition:color 0.5s ease-in-out;
+    opacity:1;
+    
 }
 
 .footer_bd

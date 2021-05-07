@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import axios from 'axios'
+import { Helmet } from "react-helmet"
 
 // import {Link} from 'react-router-dom'
 
@@ -80,6 +81,14 @@ export default class connexion extends Component {
     render() {
         return (
             <Fragment>
+
+                <Helmet>
+                    <meta charSet="utf-8" />
+                    <meta name="author" content="Chabaud Sylvain - web developer"></meta>
+                    <title>Autographes - manuscrits - gravures : Old Paper Gallery</title>
+                    <meta name="description" content="Nous achetons et vendons des lettres autographes, manuscrits, gravures et documents anciens"/>
+                    <link rel="canonical" href="https://www.oldpapergallery.com/Login" />
+                </Helmet>
 
                 <fieldset className="fieldSetConect" >
                     <legend>Connexion</legend>

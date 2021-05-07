@@ -1,11 +1,6 @@
-.HomeClass
-{
-    /* z-index: -1; */
-    background-color: transparent;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
+
+
+
 
 .HomeClass li {
     list-style:none;
@@ -26,18 +21,14 @@
     background-position-y: top;
     background-position-x: center;
 
-    /* background-position: 50% 50%; */
     background-repeat: no-repeat;
     opacity: 0;
 
-	/* -webkit-backface-visibility: hidden; */
-    -webkit-animation: imageAnimation 60s linear infinite 0s; 
+    /* -webkit-animation: imageAnimation 60s linear infinite 0s; 
     -moz-animation: imageAnimation 60s linear infinite 0s; 
     -o-animation: imageAnimation 60s linear infinite 0s; 
     -ms-animation: imageAnimation 60s linear infinite 0s; 
-    animation: imageAnimation 60s linear infinite 0s;
-
-    /* z-index: 0; */
+    animation: imageAnimation 60s linear infinite 0s; */
 }
 
 .HomeClass li:nth-child(1) span { 
@@ -61,7 +52,7 @@
 }
 
 .HomeClass li:nth-child(4) span { 
-    background-image: url(../baniereImages/Revolution.jpg);
+    background-image: url(../baniereImages/Revolution1.jpg);
     -webkit-animation-delay: 18s;
     -moz-animation-delay: 18s;
     -o-animation-delay: 18s;

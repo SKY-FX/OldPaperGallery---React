@@ -42,9 +42,10 @@
 
 .mainText
 {
+    border: 1px solid #fff6c5;
     background-color: rgba(0, 0, 0, .75);
     padding: 40px;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     display: flex;
     flex-direction: column;
     align-self: center;
